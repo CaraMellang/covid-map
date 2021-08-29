@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
-import { Line, Bar } from "react-chartjs-2";
-import axios from "axios";
+import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
 const Home = ({ test }) => {
-  // console.log(test.items.item[0]);
+  // console.log(test.items.item[18]);
   return (
     <MainWrap>
       <section className="contents">
@@ -45,8 +43,8 @@ const Home = ({ test }) => {
           <section className="cd-bt-row">
             <FadeIn className="cd-bt" delay="500">
               <div className="cd-padd">
-                <div className="cd-contents">
-                  <div className="cd-name">1</div>
+                <div className="cd-contents blue">
+                  <div className="cd-name">검사중</div>
                   <div className="cd-bt-body">1234명(+2354)</div>
                   <div className="cd-footer">
                     <div>버튼</div>
@@ -56,9 +54,18 @@ const Home = ({ test }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="600">
               <div className="cd-padd">
-                <div className="cd-contents">
-                  <div className="cd-name">2</div>
-                  <div className="cd-bt-body">1234명(+2354)</div>
+                <div className="cd-contents yellow">
+                  <div className="cd-name">확진자</div>
+                  <div className="cd-bt-body">
+                    {test?.items.item[18].defCnt._text === undefined
+                      ? "오류"
+                      : test.items.item[18].defCnt._text}
+                    명(+
+                    {test?.items.item[18].incDec._text === undefined
+                      ? "오류"
+                      : test.items.item[18].incDec._text}
+                    )
+                  </div>
                   <div className="cd-footer">
                     <div>버튼</div>
                   </div>
@@ -67,8 +74,8 @@ const Home = ({ test }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
-                <div className="cd-contents">
-                  <div className="cd-name">3</div>
+                <div className="cd-contents green">
+                  <div className="cd-name">격리해제</div>
                   <div className="cd-bt-body">1234명(+2354)</div>
                   <div className="cd-footer">
                     <div>버튼</div>
@@ -78,9 +85,14 @@ const Home = ({ test }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="800">
               <div className="cd-padd">
-                <div className="cd-contents">
-                  <div className="cd-name">4</div>
-                  <div className="cd-bt-body">1232234명(+2354)</div>
+                <div className="cd-contents red">
+                  <div className="cd-name ">사망자</div>
+                  <div className="cd-bt-body">
+                    {test?.items.item[18].deathCnt._text === undefined
+                      ? "오류"
+                      : test.items.item[18].deathCnt._text}
+                    명(+2354)
+                  </div>
                   <div className="cd-footer">
                     <div>버튼</div>
                   </div>
@@ -96,7 +108,20 @@ const Home = ({ test }) => {
 
 const MainWrap = styled.div`
   padding-top: 3.625rem;
+  .red {
+    background-color: #ea4741;
+  }
+  .yellow {
+    background-color: #eead51;
+  }
+  .green {
+    background-color: #5bb65d;
+  }
+  .blue {
+    background-color: #4bb0ca;
+  }
   .contents {
+    padding-bottom: 6rem;
     padding-left: 15rem;
     background-color: #afd48d;
   }
@@ -149,14 +174,14 @@ const MainWrap = styled.div`
     display: flex;
     flex-direction: column;
     height: 15rem;
-    background-color: white;
-    border: 1px solid white;
+    border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .cd-bt-body {
     font-size: 2.5rem;
     text-align: center;
+    color: white;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
   }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "../components/NavBar";
 import SideNavBar from "../components/SideNavBar";
@@ -16,6 +16,7 @@ const Main = () => {
     setTest(data.data.response.body);
   };
   useEffect(() => {
+    getData();
     return () => {};
   }, []);
   return (
