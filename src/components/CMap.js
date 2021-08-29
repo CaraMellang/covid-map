@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const CoronaMap = () => {
+const CMap = () => {
   return (
     <MapWrap>
       <svg
@@ -404,4 +404,4 @@ const MapWrap = styled.div`
   }
 `;
 
-export default CoronaMap;
+export default CMap;

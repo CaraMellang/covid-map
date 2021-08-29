@@ -4,7 +4,9 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "../components/NavBar";
 import SideNavBar from "../components/SideNavBar";
+import CoronaMap from "./CoronaMap";
 import Home from "./Home";
+import Footer from "../components/Footer";
 
 const Main = () => {
   const [test, setTest] = useState();
@@ -22,7 +24,13 @@ const Main = () => {
       <MainWrap>
         <SideNavBar />
         <Route path={"/"} exact render={() => <Home test={test} />} />
+        <Route
+          path={"/coronamap"}
+          exact
+          render={() => <CoronaMap test={test} />}
+        />
       </MainWrap>
+      <Footer />
     </BrowserRouter>
   );
 };

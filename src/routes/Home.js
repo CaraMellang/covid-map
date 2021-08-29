@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Line, Bar } from "react-chartjs-2";
 import axios from "axios";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 const Home = ({ test }) => {
   // console.log(test.items.item[0]);
@@ -19,26 +20,30 @@ const Home = ({ test }) => {
           <div>더미</div>
         </div>
         <div className="cd-field">
-          <section className="cd-top">
-            <div className="cd-name">
-              최근 일주일의 코로나
-              {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
-            </div>
-            <div className="cd-body">
-              <div className="cd-chart">
-                <Bar
-                  data={data}
-                  height={100}
-                  options={{
-                    maintainAspectRatio: false,
-                  }}
-                />
+          <section className="cd-tp">
+            <FadeIn transitionDuration="600">
+              <div className="cd-top">
+                <div className="cd-name">
+                  일간 지역별 코로나 (2021.00.00 기준)
+                  {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
+                </div>
+                <div className="cd-body">
+                  <div className="cd-chart">
+                    <Bar
+                      data={data}
+                      height={100}
+                      options={{
+                        maintainAspectRatio: false,
+                      }}
+                    />
+                  </div>
+                  <div className="cd-chart-footer">아아아</div>
+                </div>
               </div>
-              <div className="cd-chart-footer">아아아</div>
-            </div>
+            </FadeIn>
           </section>
           <section className="cd-bt-row">
-            <div className="cd-bt">
+            <FadeIn className="cd-bt" delay="500">
               <div className="cd-padd">
                 <div className="cd-contents">
                   <div className="cd-name">1</div>
@@ -48,8 +53,8 @@ const Home = ({ test }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="cd-bt">
+            </FadeIn>
+            <FadeIn className="cd-bt" delay="600">
               <div className="cd-padd">
                 <div className="cd-contents">
                   <div className="cd-name">2</div>
@@ -59,8 +64,8 @@ const Home = ({ test }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="cd-bt">
+            </FadeIn>
+            <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
                 <div className="cd-contents">
                   <div className="cd-name">3</div>
@@ -70,8 +75,8 @@ const Home = ({ test }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="cd-bt">
+            </FadeIn>
+            <FadeIn className="cd-bt" delay="800">
               <div className="cd-padd">
                 <div className="cd-contents">
                   <div className="cd-name">4</div>
@@ -81,7 +86,7 @@ const Home = ({ test }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </section>
         </div>
       </section>
@@ -159,7 +164,7 @@ const MainWrap = styled.div`
   }
 `;
 const data = {
-  labels: ["그제", "어제", "현재", "현재", "현재", "현재", "현재"],
+  labels: ["서울", "인천", "앙", "기", "모", "띠", "님"],
   datasets: [
     {
       label: "확진자",
