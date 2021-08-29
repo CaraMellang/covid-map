@@ -14,7 +14,6 @@ const Main = () => {
     setTest(data.data.response.body);
   };
   useEffect(() => {
-    getData();
     return () => {};
   }, []);
   return (
