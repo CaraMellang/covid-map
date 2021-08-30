@@ -71,6 +71,15 @@ const CoronaMap = () => {
                 </div>
               </div>
             </section>
+
+            <div className="clinic-form">
+              <a
+                href="https://www.mohw.go.kr/react/popup_200128_3.html"
+                className="go-clinic card clinic-card"
+              >
+                내 주변 선별진료소 찾기
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -99,6 +108,7 @@ const MainWrap = styled.div`
   .cd-padd {
     padding-left: 4rem;
     padding-right: 4rem;
+    padding-bottom: 2rem;
   }
   .card {
     background-color: white;
@@ -163,6 +173,20 @@ const MainWrap = styled.div`
     padding: 0.75rem;
     font-weight: bold;
     font-size: 1rem;
+    text-align: center;
+  }
+  .clinic-form {
+    width: 100%;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .clinic-card {
+    display: block;
+    background-color: #00897b;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     text-align: center;
   }
 `;
