@@ -10,15 +10,7 @@ const Home = ({ test }) => {
     <MainWrap>
       <section className="contents">
         <Notice />
-        <div
-          className="home-head"
-          style={{ marginBottom: "4rem", backgroundColor: "green" }}
-        >
-          <div>
-            <h1 style={{ marginTop: "0" }}>ㅎㅇ</h1>
-          </div>
-          <div>더미</div>
-        </div>
+
         <div className="cd-field">
           <section className="cd-tp">
             <FadeIn transitionDuration="600">
@@ -199,7 +191,7 @@ const data = {
       borderColor: "rgba(255,99,132,1)",
       hoverBackgroundColor: "rgba(255,99,132,0.4)",
       hoverBorderColor: "rgba(255,99,132,1)",
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [653, 593, 804, 815, 56, 55, 40],
     },
     {
       label: "병실환자",
@@ -207,7 +199,7 @@ const data = {
       borderColor: "rgba(255,99,132,1)",
       hoverBackgroundColor: "rgba(255,99,132,0.4)",
       hoverBorderColor: "rgba(255,99,132,1)",
-      data: [23, 15, 56, 77, 98, 23, 111],
+      data: [23, 13, 566, 775, 98, 23, 111],
     },
     {
       label: "사망자",

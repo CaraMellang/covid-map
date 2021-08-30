@@ -27,8 +27,12 @@ const SideNavBar = () => {
             >
               국내 코로나 지도
             </SideMenuItem>
-            <SideMenuItem to="/dummy" exact activeClassName="active-navlink">
-              이히히
+            <SideMenuItem
+              to="/developer"
+              exact
+              activeClassName="active-navlink"
+            >
+              만든사람
             </SideMenuItem>
           </div>
         </div>

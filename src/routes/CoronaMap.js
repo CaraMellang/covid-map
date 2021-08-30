@@ -10,11 +10,6 @@ const CoronaMap = () => {
     <MainWrap>
       <div className="contents">
         <Notice />
-        <div>dd</div>
-        <div>dd</div>
-        <div>dd</div>
-        <div>dd</div>
-        <div>dd</div>
         <div className="cd-wrap">
           <div className="cd-field">
             <section className="cd-left cd">
@@ -71,7 +66,7 @@ const CoronaMap = () => {
                     </div>
                   </div>
                   <div className="ft-card right-cd-ft">
-                    <span>전국 현황판</span>
+                    <span style={{ cursor: "pointer" }}>전국 현황판</span>
                   </div>
                 </div>
               </div>
