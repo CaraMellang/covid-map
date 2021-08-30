@@ -502,6 +502,8 @@ const MapWrap = styled.div`
   .map {
     display: block;
     z-index: 1;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .absol {
     position: absolute;

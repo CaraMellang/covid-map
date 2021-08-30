@@ -28,9 +28,6 @@ const CoronaMap = () => {
                       <Doughnut
                         data={data}
                         options={{
-                          legend: {
-                            position: "right",
-                          },
                           reponsive: true,
                           maintainAspectRatio: true,
                         }}
@@ -64,7 +61,6 @@ const CoronaMap = () => {
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    {" "}
                     시 , 도별 코로나 현황(2021:00:00 기준)
                   </div>
                   <div className="cd-right-body">
@@ -73,6 +69,9 @@ const CoronaMap = () => {
                         <CMap />
                       </FadeIn>
                     </div>
+                  </div>
+                  <div className="ft-card right-cd-ft">
+                    <span>전국 현황판</span>
                   </div>
                 </div>
               </div>
@@ -85,7 +84,7 @@ const CoronaMap = () => {
 };
 
 const MainWrap = styled.div`
-  padding-top: 3.625rem;
+  /* padding-top: 3.625rem; */
   .contents {
     padding-bottom: 6rem;
     padding-left: 15rem;
@@ -164,6 +163,12 @@ const MainWrap = styled.div`
   .ft-con {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+  .right-cd-ft {
+    padding: 0.75rem;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 

@@ -109,7 +109,7 @@ const Home = ({ test }) => {
 };
 
 const MainWrap = styled.div`
-  padding-top: 3.625rem;
+  /* padding-top: 3.625rem; */
   .red {
     background-color: #ea4741;
   }

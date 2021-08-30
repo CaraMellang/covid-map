@@ -21,7 +21,7 @@ const Main = () => {
   }, []);
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <MainWrap>
         <SideNavBar />
         <Route path={"/"} exact render={() => <Home test={test} />} />

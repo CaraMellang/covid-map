@@ -1,11 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import mangae from "../img/mangae.jpg";
 
 const SideNavBar = () => {
   return (
     <SideBar>
       <nav className="sb-sidenav">
+        <div className="">
+          <Link to={"/"}>
+            <div className="logo-form">
+              <img className="logo" src={mangae} alt="어아니야" />
+            </div>
+          </Link>
+        </div>
         <div className="sb-sidenav-menu">
           <div className="sb-sidenav-list">
             <div className="sb-sidenav-title">메뉴 목록</div>
@@ -29,13 +37,22 @@ const SideNavBar = () => {
   );
 };
 const SideBar = styled.aside`
-  padding-top: 3.625rem;
   width: 15rem;
   position: fixed;
   background-color: white;
   color: black;
+  height: 100vh;
+  .logo-form {
+    width: 14rem;
+    padding-top: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .logo {
+    height: 3.125rem;
+    width: 14rem;
+  }
   .sb-sidenav {
-    height: 95vh;
   }
   .sb-sidenav-list {
     display: flex;
