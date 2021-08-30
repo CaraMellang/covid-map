@@ -4,7 +4,12 @@ import styled from "styled-components";
 const CMap = () => {
   return (
     <MapWrap>
+      <button className="seoul-btn">서울인듯?</button>
+      <button className="incheon-btn">인천인듯??</button>
+      <button className="gyeonggi-btn">경기인듯??</button>
+
       <svg
+        className="map"
         version="1.1"
         id="Layer_1"
         x="0px"
@@ -395,6 +400,25 @@ const CMap = () => {
 };
 
 const MapWrap = styled.div`
+  position: relative;
+  .map {
+    display: block;
+  }
+  .seoul-btn {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+  }
+  .incheon-btn {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+  }
+  .gyeonggi-btn {
+    position: absolute;
+    top: 140px;
+    left: 60px;
+  }
   .seoul {
     z-index: 100;
   }

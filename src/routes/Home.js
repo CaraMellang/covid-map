@@ -140,7 +140,7 @@ const MainWrap = styled.div`
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .cd-name {
-    background-color: #f7f7f7;
+    background-color: #468a9d;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 2rem;
