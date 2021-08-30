@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
+import Notice from "../components/Notice";
 
 const Home = ({ test }) => {
   // console.log(test.items.item[18]);
   return (
     <MainWrap>
       <section className="contents">
+        <Notice />
         <div
           className="home-head"
           style={{ marginBottom: "4rem", backgroundColor: "green" }}

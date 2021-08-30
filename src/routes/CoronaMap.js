@@ -1,13 +1,15 @@
 import React from "react";
 import FadeIn from "react-fade-in";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import CMap from "../components/CMap";
 import { Pie, Doughnut } from "react-chartjs-2";
+import Notice from "../components/Notice";
 
 const CoronaMap = () => {
   return (
     <MainWrap>
       <div className="contents">
+        <Notice />
         <div>dd</div>
         <div>dd</div>
         <div>dd</div>
@@ -18,7 +20,9 @@ const CoronaMap = () => {
             <section className="cd-left cd">
               <div className="cd-padd">
                 <div className="card">
-                  <div className="cd-name">뭔가 있더라</div>
+                  <div className="cd-name">
+                    코로나 환자 현항(2021:00:00 기준)
+                  </div>
                   <div className="cd-left-body">
                     <div className="chart-pie">
                       <Doughnut
@@ -59,7 +63,10 @@ const CoronaMap = () => {
             <section className="cd-right cd">
               <div className="cd-padd">
                 <div className="card">
-                  <div className="cd-name"> gdgd</div>
+                  <div className="cd-name">
+                    {" "}
+                    시 , 도별 코로나 현황(2021:00:00 기준)
+                  </div>
                   <div className="cd-right-body">
                     <div className="co-map">
                       <FadeIn className="dd">
@@ -159,6 +166,7 @@ const MainWrap = styled.div`
     padding-bottom: 0.5rem;
   }
 `;
+
 const aa = 234412233;
 
 const data = {

@@ -1,26 +1,114 @@
 import React from "react";
+import FadeIn from "react-fade-in";
 import styled from "styled-components";
 
 const CMap = () => {
   return (
     <MapWrap>
-      <button className="seoul-btn absol">서울인듯?</button>
-      <button className="incheon-btn absol">인천인듯??</button>
-      <button className="gyeonggi-btn absol">r경기인듯??</button>
-      <button className="gangwon-btn absol">강원인듯??</button>
-      <button className="sejong-btn absol">세종인듯??</button>
-      <button className="chungbuk-btn absol">충북인듯??</button>
-      <button className="chungnam-btn absol">충남인듯??</button>
-      <button className="daejeon-btn absol">대전인듯??</button>
-      <button className="gyeongbuk-btn absol">경북인듯??</button>
-      <button className="jeonbuk-btn absol">전북인듯??</button>
-      <button className="daegu-btn absol">대구인듯??</button>
-      <button className="jeonnam-btn absol">전남인듯??</button>
-      <button className="gwangju-btn absol">광주인듯??</button>
-      <button className="gyeongnam-btn absol">경남인듯??</button>
-      <button className="ulsan-btn absol">울산인듯??</button>
-      <button className="busan-btn absol">부산인듯??</button>
-      <button className="jeju-btn absol">제주인듯??</button>
+      <FadeIn>
+        <div className="seoul absol">
+          <div className="map-cards">
+            <div className="names btn">서울</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="incheon absol">
+          <div className="map-cards">
+            <div className="names btn">인천</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="gyeonggi absol">
+          <div className="map-cards">
+            <div className="names btn">경기</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="gangwon absol">
+          <div className="map-cards">
+            <div className="names btn">강원</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="sejong absol">
+          <div className="map-cards">
+            <div className="names btn">세종</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="chungbuk absol">
+          <div className="map-cards">
+            <div className="names btn">충북</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="chungnam absol">
+          <div className="map-cards">
+            <div className="names btn">충남</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="daejeon absol">
+          <div className="map-cards">
+            <div className="names btn">대전</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="gyeongbuk absol">
+          <div className="map-cards">
+            <div className="names btn">경북</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="jeonbuk absol">
+          <div className="map-cards">
+            <div className="names btn">전북</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="daegu absol">
+          <div className="map-cards">
+            <div className="names btn">대구</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="jeonnam absol">
+          <div className="map-cards">
+            <div className="names btn">전남</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="gwangju absol">
+          <div className="map-cards">
+            <div className="names btn">광주</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="gyeongnam absol">
+          <div className="map-cards">
+            <div className="names btn">경남</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="ulsan absol">
+          <div className="map-cards">
+            <div className="names btn">울산</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="busan absol">
+          <div className="map-cards">
+            <div className="names btn">부산</div>
+            <div className="con  btn">12명</div>
+          </div>
+        </div>
+        <div className="jeju absol btn">
+          <div className="map-cards">
+            <div className="names btn">제주</div>
+            <div className="con btn">12명</div>
+          </div>
+        </div>
+      </FadeIn>
 
       <svg
         className="map"
@@ -32,7 +120,7 @@ const CMap = () => {
         <g>
           {/* <!--서울 main_map_city1 //--> */}
           <path
-            className="step_map_city1 seoul"
+            className="step_map_city1"
             fill="#e60000"
             stroke="#FFFFFF"
             d="M114.468,114.24l1.271,2.857l-0.635,2.222l2.857,0.635   l2.857,1.905l3.81,3.174h3.174c0,0,2.857-0.953,3.809-0.953c0.953,0,1.27,1.271,1.27,1.271l1.905,1.587h1.904h2.222l2.857-2.857   l3.492-2.539c0,0,0.952-2.222,0.952-3.174s0.317-2.857,0.317-2.857l1.587-2.222l-1.587-0.635h-2.856l-1.905-1.27l0.318-1.27   l0.952-2.54v-2.54l-0.317-2.222c0,0-0.318-1.587-0.953-2.54c-0.635-0.952-2.222-1.27-2.222-1.27l-5.079-0.635l-1.27,2.222   l-2.857,2.222l-3.491-0.952l-1.588,3.174l-1.904,3.492l-4.762-0.318l-3.492-0.952l-3.242,0.884l0.703,0.703l-1.905,3.492   l-0.006,0.019l1.594,0.298L114.468,114.24z"
@@ -413,85 +501,102 @@ const MapWrap = styled.div`
   position: relative;
   .map {
     display: block;
+    z-index: 1;
   }
   .absol {
     position: absolute;
   }
-  .seoul-btn {
+  .seoul {
     top: 100px;
-    left: 110px;
+    left: 130px;
   }
-  .incheon-btn {
+  .incheon {
     top: 120px;
-    left: 40px;
+    left: 70px;
   }
-  .gyeonggi-btn {
+  .gyeonggi {
     top: 60px;
-    left: 60px;
+    left: 80px;
   }
-  .gangwon-btn {
+  .gangwon {
     top: 90px;
     left: 200px;
   }
-  .sejong-btn {
+  .sejong {
     top: 190px;
     left: 85px;
   }
-  .chungbuk-btn {
+  .chungbuk {
     top: 170px;
     left: 150px;
   }
-  .chungnam-btn {
+  .chungnam {
     top: 230px;
     left: 20px;
   }
-  .daejeon-btn {
-    top: 230px;
-    left: 110px;
+  .daejeon {
+    top: 250px;
+    left: 140px;
   }
-  .gyeongbuk-btn {
+  .gyeongbuk {
     top: 210px;
     left: 240px;
   }
-  .jeonbuk-btn {
+  .jeonbuk {
     top: 290px;
     left: 60px;
   }
-  .daegu-btn {
+  .daegu {
     top: 290px;
     left: 210px;
   }
-  .jeonnam-btn {
+  .jeonnam {
     top: 410px;
     left: 20px;
   }
-  .gwangju-btn {
-    top: 360px;
+  .gwangju {
+    top: 350px;
     left: 40px;
   }
-  .gyeongnam-btn {
+  .gyeongnam {
     top: 360px;
     left: 170px;
   }
-  .ulsan-btn {
+  .ulsan {
     top: 340px;
     left: 300px;
   }
-  .busan-btn {
+  .busan {
     top: 390px;
     left: 270px;
   }
-  .jeju-btn {
+  .jeju {
     top: 500px;
     left: 20px;
   }
-  .seoul {
-    z-index: 100;
+  .map-cards {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: black;
+    border: 1px solid none;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
-  .seoul:hover {
+  .names {
+    text-align: center;
+    background-color: #468a9d;
+    border: 1px solid none;
+    border-radius: 0.35rem;
+  }
+  .con {
+    text-align: center;
+  }
+
+  /* .seoul:hover {
     fill: white;
     box-shadow: 5px 5px white;
-  }
+  } */
 `;
 
 export default CMap;
