@@ -4,20 +4,30 @@ import styled from "styled-components";
 const CMap = () => {
   return (
     <MapWrap>
-      <button className="seoul-btn">서울인듯?</button>
-      <button className="incheon-btn">인천인듯??</button>
-      <button className="gyeonggi-btn">경기인듯??</button>
+      <button className="seoul-btn absol">서울인듯?</button>
+      <button className="incheon-btn absol">인천인듯??</button>
+      <button className="gyeonggi-btn absol">r경기인듯??</button>
+      <button className="gangwon-btn absol">강원인듯??</button>
+      <button className="sejong-btn absol">세종인듯??</button>
+      <button className="chungbuk-btn absol">충북인듯??</button>
+      <button className="chungnam-btn absol">충남인듯??</button>
+      <button className="daejeon-btn absol">대전인듯??</button>
+      <button className="gyeongbuk-btn absol">경북인듯??</button>
+      <button className="jeonbuk-btn absol">전북인듯??</button>
+      <button className="daegu-btn absol">대구인듯??</button>
+      <button className="jeonnam-btn absol">전남인듯??</button>
+      <button className="gwangju-btn absol">광주인듯??</button>
+      <button className="gyeongnam-btn absol">경남인듯??</button>
+      <button className="ulsan-btn absol">울산인듯??</button>
+      <button className="busan-btn absol">부산인듯??</button>
+      <button className="jeju-btn absol">제주인듯??</button>
 
       <svg
         className="map"
         version="1.1"
         id="Layer_1"
-        x="0px"
-        y="0px"
-        width="362px"
-        height="480px"
-        viewBox="0 0 400 530"
-        focusable="false"
+        width="370px"
+        height="550px"
       >
         <g>
           {/* <!--서울 main_map_city1 //--> */}
@@ -404,20 +414,76 @@ const MapWrap = styled.div`
   .map {
     display: block;
   }
-  .seoul-btn {
+  .absol {
     position: absolute;
+  }
+  .seoul-btn {
     top: 100px;
-    left: 80px;
+    left: 110px;
   }
   .incheon-btn {
-    position: absolute;
-    top: 60px;
-    left: 20px;
+    top: 120px;
+    left: 40px;
   }
   .gyeonggi-btn {
-    position: absolute;
-    top: 140px;
+    top: 60px;
     left: 60px;
+  }
+  .gangwon-btn {
+    top: 90px;
+    left: 200px;
+  }
+  .sejong-btn {
+    top: 190px;
+    left: 85px;
+  }
+  .chungbuk-btn {
+    top: 170px;
+    left: 150px;
+  }
+  .chungnam-btn {
+    top: 230px;
+    left: 20px;
+  }
+  .daejeon-btn {
+    top: 230px;
+    left: 110px;
+  }
+  .gyeongbuk-btn {
+    top: 210px;
+    left: 240px;
+  }
+  .jeonbuk-btn {
+    top: 290px;
+    left: 60px;
+  }
+  .daegu-btn {
+    top: 290px;
+    left: 210px;
+  }
+  .jeonnam-btn {
+    top: 410px;
+    left: 20px;
+  }
+  .gwangju-btn {
+    top: 360px;
+    left: 40px;
+  }
+  .gyeongnam-btn {
+    top: 360px;
+    left: 170px;
+  }
+  .ulsan-btn {
+    top: 340px;
+    left: 300px;
+  }
+  .busan-btn {
+    top: 390px;
+    left: 270px;
+  }
+  .jeju-btn {
+    top: 500px;
+    left: 20px;
   }
   .seoul {
     z-index: 100;

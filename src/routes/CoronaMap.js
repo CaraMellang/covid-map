@@ -129,7 +129,8 @@ const MainWrap = styled.div`
   .cd-right-body {
   }
   .co-map {
-    padding: 4.5rem;
+    display: flex;
+    justify-content: center;
   }
   .ft-left {
     width: 25%;
