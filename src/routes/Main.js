@@ -11,12 +11,12 @@ import Footer from "../components/Footer";
 const Main = () => {
   const [test, setTest] = useState();
   const getData = async () => {
-    let data = await axios.get(`http://localhost:4000/api`);
+    let data = await axios.get(`http://localhost:4000/sidoapi`);
     console.log(data.data.response.body);
     setTest(data.data.response.body);
   };
   useEffect(() => {
-    getData();
+    // getData();
     return () => {};
   }, []);
   return (

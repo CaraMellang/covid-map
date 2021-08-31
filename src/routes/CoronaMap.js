@@ -4,8 +4,39 @@ import styled, { keyframes } from "styled-components";
 import CMap from "../components/CMap";
 import { Pie, Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
+import useInfec from "../hooks/useInfec";
 
 const CoronaMap = () => {
+  const { siDoData, infData } = useInfec();
+
+  const data = {
+    labels: [
+      `검사중(${infData?.examCnt?._text}명)`,
+      `결과양성(${infData?.decideCnt?._text}명)`,
+      `결과음성(${infData?.resutlNegCnt?._text}명)`,
+    ],
+    datasets: [
+      // {
+      //   backgroundColor: "rgba(255,99,132,1)",
+      //   borderColor: "rgba(255,99,132,1)",
+      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
+      //   hoverBorderColor: "rgba(255,99,132,1)",
+      //   data: [65,23],
+      // },
+      {
+        data: [infData?.examCnt?._text, infData?.decideCnt?._text, infData?.resutlNegCnt?._text],
+        borderWidth: 2,
+        hoverBorderWidth: 3,
+        borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
+        backgroundColor: [
+          "rgba(255,99,132,1)",
+          "rgba(98,181,229,1)",
+          "rgba(123,198,231,1)",
+        ],
+        fill: true,
+      },
+    ],
+  };
   return (
     <MainWrap>
       <div className="contents">
@@ -32,19 +63,29 @@ const CoronaMap = () => {
                       <div className="ft-left">
                         <div className="ft-text ft-card">
                           <div className="ft-name">총 검사수</div>
-                          <div className="ft-text ft-con">123124325</div>
+                          <div className="ft-text ft-con">
+                            {infData?.accExamCnt._text === undefined
+                              ? "정보 없음"
+                              : infData?.accExamCnt._text}
+                          </div>
                         </div>
                       </div>
                       <div className="ft-left">
                         <div className="ft-text ft-card">
                           <div className="ft-name">검사 완료수</div>
-                          <div className="ft-text ft-con">34535345345</div>
+                          <div className="ft-text ft-con">
+                            {infData?.accExamCompCnt._text === undefined
+                              ? "정보 없음"
+                              : infData?.accExamCompCnt._text}
+                          </div>
                         </div>
                       </div>
                       <div className="ft-right">
                         <div className="ft-text ft-card">
                           <div className="ft-name">확진율</div>
-                          <div className="ft-text ft-con">34%</div>
+                          <div className="ft-text ft-con">
+                            {infData?.accDefRate._text}%
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -56,12 +97,12 @@ const CoronaMap = () => {
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    시 , 도별 코로나 현황(2021:00:00 기준)
+                    시 , 도별 코로나 현황(전일 대비 , 2021:00:00 기준)
                   </div>
                   <div className="cd-right-body">
                     <div className="co-map">
                       <FadeIn className="dd">
-                        <CMap />
+                        <CMap siDoData={siDoData} infData={infData} />
                       </FadeIn>
                     </div>
                   </div>
@@ -190,32 +231,5 @@ const MainWrap = styled.div`
     text-align: center;
   }
 `;
-
-const aa = 234412233;
-
-const data = {
-  labels: [`검사중(${aa}명)`, `결과양성(${aa}명)`, `결과음성(${aa}ㅁㅇ)`],
-  datasets: [
-    // {
-    //   backgroundColor: "rgba(255,99,132,1)",
-    //   borderColor: "rgba(255,99,132,1)",
-    //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
-    //   hoverBorderColor: "rgba(255,99,132,1)",
-    //   data: [65,23],
-    // },
-    {
-      data: [766546, 275000, 12222222],
-      borderWidth: 2,
-      hoverBorderWidth: 3,
-      borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
-      backgroundColor: [
-        "rgba(255,99,132,1)",
-        "rgba(98,181,229,1)",
-        "rgba(123,198,231,1)",
-      ],
-      fill: true,
-    },
-  ],
-};
 
 export default CoronaMap;

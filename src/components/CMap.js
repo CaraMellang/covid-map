@@ -1,111 +1,166 @@
 import React from "react";
 import FadeIn from "react-fade-in";
 import styled from "styled-components";
+import useInfec from "../hooks/useInfec";
 
-const CMap = () => {
+const CMap = ({siDoData}) => {
+  // const { siDoData } = useInfec();
+  console.log(siDoData);
   return (
     <MapWrap>
       <FadeIn>
         <div className="seoul absol">
           <div className="map-cards">
             <div className="names btn">서울</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[17]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[17]?.incDec._text}명`}
+            </div>
           </div>
         </div>
         <div className="incheon absol">
           <div className="map-cards">
             <div className="names btn">인천</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[16]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[16]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="gyeonggi absol">
           <div className="map-cards">
             <div className="names btn">경기</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[15]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[15]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="gangwon absol">
           <div className="map-cards">
             <div className="names btn">강원</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[14]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[14]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="sejong absol">
           <div className="map-cards">
             <div className="names btn">세종</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[13]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[13]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="chungbuk absol">
           <div className="map-cards">
             <div className="names btn">충북</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[12]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[12]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="chungnam absol">
           <div className="map-cards">
             <div className="names btn">충남</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[11]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[11]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="daejeon absol">
           <div className="map-cards">
             <div className="names btn">대전</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[10]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[10]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="gyeongbuk absol">
           <div className="map-cards">
             <div className="names btn">경북</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[9]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[9]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="jeonbuk absol">
           <div className="map-cards">
             <div className="names btn">전북</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[8]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[8]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="daegu absol">
           <div className="map-cards">
             <div className="names btn">대구</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[7]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[7]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="jeonnam absol">
           <div className="map-cards">
             <div className="names btn">전남</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[6]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[6]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="gwangju absol">
           <div className="map-cards">
             <div className="names btn">광주</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[5]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[5]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="gyeongnam absol">
           <div className="map-cards">
             <div className="names btn">경남</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[4]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[4]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="ulsan absol">
           <div className="map-cards">
             <div className="names btn">울산</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[3]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[3]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="busan absol">
           <div className="map-cards">
             <div className="names btn">부산</div>
-            <div className="con  btn">12명</div>
+            <div className="con  btn">
+              {siDoData[2]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[2]?.incDec._text}명`}</div>
           </div>
         </div>
         <div className="jeju absol btn">
           <div className="map-cards">
             <div className="names btn">제주</div>
-            <div className="con btn">12명</div>
+            <div className="con btn">
+              {siDoData[1]?.incDec._text === undefined
+                ? "없음"
+                : `+${siDoData[1]?.incDec._text}명`}</div>
           </div>
         </div>
       </FadeIn>
@@ -518,7 +573,7 @@ const MapWrap = styled.div`
   }
   .gyeonggi {
     top: 60px;
-    left: 80px;
+    left: 70px;
   }
   .gangwon {
     top: 90px;
@@ -530,7 +585,7 @@ const MapWrap = styled.div`
   }
   .chungbuk {
     top: 170px;
-    left: 150px;
+    left: 170px;
   }
   .chungnam {
     top: 230px;
@@ -558,7 +613,7 @@ const MapWrap = styled.div`
   }
   .gwangju {
     top: 370px;
-    left: 40px;
+    left: 30px;
   }
   .gyeongnam {
     top: 360px;

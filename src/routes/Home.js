@@ -3,9 +3,96 @@ import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
+import useInfec from "../hooks/useInfec";
 
-const Home = ({ test }) => {
+const Home = () => {
   // console.log(test.items.item[18]);
+  const { infData, siDoData } = useInfec();
+  console.log(infData);
+
+  const data = {
+    labels: [
+      "서울",
+      "인천",
+      "경기",
+      "강원",
+      "세종",
+      "충북",
+      "충남",
+      "대전",
+      "경북",
+      "전북",
+      "대구",
+      "전남",
+      "광주",
+      "경남",
+      "울산",
+      "부산",
+      "제주",
+    ],
+    datasets: [
+      {
+        label: "확진자",
+        backgroundColor: "rgba(238, 173, 81,1)",
+        borderColor: "rgba(238, 173, 81,1)",
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [
+          siDoData[17]?.defCnt._text,
+          siDoData[16]?.defCnt._text,
+          siDoData[15]?.defCnt._text,
+          siDoData[14]?.defCnt._text,
+          siDoData[13]?.defCnt._text,
+          siDoData[12]?.defCnt._text,
+          siDoData[11]?.defCnt._text,
+          siDoData[10]?.defCnt._text,
+          siDoData[9]?.defCnt._text,
+          siDoData[8]?.defCnt._text,
+          siDoData[7]?.defCnt._text,
+          siDoData[6]?.defCnt._text,
+          siDoData[5]?.defCnt._text,
+          siDoData[4]?.defCnt._text,
+          siDoData[3]?.defCnt._text,
+          siDoData[2]?.defCnt._text,
+          siDoData[1]?.defCnt._text,
+        ],
+      },
+      {
+        label: "격리해제",
+        backgroundColor: "rgba(91, 182, 93,1)",
+        borderColor: "rgba(91, 182, 93,1)",
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [
+          siDoData[17]?.isolClearCnt._text,
+          siDoData[16]?.isolClearCnt._text,
+          siDoData[15]?.isolClearCnt._text,
+          siDoData[14]?.isolClearCnt._text,
+          siDoData[13]?.isolClearCnt._text,
+          siDoData[12]?.isolClearCnt._text,
+          siDoData[11]?.isolClearCnt._text,
+          siDoData[10]?.isolClearCnt._text,
+          siDoData[9]?.isolClearCnt._text,
+          siDoData[8]?.isolClearCnt._text,
+          siDoData[7]?.isolClearCnt._text,
+          siDoData[6]?.isolClearCnt._text,
+          siDoData[5]?.isolClearCnt._text,
+          siDoData[4]?.isolClearCnt._text,
+          siDoData[3]?.isolClearCnt._text,
+          siDoData[2]?.isolClearCnt._text,
+          siDoData[1]?.isolClearCnt._text,
+        ],
+      },
+      // { 그래프 여러개를 써서 반응형에 대응하자 데이터가 너무많다.
+      //   label: "사망자",
+      //   backgroundColor: "rgba(255,99,132,0.2)",
+      //   borderColor: "rgba(255,99,132,1)",
+      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
+      //   hoverBorderColor: "rgba(255,99,132,1)",
+      //   data: [2, 33, 23, 12, 54, 67, 19],
+      // },
+    ],
+  };
   return (
     <MainWrap>
       <section className="contents">
@@ -16,7 +103,7 @@ const Home = ({ test }) => {
             <FadeIn transitionDuration="600">
               <div className="cd-top">
                 <div className="cd-name">
-                  일간 지역별 코로나 (2021.00.00 기준)
+                  지역별 코로나 (2021.00.00 기준)
                   {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
                 </div>
                 <div className="cd-body">
@@ -39,7 +126,12 @@ const Home = ({ test }) => {
               <div className="cd-padd">
                 <div className="cd-contents blue">
                   <div className="cd-name">검사중</div>
-                  <div className="cd-bt-body">1234명(+2354)</div>
+                  <div className="cd-bt-body">
+                    {infData?.examCnt._text === undefined
+                      ? "정보 없음"
+                      : infData?.examCnt._text}
+                    
+                  </div>
                   <div className="cd-footer">
                     <div>버튼</div>
                   </div>
@@ -51,14 +143,9 @@ const Home = ({ test }) => {
                 <div className="cd-contents yellow">
                   <div className="cd-name">확진자</div>
                   <div className="cd-bt-body">
-                    {test?.items.item[18].defCnt._text === undefined
-                      ? "오류"
-                      : test.items.item[18].defCnt._text}
-                    명(+
-                    {test?.items.item[18].incDec._text === undefined
-                      ? "오류"
-                      : test.items.item[18].incDec._text}
-                    )
+                    {siDoData[18]?.incDec._text === undefined
+                      ? "정보 없음"
+                      : siDoData[18]?.incDec._text}
                   </div>
                   <div className="cd-footer">
                     <div>버튼</div>
@@ -70,7 +157,11 @@ const Home = ({ test }) => {
               <div className="cd-padd">
                 <div className="cd-contents green">
                   <div className="cd-name">격리해제</div>
-                  <div className="cd-bt-body">1234명(+2354)</div>
+                  <div className="cd-bt-body">
+                    {siDoData[18]?.isolClearCnt._text === undefined
+                      ? "정보없음"
+                      : siDoData[18]?.isolClearCnt._text}
+                  </div>
                   <div className="cd-footer">
                     <div>버튼</div>
                   </div>
@@ -82,10 +173,9 @@ const Home = ({ test }) => {
                 <div className="cd-contents red">
                   <div className="cd-name ">사망자</div>
                   <div className="cd-bt-body">
-                    {test?.items.item[18].deathCnt._text === undefined
-                      ? "오류"
-                      : test.items.item[18].deathCnt._text}
-                    명(+2354)
+                    {siDoData[18]?.deathCnt._text === undefined
+                      ? "정보 없음"
+                      : siDoData[18]?.deathCnt._text}
                   </div>
                   <div className="cd-footer">
                     <div>버튼</div>
@@ -182,33 +272,4 @@ const MainWrap = styled.div`
   .cd-footer {
   }
 `;
-const data = {
-  labels: ["서울", "인천", "앙", "기", "모", "띠", "님"],
-  datasets: [
-    {
-      label: "확진자",
-      backgroundColor: "rgba(255,99,132,0.2)",
-      borderColor: "rgba(255,99,132,1)",
-      hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      hoverBorderColor: "rgba(255,99,132,1)",
-      data: [653, 593, 804, 815, 56, 55, 40],
-    },
-    {
-      label: "병실환자",
-      backgroundColor: "rgba(255,99,132,1)",
-      borderColor: "rgba(255,99,132,1)",
-      hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      hoverBorderColor: "rgba(255,99,132,1)",
-      data: [23, 13, 566, 775, 98, 23, 111],
-    },
-    {
-      label: "사망자",
-      backgroundColor: "rgba(255,99,132,0.2)",
-      borderColor: "rgba(255,99,132,1)",
-      hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      hoverBorderColor: "rgba(255,99,132,1)",
-      data: [2, 33, 23, 12, 54, 67, 19],
-    },
-  ],
-};
 export default Home;
