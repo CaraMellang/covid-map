@@ -110,14 +110,16 @@ const Home = ({ data }) => {
   return (
     <MainWrap>
       <section className="contents">
-        <Notice />
+        <FadeIn>
+          <Notice />
+        </FadeIn>
 
         <div className="cd-field">
           <section className="cd-tp">
             <FadeIn transitionDuration="600">
               <div className="cd-top">
                 <div className="cd-name">
-                  지역별 코로나 (2021.00.00 기준)
+                  지역별 코로나 ({infData[0]?.createDt._text.slice(0, 10)} 기준)
                   {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
                 </div>
                 <div className="cd-body">
@@ -130,7 +132,7 @@ const Home = ({ data }) => {
                       }}
                     />
                   </div>
-                  <div className="cd-chart-footer">아아아</div>
+                  <div className="cd-chart-footer">매일 오전에 갱신됩니다.</div>
                 </div>
               </div>
             </FadeIn>

@@ -10,30 +10,53 @@ const CMap = ({ siDoData }) => {
   return (
     <MapWrap>
       <div className="툴팁모음">
-        <ReactTooltip id="seoul" place="top" effect="solid" />
-        <ReactTooltip id="incheon" place="top" effect="solid" />
-        <ReactTooltip id="gyeonggi" place="top" effect="solid" />
-        <ReactTooltip id="gangwon" place="top" effect="solid" />
-        <ReactTooltip id="sejong" place="top" effect="solid" />
-        <ReactTooltip id="chungbuk" place="top" effect="solid" />
-        <ReactTooltip id="chungnam" place="top" effect="solid" />
-        <ReactTooltip id="daejeon" place="top" effect="solid" />
-        <ReactTooltip id="gyeongbuk" place="top" effect="solid" />
-        <ReactTooltip id="jeonbuk" place="top" effect="solid" />
-        <ReactTooltip id="daegu" place="top" effect="solid" />
-        <ReactTooltip id="jeonnam" place="top" effect="solid" />
-        <ReactTooltip id="gwangju" place="top" effect="solid" />
-        <ReactTooltip id="gyeongnam" place="top" effect="solid" />
-        <ReactTooltip id="ulsan" place="top" effect="solid" />
-        <ReactTooltip id="busan" place="top" effect="solid" />
-        <ReactTooltip id="jeju" place="top" effect="solid" />
+        <ReactTooltip
+          id="seoul"
+          place="right"
+          effect="solid"
+          backgroundColor="#00897B"
+          arrowColor="rgba(0, 0, 0, 0)" //투명띠
+        >
+          <div>
+            <div
+              style={{
+                paddingBottom: "2px",
+                borderBottom: "1px solid white",
+              }}
+            >
+              서울
+            </div>
+            <div>전일 대비 증감수 : {siDoData[17]?.incDec._text}</div>
+            <div>격리자 수 : {siDoData[17]?.isolIngCnt._text}(+1234)</div>
+            <div>격리 해제 수 : {siDoData[17]?.isolClearCnt._text}(+1234)</div>
+            <div>해외 유입 수 : {siDoData[17]?.overFlowCnt._text}(+1234)</div>
+            <div>지역 발생 수 : {siDoData[17]?.localOccCnt._text}(+1234)</div>
+            <div>총 확진자 수 : {siDoData[17]?.defCnt._text}(+1234)</div>
+          </div>
+        </ReactTooltip>
+        <ReactTooltip id="incheon" place="right" effect="solid" />
+        <ReactTooltip id="gyeonggi" place="right" effect="solid" />
+        <ReactTooltip id="gangwon" place="right" effect="solid" />
+        <ReactTooltip id="sejong" place="right" effect="solid" />
+        <ReactTooltip id="chungbuk" place="right" effect="solid" />
+        <ReactTooltip id="chungnam" place="right" effect="solid" />
+        <ReactTooltip id="daejeon" place="right" effect="solid" />
+        <ReactTooltip id="gyeongbuk" place="right" effect="solid" />
+        <ReactTooltip id="jeonbuk" place="right" effect="solid" />
+        <ReactTooltip id="daegu" place="right" effect="solid" />
+        <ReactTooltip id="jeonnam" place="right" effect="solid" />
+        <ReactTooltip id="gwangju" place="right" effect="solid" />
+        <ReactTooltip id="gyeongnam" place="right" effect="solid" />
+        <ReactTooltip id="ulsan" place="right" effect="solid" />
+        <ReactTooltip id="busan" place="right" effect="solid" />
+        <ReactTooltip id="jeju" place="right" effect="solid" />
       </div>
       <FadeIn>
         <div className="seoul absol">
           <div
             className="map-cards"
             data-for="seoul"
-            data-tip="Hello <br /> 입니다."
+            data-tip
             data-iscapture="true"
           >
             <div className="names btn">서울</div>
@@ -48,7 +71,7 @@ const CMap = ({ siDoData }) => {
           <div
             className="map-cards"
             data-for="incheon"
-            data-tip="Hello <br /> 입니다."
+            data-tip={`${siDoData[16]?.incDec._text}명, 해외 감염자는 ${siDoData[16]?.overFlowCnt._text}명 입니다.`}
             data-iscapture="true"
           >
             <div className="names btn">인천</div>

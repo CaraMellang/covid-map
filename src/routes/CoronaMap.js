@@ -52,25 +52,29 @@ const CoronaMap = ({ data }) => {
   return (
     <MainWrap>
       <div className="contents">
-        <Notice />
+        <FadeIn>
+          <Notice />
+        </FadeIn>
         <div className="cd-wrap">
           <div className="cd-field">
             <section className="cd-left cd">
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    코로나 환자 현항(2021:00:00 기준)
+                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)} 기준)
                   </div>
                   <div className="cd-left-body">
-                    <div className="chart-pie">
-                      <Doughnut
-                        data={doughnutData}
-                        options={{
-                          reponsive: true,
-                          maintainAspectRatio: true,
-                        }}
-                      />
-                    </div>
+                    <FadeIn>
+                      <div className="chart-pie">
+                        <Doughnut
+                          data={doughnutData}
+                          options={{
+                            reponsive: true,
+                            maintainAspectRatio: true,
+                          }}
+                        />
+                      </div>
+                    </FadeIn>
                     <div className="cd-left-ft">
                       <div className="ft-left">
                         <div className="ft-text ft-card">
@@ -109,7 +113,8 @@ const CoronaMap = ({ data }) => {
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    시 , 도별 코로나 현황(전일 대비 , 2021:00:00 기준)
+                    시 , 도별 코로나 현황(전일 대비 ,
+                    {infData[0]?.createDt._text.slice(0, 10)} 기준)
                   </div>
                   <div className="cd-right-body">
                     <div className="co-map">
