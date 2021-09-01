@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
@@ -212,6 +212,30 @@ const Home = ({ data }) => {
               </div>
             </FadeIn>
           </section>
+          <section className="cd-tp">
+            <FadeIn delay="1000" visible>
+              {/*나중에 scroll로 구현 */}
+              <div className="cd-top">
+                <div className="cd-name">
+                  전일 대비 코로나 ({infData[0]?.createDt._text.slice(0, 10)}{" "}
+                  기준)
+                  {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
+                </div>
+                <div className="cd-body">
+                  <div className="cd-chart">
+                    <Bar
+                      data={barData}
+                      height={100}
+                      options={{
+                        maintainAspectRatio: false,
+                      }}
+                    />
+                  </div>
+                  <div className="cd-chart-footer">매일 오전에 갱신됩니다.</div>
+                </div>
+              </div>
+            </FadeIn>
+          </section>
         </div>
       </section>
     </MainWrap>
@@ -274,6 +298,7 @@ const MainWrap = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
+    padding-bottom: 5rem;
   }
   .cd-bt {
     width: 25%;

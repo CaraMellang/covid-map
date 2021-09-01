@@ -3,13 +3,46 @@ import FadeIn from "react-fade-in";
 import styled from "styled-components";
 import useInfec from "../hooks/useInfec";
 import ReactTooltip from "react-tooltip";
+import TooltipForm from "./common/TooltipForm";
 
 const CMap = ({ siDoData }) => {
   // const { siDoData } = useInfec();
   console.log(siDoData);
+
+  const cities = [
+    "검역",
+    "제주",
+    "경남",
+    "경북",
+    "전남",
+    "전북",
+    "충남",
+    "충북",
+    "강원",
+    "경기",
+    "세종",
+    "울산",
+    "대전",
+    "광주",
+    "인천",
+    "대구",
+    "부산",
+    "서울",
+    "합계",
+  ];
+  //검역 ,제주, 경남 ,경북, 전남 ,전북 ,충남 ,충북, 강원 ,경기, 세종, 울산 ,대전 ,광주 ,인천 ,대구 ,부산, 서울, 합계
+
   return (
     <MapWrap>
-      <div className="툴팁모음">
+      {cities.map((item, index) => {
+        if (index === 0 || index === 18) {
+          return;
+        }
+        return (
+          <TooltipForm key={index} id={index} item={item} siDoData={siDoData} />
+        );
+      })}
+      {/* <div className="툴팁모음">
         <ReactTooltip
           id="seoul"
           place="right"
@@ -50,7 +83,8 @@ const CMap = ({ siDoData }) => {
         <ReactTooltip id="ulsan" place="right" effect="solid" />
         <ReactTooltip id="busan" place="right" effect="solid" />
         <ReactTooltip id="jeju" place="right" effect="solid" />
-      </div>
+      </div> */}
+
       <FadeIn>
         <div className="seoul absol">
           <div
@@ -71,7 +105,7 @@ const CMap = ({ siDoData }) => {
           <div
             className="map-cards"
             data-for="incheon"
-            data-tip={`${siDoData[16]?.incDec._text}명, 해외 감염자는 ${siDoData[16]?.overFlowCnt._text}명 입니다.`}
+            data-tip
             data-iscapture="true"
           >
             <div className="names btn">인천</div>
@@ -83,7 +117,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="gyeonggi absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="gyeonggi-do" // api에서의 네이밍임
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">경기</div>
             <div className="con  btn">
               {siDoData[15]?.incDec._text === undefined
@@ -93,7 +132,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="gangwon absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="gangwon-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">강원</div>
             <div className="con  btn">
               {siDoData[14]?.incDec._text === undefined
@@ -103,7 +147,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="sejong absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="sejong"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">세종</div>
             <div className="con  btn">
               {siDoData[13]?.incDec._text === undefined
@@ -113,7 +162,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="chungbuk absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="chungcheongbuk-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">충북</div>
             <div className="con  btn">
               {siDoData[12]?.incDec._text === undefined
@@ -123,7 +177,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="chungnam absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="chungcheongnam-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">충남</div>
             <div className="con  btn">
               {siDoData[11]?.incDec._text === undefined
@@ -133,7 +192,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="daejeon absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="daejeon"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">대전</div>
             <div className="con  btn">
               {siDoData[10]?.incDec._text === undefined
@@ -143,7 +207,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="gyeongbuk absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="gyeongsangbuk-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">경북</div>
             <div className="con  btn">
               {siDoData[9]?.incDec._text === undefined
@@ -153,7 +222,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="jeonbuk absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="jeollabuk-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">전북</div>
             <div className="con  btn">
               {siDoData[8]?.incDec._text === undefined
@@ -163,7 +237,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="daegu absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="daegu"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">대구</div>
             <div className="con  btn">
               {siDoData[7]?.incDec._text === undefined
@@ -173,7 +252,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="jeonnam absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="Jeollanam-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">전남</div>
             <div className="con  btn">
               {siDoData[6]?.incDec._text === undefined
@@ -183,7 +267,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="gwangju absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="gwangju"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">광주</div>
             <div className="con  btn">
               {siDoData[5]?.incDec._text === undefined
@@ -193,7 +282,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="gyeongnam absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="gyeongsangnam-do"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">경남</div>
             <div className="con  btn">
               {siDoData[4]?.incDec._text === undefined
@@ -203,7 +297,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="ulsan absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="ulsan"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">울산</div>
             <div className="con  btn">
               {siDoData[3]?.incDec._text === undefined
@@ -213,7 +312,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="busan absol">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="busan"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">부산</div>
             <div className="con  btn">
               {siDoData[2]?.incDec._text === undefined
@@ -223,7 +327,12 @@ const CMap = ({ siDoData }) => {
           </div>
         </div>
         <div className="jeju absol btn">
-          <div className="map-cards">
+          <div
+            className="map-cards"
+            data-for="jeju"
+            data-tip
+            data-iscapture="true"
+          >
             <div className="names btn">제주</div>
             <div className="con btn">
               {siDoData[1]?.incDec._text === undefined
