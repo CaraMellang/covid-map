@@ -4,6 +4,7 @@ import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
 import useInfec from "../hooks/useInfec";
+import ReactTooltip from "react-tooltip";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -138,20 +139,31 @@ const Home = ({ data }) => {
             <FadeIn className="cd-bt" delay="500">
               <div className="cd-padd">
                 <div className="cd-contents blue">
-                  <div className="cd-name">검사중</div>
+                  <div
+                    className="cd-name"
+                    style={{ background: "#388396", color: "white" }}
+                  >
+                    검사중
+                  </div>
                   <div className="cd-bt-body">
                     {infData[0]?.examCnt?._text === undefined
                       ? "정보 없음"
                       : infData[0]?.examCnt._text}
                     (+{incExamCnt})
                   </div>
+                  <ReactTooltip offset="gdgd">앙ㄴ녕...</ReactTooltip>
                 </div>
               </div>
             </FadeIn>
             <FadeIn className="cd-bt" delay="600">
               <div className="cd-padd">
                 <div className="cd-contents yellow">
-                  <div className="cd-name">총 확진자</div>
+                  <div
+                    className="cd-name"
+                    style={{ background: "#BB873F", color: "white" }}
+                  >
+                    총 확진자
+                  </div>
                   <div className="cd-bt-body">
                     {siDoData[18]?.incDec._text === undefined
                       ? "정보 없음"
@@ -164,7 +176,10 @@ const Home = ({ data }) => {
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
                 <div className="cd-contents green">
-                  <div className="cd-name" style={{ background: "#418342" }}>
+                  <div
+                    className="cd-name"
+                    style={{ background: "#418342", color: "white" }}
+                  >
                     격리해제
                   </div>
                   <div className="cd-bt-body">
@@ -179,7 +194,10 @@ const Home = ({ data }) => {
             <FadeIn className="cd-bt" delay="800">
               <div className="cd-padd">
                 <div className="cd-contents red">
-                  <div className="cd-name " style={{ background: "#B63732" }}>
+                  <div
+                    className="cd-name "
+                    style={{ background: "#B63732", color: "white" }}
+                  >
                     사망자
                   </div>
                   <div className="cd-bt-body">
