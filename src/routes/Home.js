@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
 import useInfec from "../hooks/useInfec";
 
-const Home = () => {
+const Home = ({ data }) => {
   // console.log(test.items.item[18]);
-  const { infData, siDoData } = useInfec();
-  console.log(infData[0]?.examCnt._text);
+  const {
+    infData,
+    siDoData,
+    loading,
+    incExamCnt,
+    incClearCnt,
+    incDeathCnt,
+    incDecideCnt,
+  } = data;
+  console.log(loading);
+  console.log(incExamCnt);
+  console.log(parseInt(infData[0]?.examCnt._text));
 
-  const data = {
+  const barData = {
     labels: [
       "서울",
       "인천",
@@ -93,6 +103,9 @@ const Home = () => {
       // },
     ],
   };
+  // if (loading) {
+  //   return <span>로딩중..</span>;
+  // }
   return (
     <MainWrap>
       <section className="contents">
@@ -109,7 +122,7 @@ const Home = () => {
                 <div className="cd-body">
                   <div className="cd-chart">
                     <Bar
-                      data={data}
+                      data={barData}
                       height={100}
                       options={{
                         maintainAspectRatio: false,
@@ -130,13 +143,7 @@ const Home = () => {
                     {infData[0]?.examCnt?._text === undefined
                       ? "정보 없음"
                       : infData[0]?.examCnt._text}
-                    ,
-                    {infData[1]?.examCnt?._text === undefined
-                      ? "정보 없음"
-                      : infData[1]?.examCnt._text}
-                  </div>
-                  <div className="cd-footer">
-                    <div>버튼</div>
+                    (+{incExamCnt})
                   </div>
                 </div>
               </div>
@@ -149,9 +156,7 @@ const Home = () => {
                     {siDoData[18]?.incDec._text === undefined
                       ? "정보 없음"
                       : siDoData[18]?.incDec._text}
-                  </div>
-                  <div className="cd-footer">
-                    <div>버튼</div>
+                    (+{incDecideCnt})
                   </div>
                 </div>
               </div>
@@ -159,14 +164,14 @@ const Home = () => {
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
                 <div className="cd-contents green">
-                  <div className="cd-name">격리해제</div>
+                  <div className="cd-name" style={{ background: "#418342" }}>
+                    격리해제
+                  </div>
                   <div className="cd-bt-body">
                     {siDoData[18]?.isolClearCnt._text === undefined
                       ? "정보없음"
                       : siDoData[18]?.isolClearCnt._text}
-                  </div>
-                  <div className="cd-footer">
-                    <div>버튼</div>
+                    (+{incClearCnt})
                   </div>
                 </div>
               </div>
@@ -174,14 +179,14 @@ const Home = () => {
             <FadeIn className="cd-bt" delay="800">
               <div className="cd-padd">
                 <div className="cd-contents red">
-                  <div className="cd-name ">사망자</div>
+                  <div className="cd-name " style={{ background: "#B63732" }}>
+                    사망자
+                  </div>
                   <div className="cd-bt-body">
                     {siDoData[18]?.deathCnt._text === undefined
                       ? "정보 없음"
                       : siDoData[18]?.deathCnt._text}
-                  </div>
-                  <div className="cd-footer">
-                    <div>버튼</div>
+                    (+{incDeathCnt})
                   </div>
                 </div>
               </div>
@@ -260,7 +265,6 @@ const MainWrap = styled.div`
   .cd-contents {
     display: flex;
     flex-direction: column;
-    height: 15rem;
     border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);

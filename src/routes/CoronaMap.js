@@ -6,10 +6,18 @@ import { Pie, Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import useInfec from "../hooks/useInfec";
 
-const CoronaMap = () => {
-  const { siDoData, infData } = useInfec();
+const CoronaMap = ({ data }) => {
+  const {
+    infData,
+    siDoData,
+    loading,
+    incExamCnt,
+    incClearCnt,
+    incDeathCnt,
+    incDecideCnt,
+  } = data;
 
-  const data = {
+  const doughnutData = {
     labels: [
       `검사중(${infData[0]?.examCnt?._text}명)`,
       `결과양성(${infData[0]?.decideCnt?._text}명)`,
@@ -24,7 +32,11 @@ const CoronaMap = () => {
       //   data: [65,23],
       // },
       {
-        data: [infData[0]?.examCnt?._text, infData[0]?.decideCnt?._text, infData[0]?.resutlNegCnt?._text],
+        data: [
+          infData[0]?.examCnt?._text,
+          infData[0]?.decideCnt?._text,
+          infData[0]?.resutlNegCnt?._text,
+        ],
         borderWidth: 2,
         hoverBorderWidth: 3,
         borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
@@ -52,7 +64,7 @@ const CoronaMap = () => {
                   <div className="cd-left-body">
                     <div className="chart-pie">
                       <Doughnut
-                        data={data}
+                        data={doughnutData}
                         options={{
                           reponsive: true,
                           maintainAspectRatio: true,
