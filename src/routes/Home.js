@@ -8,7 +8,7 @@ import useInfec from "../hooks/useInfec";
 const Home = () => {
   // console.log(test.items.item[18]);
   const { infData, siDoData } = useInfec();
-  console.log(infData);
+  console.log(infData[0]?.examCnt._text);
 
   const data = {
     labels: [
@@ -127,10 +127,13 @@ const Home = () => {
                 <div className="cd-contents blue">
                   <div className="cd-name">검사중</div>
                   <div className="cd-bt-body">
-                    {infData?.examCnt._text === undefined
+                    {infData[0]?.examCnt?._text === undefined
                       ? "정보 없음"
-                      : infData?.examCnt._text}
-                    
+                      : infData[0]?.examCnt._text}
+                    ,
+                    {infData[1]?.examCnt?._text === undefined
+                      ? "정보 없음"
+                      : infData[1]?.examCnt._text}
                   </div>
                   <div className="cd-footer">
                     <div>버튼</div>
@@ -141,7 +144,7 @@ const Home = () => {
             <FadeIn className="cd-bt" delay="600">
               <div className="cd-padd">
                 <div className="cd-contents yellow">
-                  <div className="cd-name">확진자</div>
+                  <div className="cd-name">총 확진자</div>
                   <div className="cd-bt-body">
                     {siDoData[18]?.incDec._text === undefined
                       ? "정보 없음"

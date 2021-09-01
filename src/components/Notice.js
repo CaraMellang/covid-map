@@ -6,10 +6,10 @@ const Notice = () => {
     <NoticeWrap>
       <div className="nt-field">
         <div className="nt-card">
-          <b style={{ display: "block" }}>알림사항</b>
+          <b style={{ display: "block" }}>알림</b>
           <ul style={{ margin: 0 }}>
-            <li>아직 반응형은 개발중입니다.</li>
-            <li>1920x에서 정상작동 합니다.</li>
+            <li>반응형 적용예정.</li>
+            <li>1920x에서 정상작동.</li>
           </ul>
         </div>
       </div>
@@ -22,7 +22,7 @@ const NoticeWrap = styled.section`
   padding-left: 1rem;
   padding-right: 1rem;
   .nt-field {
-    height: 10vh;
+    /* height: 10vh; */
     background-color: #f7f7f7;
     color: black;
     width: 100%;

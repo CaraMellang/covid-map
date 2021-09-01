@@ -11,9 +11,9 @@ const CoronaMap = () => {
 
   const data = {
     labels: [
-      `검사중(${infData?.examCnt?._text}명)`,
-      `결과양성(${infData?.decideCnt?._text}명)`,
-      `결과음성(${infData?.resutlNegCnt?._text}명)`,
+      `검사중(${infData[0]?.examCnt?._text}명)`,
+      `결과양성(${infData[0]?.decideCnt?._text}명)`,
+      `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
     ],
     datasets: [
       // {
@@ -24,7 +24,7 @@ const CoronaMap = () => {
       //   data: [65,23],
       // },
       {
-        data: [infData?.examCnt?._text, infData?.decideCnt?._text, infData?.resutlNegCnt?._text],
+        data: [infData[0]?.examCnt?._text, infData[0]?.decideCnt?._text, infData[0]?.resutlNegCnt?._text],
         borderWidth: 2,
         hoverBorderWidth: 3,
         borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
@@ -64,9 +64,9 @@ const CoronaMap = () => {
                         <div className="ft-text ft-card">
                           <div className="ft-name">총 검사수</div>
                           <div className="ft-text ft-con">
-                            {infData?.accExamCnt._text === undefined
+                            {infData[0]?.accExamCnt?._text === undefined
                               ? "정보 없음"
-                              : infData?.accExamCnt._text}
+                              : infData[0]?.accExamCnt._text}
                           </div>
                         </div>
                       </div>
@@ -74,9 +74,9 @@ const CoronaMap = () => {
                         <div className="ft-text ft-card">
                           <div className="ft-name">검사 완료수</div>
                           <div className="ft-text ft-con">
-                            {infData?.accExamCompCnt._text === undefined
+                            {infData[0]?.accExamCompCnt?._text === undefined
                               ? "정보 없음"
-                              : infData?.accExamCompCnt._text}
+                              : infData[0]?.accExamCompCnt._text}
                           </div>
                         </div>
                       </div>
@@ -84,7 +84,7 @@ const CoronaMap = () => {
                         <div className="ft-text ft-card">
                           <div className="ft-name">확진율</div>
                           <div className="ft-text ft-con">
-                            {infData?.accDefRate._text}%
+                            {infData[0]?.accDefRate?._text}%
                           </div>
                         </div>
                       </div>
