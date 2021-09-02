@@ -2,6 +2,17 @@ import React from "react";
 import ReactTooltip from "react-tooltip";
 
 const TooltipForm = ({ item, id, siDoData }) => {
+  const incIsolIngCnt =
+    parseInt(siDoData[id]?.isolIngCnt._text) -
+    parseInt(siDoData[id + 19]?.isolIngCnt._text);
+
+  const incIsolClearCnt = siDoData[id + 18]?.isolClearCnt._text;
+
+  const incOverFlowCnt = siDoData[id + 18]?.overFlowCnt._text;
+
+  const incLocalOccCnt = siDoData[id + 18]?.localOccCnt._text;
+
+  const incDefCnt = siDoData[id + 18]?.defCnt._text;
   return (
     <ReactTooltip
       id={siDoData[id]?.gubunEn._text.toLowerCase()}
@@ -21,31 +32,24 @@ const TooltipForm = ({ item, id, siDoData }) => {
         </div>
         <div>전일 대비 증감수 : {siDoData[id]?.incDec._text}</div>
         <div>
-          격리자 수 : {siDoData[id]?.isolIngCnt._text}(+
-          {isNaN(
-            parseInt(siDoData[id + 18]?.isolIngCnt._text) -
-              parseInt(siDoData[id]?.isolIngCnt._text)
-          )
-            ? "오류"
-            : parseInt(siDoData[id + 18]?.isolIngCnt._text) -
-              parseInt(siDoData[id]?.isolIngCnt._text)}
-          )
+          격리자 수 : {siDoData[id]?.isolIngCnt._text}(
+          {incIsolIngCnt >= 0 ? `+${incIsolIngCnt}` : incIsolIngCnt})
         </div>
         <div>
-          격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(+
-          {siDoData[id + 18]?.isolClearCnt._text})
+          격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(
+          {incIsolClearCnt >= 0 ? `+${incIsolClearCnt}` : incIsolClearCnt})
         </div>
         <div>
-          해외 유입 수 : {siDoData[id]?.overFlowCnt._text}(+
-          {siDoData[id + 18]?.overFlowCnt._text})
+          해외 유입 수 : {siDoData[id]?.overFlowCnt._text}(
+          {incOverFlowCnt >= 0 ? `+${incOverFlowCnt}` : incOverFlowCnt})
         </div>
         <div>
-          지역 발생 수 : {siDoData[id]?.localOccCnt._text}(+
-          {siDoData[id + 18]?.localOccCnt._text})
+          지역 발생 수 : {siDoData[id]?.localOccCnt._text}(
+          {incLocalOccCnt >= 0 ? `+${incLocalOccCnt}` : incLocalOccCnt})
         </div>
         <div>
-          총 확진자 수 : {siDoData[id]?.defCnt._text}(+
-          {siDoData[id + 18]?.defCnt._text})
+          총 확진자 수 : {siDoData[id]?.defCnt._text}(
+          {incDefCnt >= 0 ? `+${incDefCnt}` : incDefCnt})
         </div>
       </div>
     </ReactTooltip>

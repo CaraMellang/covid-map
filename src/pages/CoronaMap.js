@@ -61,7 +61,8 @@ const CoronaMap = ({ data }) => {
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)} 기준)
+                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)}{" "}
+                    기준)
                   </div>
                   <div className="cd-left-body">
                     <FadeIn>
@@ -170,12 +171,13 @@ const MainWrap = styled.div`
   }
   .card {
     background-color: white;
-    border: 1px solid white;
+    border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .cd-name {
     background-color: #468a9d;
+    font-weight: bold;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 2rem;
@@ -193,6 +195,7 @@ const MainWrap = styled.div`
   }
   .cd-left-ft {
     display: flex;
+    font-weight: bold;
     flex-wrap: wrap;
   }
   .cd-right-body {
@@ -209,6 +212,7 @@ const MainWrap = styled.div`
   }
   .ft-name {
     background-color: #d1c4b4;
+    color: black;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-radius: 0.35rem 0.35rem 0 0;

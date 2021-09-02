@@ -104,6 +104,56 @@ const Home = ({ data }) => {
       // },
     ],
   };
+
+  const incBarData = {
+    labels: [
+      "서울",
+      "인천",
+      "경기",
+      "강원",
+      "세종",
+      "충북",
+      "충남",
+      "대전",
+      "경북",
+      "전북",
+      "대구",
+      "전남",
+      "광주",
+      "경남",
+      "울산",
+      "부산",
+      "제주",
+    ],
+    datasets: [
+      {
+        label: "확진자 증가",
+        backgroundColor: "rgba(238, 173, 81,1)",
+        borderColor: "rgba(238, 173, 81,1)",
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [
+          siDoData[17]?.incDec._text,
+          siDoData[16]?.incDec._text,
+          siDoData[15]?.incDec._text,
+          siDoData[14]?.incDec._text,
+          siDoData[13]?.incDec._text,
+          siDoData[12]?.incDec._text,
+          siDoData[11]?.incDec._text,
+          siDoData[10]?.incDec._text,
+          siDoData[9]?.incDec._text,
+          siDoData[8]?.incDec._text,
+          siDoData[7]?.incDec._text,
+          siDoData[6]?.incDec._text,
+          siDoData[5]?.incDec._text,
+          siDoData[4]?.incDec._text,
+          siDoData[3]?.incDec._text,
+          siDoData[2]?.incDec._text,
+          siDoData[1]?.incDec._text,
+        ],
+      },
+    ],
+  };
   // if (loading) {
   //   return <span>로딩중..</span>;
   // }
@@ -164,12 +214,12 @@ const Home = ({ data }) => {
                     className="cd-name"
                     style={{ background: "#BB873F", color: "white" }}
                   >
-                    총 확진자
+                    신규 확진자
                   </div>
                   <div className="cd-bt-body">
-                    {siDoData[18]?.incDec._text === undefined
+                    {infData[0]?.decideCnt._text === undefined
                       ? "정보 없음"
-                      : siDoData[18]?.incDec._text}
+                      : infData[0]?.decideCnt._text}
                     (+{incDecideCnt})
                   </div>
                 </div>
@@ -224,7 +274,7 @@ const Home = ({ data }) => {
                 <div className="cd-body">
                   <div className="cd-chart">
                     <Bar
-                      data={barData}
+                      data={incBarData}
                       height={100}
                       options={{
                         maintainAspectRatio: false,
@@ -271,12 +321,14 @@ const MainWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid white;
+    border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .cd-name {
     background-color: #468a9d;
+    color: white;
+    font-weight: bold;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 2rem;

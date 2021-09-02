@@ -254,7 +254,7 @@ const CMap = ({ siDoData }) => {
         <div className="jeonnam absol">
           <div
             className="map-cards"
-            data-for="Jeollanam-do"
+            data-for="jeollanam-do"
             data-tip
             data-iscapture="true"
           >
