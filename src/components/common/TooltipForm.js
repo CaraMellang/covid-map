@@ -1,20 +1,68 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretUp,
+  faCaretDown,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 const TooltipForm = ({ item, id, siDoData }) => {
   const incIsolIngCnt =
     parseInt(siDoData[id]?.isolIngCnt._text) -
     parseInt(siDoData[id + 19]?.isolIngCnt._text);
-  const incIsolClearCnt = siDoData[id + 18]?.isolClearCnt._text;
-  const incOverFlowCnt = siDoData[id + 18]?.overFlowCnt._text;
-  const incLocalOccCnt = siDoData[id + 18]?.localOccCnt._text;
-  const incDefCnt = siDoData[id + 18]?.defCnt._text;
+  const incIsolClearCnt =
+    parseInt(siDoData[id]?.isolClearCnt._text) -
+    parseInt(siDoData[id + 19]?.isolClearCnt._text);
+  const incOverFlowCnt =
+    parseInt(siDoData[id]?.overFlowCnt._text) -
+    parseInt(siDoData[id + 19]?.overFlowCnt._text);
+  const incLocalOccCnt =
+    parseInt(siDoData[id]?.localOccCnt._text) -
+    parseInt(siDoData[id + 19]?.localOccCnt._text);
+  const incDefCnt =
+    parseInt(siDoData[id]?.defCnt._text) -
+    parseInt(siDoData[id + 19]?.defCnt._text);
+  console.log(
+    incIsolIngCnt,
+    incIsolClearCnt,
+    incOverFlowCnt,
+    incLocalOccCnt,
+    incDefCnt
+  );
 
-  const numberHandler = (data) => {
+  const numberHandler = (data, string) => {
     let dd;
+    // console.log(data);
+    if (data > 0) {
+      dd = data;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faCaretUp} color="red" />
+          {dd}
+        </span>
+      );
+    }
     if (data < 0) {
+      dd = data * -1;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faCaretDown} color="blue" />
+          {dd}
+        </span>
+      );
+    }
+    if (data === 0) {
+      //격리 해제자는 반대로 계산
+      dd = data;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faTimes} color="red" />
+        </span>
+      );
+    }
+    if (string === "반대!" && data < 0) {
+      //격리 해제자는 반대로 계산
       dd = data * -1;
       return (
         <span>
@@ -23,11 +71,21 @@ const TooltipForm = ({ item, id, siDoData }) => {
         </span>
       );
     }
-    if (data > 0) {
+    if (string === "반대!" && data > 0) {
+      //격리 해제자는 반대로 계산
       dd = data;
       return (
         <span>
           <FontAwesomeIcon icon={faCaretDown} color="blue" />
+        </span>
+      );
+    }
+    if (string === "반대!" && data === 0) {
+      //격리 해제자는 반대로 계산
+      dd = data;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faTimes} color="red" />
           {dd}
         </span>
       );
@@ -52,26 +110,29 @@ const TooltipForm = ({ item, id, siDoData }) => {
         >
           {item}
         </div>
-        <div>전일 대비 증감수 : {siDoData[id]?.incDec._text}</div>
+        <div>
+          전일 대비 증감수 :
+          {numberHandler(parseInt(siDoData[id]?.incDec._text))}
+        </div>
         <div>
           격리자 수 : {siDoData[id]?.isolIngCnt._text}(
-          {numberHandler(incIsolIngCnt)})
+          {numberHandler(incIsolIngCnt, "반대!")})
         </div>
         <div>
           격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(
-          {incIsolClearCnt >= 0 ? `+${incIsolClearCnt}` : incIsolClearCnt})
+          {numberHandler(incIsolClearCnt)})
         </div>
         <div>
           해외 유입 수 : {siDoData[id]?.overFlowCnt._text}(
-          {incOverFlowCnt >= 0 ? `+${incOverFlowCnt}` : incOverFlowCnt})
+          {numberHandler(incOverFlowCnt)})
         </div>
         <div>
           지역 발생 수 : {siDoData[id]?.localOccCnt._text}(
-          {incLocalOccCnt >= 0 ? `+${incLocalOccCnt}` : incLocalOccCnt})
+          {numberHandler(incLocalOccCnt)})
         </div>
         <div>
           총 확진자 수 : {siDoData[id]?.defCnt._text}(
-          {incDefCnt >= 0 ? `+${incDefCnt}` : incDefCnt})
+          {numberHandler(incDefCnt, "반대!")})
         </div>
       </div>
     </ReactTooltip>
