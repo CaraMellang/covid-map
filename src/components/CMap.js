@@ -9,6 +9,8 @@ const CMap = ({ siDoData }) => {
   // const { siDoData } = useInfec();
   console.log(siDoData);
 
+  
+
   const cities = [
     "검역",
     "제주",

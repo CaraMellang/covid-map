@@ -1,18 +1,40 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const TooltipForm = ({ item, id, siDoData }) => {
   const incIsolIngCnt =
     parseInt(siDoData[id]?.isolIngCnt._text) -
     parseInt(siDoData[id + 19]?.isolIngCnt._text);
-
   const incIsolClearCnt = siDoData[id + 18]?.isolClearCnt._text;
-
   const incOverFlowCnt = siDoData[id + 18]?.overFlowCnt._text;
-
   const incLocalOccCnt = siDoData[id + 18]?.localOccCnt._text;
-
   const incDefCnt = siDoData[id + 18]?.defCnt._text;
+
+  const numberHandler = (data) => {
+    let dd;
+    if (data < 0) {
+      dd = data * -1;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faCaretUp} color="red" />
+          {dd}
+        </span>
+      );
+    }
+    if (data > 0) {
+      dd = data;
+      return (
+        <span>
+          <FontAwesomeIcon icon={faCaretDown} color="blue" />
+          {dd}
+        </span>
+      );
+    }
+  };
+
+  // const incTriangle = <FontAwesomeIcon icon={faCaretUp} color="red" />;
   return (
     <ReactTooltip
       id={siDoData[id]?.gubunEn._text.toLowerCase()}
@@ -33,7 +55,7 @@ const TooltipForm = ({ item, id, siDoData }) => {
         <div>전일 대비 증감수 : {siDoData[id]?.incDec._text}</div>
         <div>
           격리자 수 : {siDoData[id]?.isolIngCnt._text}(
-          {incIsolIngCnt >= 0 ? `+${incIsolIngCnt}` : incIsolIngCnt})
+          {numberHandler(incIsolIngCnt)})
         </div>
         <div>
           격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(

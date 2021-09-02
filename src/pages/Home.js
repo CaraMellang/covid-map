@@ -5,9 +5,11 @@ import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
 import useInfec from "../hooks/useInfec";
 import ReactTooltip from "react-tooltip";
+import useScroll from "../hooks/useScroll";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
+  // const { scrollY } = useScroll();
   const {
     infData,
     siDoData,
@@ -203,7 +205,6 @@ const Home = ({ data }) => {
                       : infData[0]?.examCnt._text}
                     (+{incExamCnt})
                   </div>
-                  <ReactTooltip offset="gdgd">앙ㄴ녕...</ReactTooltip>
                 </div>
               </div>
             </FadeIn>
@@ -263,8 +264,8 @@ const Home = ({ data }) => {
             </FadeIn>
           </section>
           <section className="cd-tp">
-            <FadeIn delay="1000" visible>
-              {/*나중에 scroll로 구현 */}
+            <FadeIn delay="300" visible>
+              {/*나중에 scroll로 구현 <- 구현하니 그래프가 리렌더링으로 계속 춤을 춤. 무기한 연기 */}
               <div className="cd-top">
                 <div className="cd-name">
                   전일 대비 코로나 ({infData[0]?.createDt._text.slice(0, 10)}{" "}
