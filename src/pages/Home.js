@@ -203,7 +203,14 @@ const Home = ({ data }) => {
                     {infData[0]?.examCnt?._text === undefined
                       ? "정보 없음"
                       : infData[0]?.examCnt._text}
-                    (+{incExamCnt})
+                  </div>
+                  <div className="cd-bt-footer">
+                    <div
+                      className="cd-bt-footer-inc"
+                      style={{ background: "#388396" }}
+                    >
+                      +{incExamCnt}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -221,7 +228,14 @@ const Home = ({ data }) => {
                     {infData[0]?.decideCnt._text === undefined
                       ? "정보 없음"
                       : infData[0]?.decideCnt._text}
-                    (+{incDecideCnt})
+                  </div>
+                  <div className="cd-bt-footer">
+                    <div
+                      className="cd-bt-footer-inc"
+                      style={{ background: "#BB873F" }}
+                    >
+                      +{incDecideCnt}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -239,7 +253,14 @@ const Home = ({ data }) => {
                     {siDoData[18]?.isolClearCnt._text === undefined
                       ? "정보없음"
                       : siDoData[18]?.isolClearCnt._text}
-                    (+{incClearCnt})
+                  </div>
+                  <div className="cd-bt-footer">
+                    <div
+                      className="cd-bt-footer-inc"
+                      style={{ background: "#418342" }}
+                    >
+                      +{incClearCnt}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -257,7 +278,14 @@ const Home = ({ data }) => {
                     {siDoData[18]?.deathCnt._text === undefined
                       ? "정보 없음"
                       : siDoData[18]?.deathCnt._text}
-                    (+{incDeathCnt})
+                  </div>
+                  <div className="cd-bt-footer">
+                    <div
+                      className="cd-bt-footer-inc "
+                      style={{ background: "#B63732" }}
+                    >
+                      +{incDeathCnt}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -310,7 +338,7 @@ const MainWrap = styled.div`
   .contents {
     padding-bottom: 6rem;
     padding-left: 15rem;
-    background-color: #afd48d;
+    background-color: #e9e9e9;
   }
   .cd-field {
     color: black;
@@ -371,10 +399,22 @@ const MainWrap = styled.div`
     font-size: 2.5rem;
     text-align: center;
     color: white;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
-  .cd-footer {
+  .cd-bt-footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  .cd-bt-footer-inc {
+    width: 60%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 1px solid none;
+    border-radius: 0.35rem;
+    color: white;
   }
 `;
 export default Home;

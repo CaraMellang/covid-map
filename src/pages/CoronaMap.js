@@ -41,9 +41,9 @@ const CoronaMap = ({ data }) => {
         hoverBorderWidth: 3,
         borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
         backgroundColor: [
-          "rgba(255,99,132,1)",
           "rgba(98,181,229,1)",
-          "rgba(123,198,231,1)",
+          "rgba(255,99,132,1)",
+          "rgba(78, 214, 113,1)",
         ],
         fill: true,
       },
@@ -151,7 +151,7 @@ const MainWrap = styled.div`
   .contents {
     padding-bottom: 6rem;
     padding-left: 15rem;
-    background-color: #afd48d;
+    background-color: #e9e9e9;
   }
   .cd-wrap {
     padding-left: 4rem;

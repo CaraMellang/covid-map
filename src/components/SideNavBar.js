@@ -1,46 +1,85 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import mangae from "../img/mangae.jpg";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const SideNavBar = () => {
   return (
     <SideBar>
       <nav className="sb-sidenav">
-        <div className="">
+        <div className="sb-logo">
           <Link to={"/"}>
             <div className="logo-form">
               <img className="logo" src={mangae} alt="어아니야" />
             </div>
           </Link>
         </div>
-        <div className="sb-sidenav-menu">
-          <div className="sb-sidenav-list">
-            <div className="sb-sidenav-title">메뉴 목록</div>
-            <SideMenuItem to="/" exact activeClassName="active-navlink">
-              국내 코로나 상황
-            </SideMenuItem>
-            <SideMenuItem
-              to="/coronamap"
-              exact
-              activeClassName="active-navlink"
-            >
-              국내 코로나 지도
-            </SideMenuItem>
-            <SideMenuItem
-              to="/coronanews"
-              exact
-              activeClassName="active-navlink"
-            >
-              코로나 뉴스 (준비중)
-            </SideMenuItem>
-            <SideMenuItem
-              to="/developer"
-              exact
-              activeClassName="active-navlink"
-            >
-              만든사람
-            </SideMenuItem>
+        <div className="sb-sidenav-body">
+          <div className="sb-sidenav-menu">
+            <div className="sb-sidenav-list">
+              <div className="sb-sidenav-title">
+                <span className="title-name">국내</span>
+              </div>
+              <SideMenuItem to="/" exact activeClassName="active-navlink">
+                국내 코로나 상황
+              </SideMenuItem>
+              <SideMenuItem
+                to="/coronamap"
+                exact
+                activeClassName="active-navlink"
+              >
+                국내 코로나 지도
+              </SideMenuItem>
+              <SideMenuItem
+                to="/coronanews"
+                exact
+                activeClassName="active-navlink"
+              >
+                코로나 뉴스 (준비중)
+              </SideMenuItem>
+            </div>
+            <div className="sb-sidenav-list">
+              <div className="sb-sidenav-title card">
+                <span className="title-name">해외</span>
+              </div>
+              <SideMenuItem
+                to="/overflow"
+                exact
+                activeClassName="active-navlink"
+              >
+                해외 코로나 상황
+              </SideMenuItem>
+              <SideMenuItem
+                to="/overflowdashboard"
+                exact
+                activeClassName="active-navlink"
+              >
+                해외 코로나 대쉬보드
+              </SideMenuItem>
+            </div>
+            <div className="sb-sidenav-list">
+              <div className="sb-sidenav-title">
+                <span className="title-name">기타</span>
+              </div>
+              <SideMenuItem
+                to="/developer"
+                exact
+                activeClassName="active-navlink"
+              >
+                만든사람
+              </SideMenuItem>
+            </div>
+          </div>
+        </div>
+
+        <div className="sb-sidenav-footer">
+          <div className="sb-footer-info1">Developer : Mellang</div>
+          <div className="sb-footer-info2" style={{ paddingTop: "0.5rem" }}>
+            <a href="https://github.com/CaraMellang">
+              <FontAwesomeIcon icon={faGithub} size={"2x"} />
+            </a>
           </div>
         </div>
       </nav>
@@ -63,19 +102,45 @@ const SideBar = styled.aside`
     height: 3.125rem;
     width: 14rem;
   }
-  .sb-sidenav {
-  }
   .sb-sidenav-list {
     display: flex;
     flex-direction: column;
   }
+  .sb-sidenav-body {
+    height: 80vh;
+    overflow-y: overlay;
+  }
+  .sb-sidenav-footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #3d3d45;
+    height: 14vh;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .sb-footer-info {
+  }
   .sb-sidenav-title {
-    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     text-align: center;
   }
   .active-navlink {
     color: #afd48d;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
+  }
+  .title-name {
+    display: block;
+    padding-bottom: 0.5rem;
+    width: 80%;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .sb-sidenav-bar {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
