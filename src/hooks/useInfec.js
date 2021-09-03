@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 export default function useInfec() {
   const [siDoData, setSiDoData] = useState([]);
   const [infData, setInfData] = useState([]);
+  const [overflow, setOverflow] = useState([]);
   const [loading, setLoading] = useState(true);
   const [incExamCnt, setIncExamCnt] = useState(0); //전일대비 검사자
   const [incDecideCnt, setIncDecideCnt] = useState(0); //전일대비 확진자
@@ -15,6 +16,9 @@ export default function useInfec() {
     setInfData(data.data.response.body.items.item);
     let data2 = await axios.get(`http://localhost:4000/sidoapi`);
     setSiDoData(data2.data.response.body.items.item);
+    // let data3 = await axios.get(`http://localhost:4000/overflowapi`);
+    // setOverflow(data3.data.response.body.items.item);
+    // console.log(data3.data.response.body.items.item)
     setLoading(false);
   };
 

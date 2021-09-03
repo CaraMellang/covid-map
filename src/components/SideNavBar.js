@@ -56,7 +56,7 @@ const SideNavBar = () => {
                 exact
                 activeClassName="active-navlink"
               >
-                해외 코로나 대쉬보드
+                해외 코로나 대시보드
               </SideMenuItem>
             </div>
             <div className="sb-sidenav-list">
