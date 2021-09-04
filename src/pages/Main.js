@@ -14,8 +14,8 @@ import MobileSideNavBar from "../components/MobileSideNavBar";
 
 const Main = () => {
   const { data } = useInfec();
-  const [desktop, setDesktop] = useState(true);
-  const [toggle, setToggle] = useState(false);
+  const [desktop, setDesktop] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   const onClickbackground = () => {
     setToggle((prev) => !prev);
@@ -44,7 +44,11 @@ const Main = () => {
         {desktop === true ? (
           <SideNavBar />
         ) : (
-            <MobileSideNavBar toggle={toggle}  />
+          <aside
+            className={`aside-side ${toggle === true ? "as-show" : "as-hide"}`}
+          >
+            <MobileSideNavBar toggle={toggle} />
+          </aside>
         )}
 
         <Route path={"/"} exact render={() => <Home data={data} />} />
@@ -68,12 +72,12 @@ const Main = () => {
           exact
           render={() => <Developer data={data} />}
         />
-        {/* {!desktop && toggle && (
+        {!desktop && toggle && (
           <div
             className="MobileDarkBackground"
             onClick={onClickbackground}
           ></div>
-        )} */}
+        )}
       </MainWrap>
       <Footer />
     </BrowserRouter>
@@ -82,23 +86,32 @@ const Main = () => {
 const MainWrap = styled.div`
   color: white;
 
-  /* .MobileDarkBackground {
+  .MobileDarkBackground {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 40;
-  } */
+    z-index: ${({ toggle }) => (toggle === true ? 40 : -40)};
+  }
   .aside-side {
     width: 15rem;
     position: fixed;
     background-color: white;
     color: black;
     height: 100vh;
-    z-index: 200;
     right: 0;
+  }
+  .as-show {
+    transition: 0.1s ease-in;
+    transform: translateX(0px);
+    z-index: 200;
+  }
+  .as-hide {
+    transition: 0.1s ease-in;
+    transform: translateX(250px);
+    z-index: -200;
   }
 `;
 export default Main;

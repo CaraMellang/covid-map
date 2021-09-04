@@ -6,9 +6,9 @@ import mangae from "../img/mangae.jpg";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import media from "../lib/media";
 
-const MobileSideNavBar = () => {
+const MobileSideNavBar = ({ toggle }) => {
   return (
-    <MbSideBar>
+    <MbSideBar toggle={toggle}>
       <nav className="mb-sb-sidenav">
         <div className="mb-sb-logo">
           <Link to={"/"}>
