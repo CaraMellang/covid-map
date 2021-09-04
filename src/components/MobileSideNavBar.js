@@ -96,7 +96,7 @@ const MbSideMenuItem = styled(NavLink)`
   border: 1px solid none;
 `;
 
-const MbSideBar = styled.div`
+const MbSideBar = styled.aside`
 
   .mb-logo-form {
     width: 14rem;

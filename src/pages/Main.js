@@ -44,9 +44,7 @@ const Main = () => {
         {desktop === true ? (
           <SideNavBar />
         ) : (
-          <aside className={`aside-side ${toggle === true ? "show" : "hide"}`}>
-            <MobileSideNavBar toggle={toggle} setToggle={setToggle} />
-          </aside>
+            <MobileSideNavBar toggle={toggle}  />
         )}
 
         <Route path={"/"} exact render={() => <Home data={data} />} />
@@ -70,12 +68,12 @@ const Main = () => {
           exact
           render={() => <Developer data={data} />}
         />
-        {!desktop && toggle && (
+        {/* {!desktop && toggle && (
           <div
             className="MobileDarkBackground"
             onClick={onClickbackground}
           ></div>
-        )}
+        )} */}
       </MainWrap>
       <Footer />
     </BrowserRouter>
@@ -84,7 +82,7 @@ const Main = () => {
 const MainWrap = styled.div`
   color: white;
 
-  .MobileDarkBackground {
+  /* .MobileDarkBackground {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -92,7 +90,7 @@ const MainWrap = styled.div`
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 40;
-  }
+  } */
   .aside-side {
     width: 15rem;
     position: fixed;
@@ -101,14 +99,6 @@ const MainWrap = styled.div`
     height: 100vh;
     z-index: 200;
     right: 0;
-  }
-  .show {
-    transition: 0.1s ease-in;
-    transform: translateX(0px);
-  }
-  .hide {
-    transition: 0.1s ease-in;
-    transform: translateX(250px);
   }
 `;
 export default Main;

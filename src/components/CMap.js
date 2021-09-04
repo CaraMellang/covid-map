@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FadeIn from "react-fade-in";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
@@ -100,9 +100,8 @@ const CMap = ({ siDoData }) => {
             </div>
           </div>
         </div>
-        <ReactTooltip id="incheon" place="right" effect="solid" />
         <div className="incheon absol">
-          <div className="map-cards" data-for="incheon" data-tip="ㅎ">
+          <div className="map-cards" data-for="incheon" data-tip>
             <div className="names btn">인천</div>
             <div className="con  btn">
               {siDoData[16]?.incDec._text === undefined
