@@ -1,10 +1,10 @@
 import React from "react";
 import FadeIn from "react-fade-in";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import CMap from "../components/CMap";
-import { Pie, Doughnut } from "react-chartjs-2";
+import {  Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
-import useInfec from "../hooks/useInfec";
+import media from "../lib/media";
 
 const CoronaMap = ({ data }) => {
   const {
@@ -45,7 +45,6 @@ const CoronaMap = ({ data }) => {
           "rgba(255,99,132,1)",
           "rgba(78, 214, 113,1)",
         ],
-        fill: true,
       },
     ],
   };
@@ -61,7 +60,7 @@ const CoronaMap = ({ data }) => {
               <div className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
-                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)}{" "}
+                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)}
                     기준)
                   </div>
                   <div className="cd-left-body">
@@ -70,34 +69,43 @@ const CoronaMap = ({ data }) => {
                         <Doughnut
                           data={doughnutData}
                           options={{
-                            reponsive: true,
-                            maintainAspectRatio: true,
+                            // reponsive: false,
+                            // reponsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                              legend: {
+                                display: true,
+                                position: "right",
+                              },
+                            },
                           }}
                         />
                       </div>
                     </FadeIn>
                     <div className="cd-left-ft">
-                      <div className="ft-left">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">총 검사수</div>
-                          <div className="ft-text ft-con">
-                            {infData[0]?.accExamCnt?._text === undefined
-                              ? "정보 없음"
-                              : infData[0]?.accExamCnt._text}
+                      <div className="cd-ft-top">
+                        <div className=" cd-ft-top-item">
+                          <div className="ft-text ft-card">
+                            <div className="ft-name">총 검사수</div>
+                            <div className="ft-text ft-con">
+                              {infData[0]?.accExamCnt?._text === undefined
+                                ? "정보 없음"
+                                : infData[0]?.accExamCnt._text}
+                            </div>
+                          </div>
+                        </div>
+                        <div className=" cd-ft-top-item">
+                          <div className="ft-text ft-card">
+                            <div className="ft-name">검사 완료수</div>
+                            <div className="ft-text ft-con">
+                              {infData[0]?.accExamCompCnt?._text === undefined
+                                ? "정보 없음"
+                                : infData[0]?.accExamCompCnt._text}
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div className="ft-left">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">검사 완료수</div>
-                          <div className="ft-text ft-con">
-                            {infData[0]?.accExamCompCnt?._text === undefined
-                              ? "정보 없음"
-                              : infData[0]?.accExamCompCnt._text}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="ft-right">
+                      <div className="ft-bottom">
                         <div className="ft-text ft-card">
                           <div className="ft-name">확진율</div>
                           <div className="ft-text ft-con">
@@ -120,7 +128,7 @@ const CoronaMap = ({ data }) => {
                   <div className="cd-right-body">
                     <div className="co-map">
                       <FadeIn className="dd">
-                        <CMap siDoData={siDoData} infData={infData} />
+                        <CMap siDoData={siDoData}  />
                       </FadeIn>
                     </div>
                   </div>
@@ -154,8 +162,8 @@ const MainWrap = styled.div`
     background-color: #e9e9e9;
   }
   .cd-wrap {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    /* padding-left: 2rem;
+    padding-right: 2rem; */
   }
   .cd-field {
     display: flex;
@@ -165,8 +173,8 @@ const MainWrap = styled.div`
     width: 50%;
   }
   .cd-padd {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 2rem;
   }
   .card {
@@ -189,26 +197,26 @@ const MainWrap = styled.div`
     flex-direction: column;
   }
   .chart-pie {
-    padding: 5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
   .cd-left-ft {
     display: flex;
+    flex-direction: column;
     font-weight: bold;
-    flex-wrap: wrap;
   }
-  .cd-right-body {
+  .cd-ft-top {
+    display: flex;
+    padding-bottom: 0.5rem;
+  }
+  .cd-ft-top-item {
+    width: 50%;
   }
   .co-map {
     display: flex;
     justify-content: center;
-  }
-  .ft-left {
-    width: 25%;
-  }
-  .ft-right {
-    width: 50%;
   }
   .ft-name {
     background-color: #d1c4b4;
@@ -250,6 +258,65 @@ const MainWrap = styled.div`
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
+  }
+
+  ${media.xlarge} {
+    //1440
+  }
+  ${media.large} {
+    //1024
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  ${media.medium} {
+    //768
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  ${media.small} {
+    //425
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  ${media.xsmall} {
+    //375
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  ${media.xxsmall} {
+    //320
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
   }
 `;
 

@@ -1,15 +1,12 @@
 import React from "react";
 import FadeIn from "react-fade-in";
-import styled from "styled-components";
-import useInfec from "../hooks/useInfec";
 import ReactTooltip from "react-tooltip";
+import styled from "styled-components";
 import TooltipForm from "./common/TooltipForm";
 
 const CMap = ({ siDoData }) => {
   // const { siDoData } = useInfec();
   console.log(siDoData);
-
-  
 
   const cities = [
     "검역",
@@ -103,13 +100,9 @@ const CMap = ({ siDoData }) => {
             </div>
           </div>
         </div>
+        <ReactTooltip id="incheon" place="right" effect="solid" />
         <div className="incheon absol">
-          <div
-            className="map-cards"
-            data-for="incheon"
-            data-tip
-            data-iscapture="true"
-          >
+          <div className="map-cards" data-for="incheon" data-tip="ㅎ">
             <div className="names btn">인천</div>
             <div className="con  btn">
               {siDoData[16]?.incDec._text === undefined
@@ -123,7 +116,6 @@ const CMap = ({ siDoData }) => {
             className="map-cards"
             data-for="gyeonggi-do" // api에서의 네이밍임
             data-tip
-            data-iscapture="true"
           >
             <div className="names btn">경기</div>
             <div className="con  btn">

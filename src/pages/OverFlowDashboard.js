@@ -12,10 +12,6 @@ const OverFlowDashboard = () => {
               Johns Hopkins CSSE(존스 홉킨스 대학교)의 전세계 코로나 현황판
               입니다.
             </b>
-            {/* <ul style={{ margin: 0 }}>
-            <li>반응형 적용예정.</li>
-            <li>1920x에서 정상작동.</li>
-          </ul> */}
           </div>
         </div>
       </NoticeWrap>

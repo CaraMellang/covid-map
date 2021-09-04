@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
-import useInfec from "../hooks/useInfec";
-import ReactTooltip from "react-tooltip";
-import useScroll from "../hooks/useScroll";
+import media from "../lib/media";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -222,7 +220,7 @@ const Home = ({ data }) => {
                     className="cd-name"
                     style={{ background: "#BB873F", color: "white" }}
                   >
-                    신규 확진자
+                    확진자
                   </div>
                   <div className="cd-bt-body">
                     {infData[0]?.decideCnt._text === undefined
@@ -342,8 +340,8 @@ const MainWrap = styled.div`
   }
   .cd-field {
     color: black;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .cd-top {
     background-color: white;
@@ -396,7 +394,7 @@ const MainWrap = styled.div`
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .cd-bt-body {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     color: white;
     padding-top: 2rem;
@@ -416,5 +414,123 @@ const MainWrap = styled.div`
     border-radius: 0.35rem;
     color: white;
   }
+
+  ${media.xlarge} {
+    //1440
+  }
+  ${media.large} {
+    //1024
+    padding-top: 3.625rem;
+    .contents {
+      padding-left: 0;
+    }
+    .cd-bt-row {
+      padding-bottom: 2rem;
+    }
+    .cd-bt {
+      width: 50%;
+    }
+    .cd-bt-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+  ${media.medium} {
+    //768
+    padding-top: 3.625rem;
+    .contents {
+      padding-bottom: 6rem;
+      padding-left: 0;
+    }
+    .cd-bt-row {
+      padding-bottom: 2rem;
+    }
+    .cd-bt {
+      width: 50%;
+    }
+    .cd-bt-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+  ${media.small} {
+    //425
+    padding-top: 3.625rem;
+    .contents {
+      padding-bottom: 6rem;
+      padding-left: 0;
+    }
+    .cd-bt-row {
+      padding-bottom: 2rem;
+    }
+    .cd-bt {
+      width: 100%;
+    }
+    .cd-bt-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+  ${media.xsmall} {
+    //375
+    padding-top: 3.625rem;
+    .contents {
+      padding-bottom: 6rem;
+      padding-left: 0;
+    }
+    .cd-bt-row {
+      padding-bottom: 2rem;
+    }
+    .cd-bt {
+      width: 100%;
+    }
+    .cd-bt-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+  ${media.xxsmall} {
+    //320
+    padding-top: 3.625rem;
+    .contents {
+      padding-bottom: 6rem;
+      padding-left: 0;
+    }
+    .cd-bt-row {
+      padding-bottom: 2rem;
+    }
+    .cd-bt {
+      width: 100%;
+    }
+    .cd-bt-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
 `;
-export default Home;
+export default React.memo(Home);

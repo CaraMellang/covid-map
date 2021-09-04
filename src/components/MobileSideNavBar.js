@@ -1,93 +1,93 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import mangae from "../img/mangae.jpg";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import media from "../lib/media";
 
-const SideNavBar = () => {
+const MobileSideNavBar = () => {
   return (
-    <SideBar>
-      <nav className="sb-sidenav">
-        <div className="sb-logo">
+    <MbSideBar>
+      <nav className="mb-sb-sidenav">
+        <div className="mb-sb-logo">
           <Link to={"/"}>
-            <div className="logo-form">
-              <img className="logo" src={mangae} alt="어아니야" />
+            <div className="mb-logo-form">
+              <img className="mb-logo" src={mangae} alt="어아니야" />
             </div>
           </Link>
         </div>
-        <div className="sb-sidenav-body">
-          <div className="sb-sidenav-menu">
-            <div className="sb-sidenav-list">
-              <div className="sb-sidenav-title">
-                <span className="title-name">국내</span>
+        <div className="mb-sb-sidenav-body">
+          <div className="mb-sb-sidenav-menu">
+            <div className="mb-sb-sidenav-list">
+              <div className="mb-sb-sidenav-title">
+                <span className="mb-title-name">국내</span>
               </div>
-              <SideMenuItem to="/" exact activeClassName="active-navlink">
+              <MbSideMenuItem to="/" exact activeClassName="active-navlink">
                 국내 코로나 상황
-              </SideMenuItem>
-              <SideMenuItem
+              </MbSideMenuItem>
+              <MbSideMenuItem
                 to="/coronamap"
                 exact
                 activeClassName="active-navlink"
               >
                 국내 코로나 지도
-              </SideMenuItem>
-              <SideMenuItem
+              </MbSideMenuItem>
+              <MbSideMenuItem
                 to="/coronanews"
                 exact
                 activeClassName="active-navlink"
               >
                 코로나 뉴스 (준비중)
-              </SideMenuItem>
+              </MbSideMenuItem>
             </div>
-            <div className="sb-sidenav-list">
-              <div className="sb-sidenav-title card">
-                <span className="title-name">해외</span>
+            <div className="mb-sb-sidenav-list">
+              <div className="mb-sb-sidenav-title card">
+                <span className="mb-title-name">해외</span>
               </div>
-              <SideMenuItem
+              <MbSideMenuItem
                 to="/overflow"
                 exact
                 activeClassName="active-navlink"
               >
                 해외 코로나 상황
-              </SideMenuItem>
-              <SideMenuItem
+              </MbSideMenuItem>
+              <MbSideMenuItem
                 to="/overflowdashboard"
                 exact
                 activeClassName="active-navlink"
               >
                 해외 코로나 대시보드
-              </SideMenuItem>
+              </MbSideMenuItem>
             </div>
-            <div className="sb-sidenav-list">
-              <div className="sb-sidenav-title">
-                <span className="title-name">기타</span>
+            <div className="mb-sb-sidenav-list">
+              <div className="mb-sb-sidenav-title">
+                <span className="mb-title-name">기타</span>
               </div>
-              <SideMenuItem
+              <MbSideMenuItem
                 to="/developer"
                 exact
                 activeClassName="active-navlink"
               >
                 만든사람
-              </SideMenuItem>
+              </MbSideMenuItem>
             </div>
           </div>
         </div>
 
-        <div className="sb-sidenav-footer">
-          <div className="sb-footer-info1">Developer : Mellang</div>
-          <div className="sb-footer-info2" style={{ paddingTop: "0.5rem" }}>
+        <div className="mb-sb-sidenav-footer">
+          <div className="mb-sb-footer-info1">Developer : Mellang</div>
+          <div className="mb-sb-footer-info2" style={{ paddingTop: "0.5rem" }}>
             <a href="https://github.com/CaraMellang">
               <FontAwesomeIcon icon={faGithub} size={"2x"} />
             </a>
           </div>
         </div>
       </nav>
-    </SideBar>
+    </MbSideBar>
   );
 };
-const SideMenuItem = styled(NavLink)`
+const MbSideMenuItem = styled(NavLink)`
   display: flex;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -96,31 +96,27 @@ const SideMenuItem = styled(NavLink)`
   border: 1px solid none;
 `;
 
-const SideBar = styled.aside`
-  width: 15rem;
-  position: fixed;
-  background-color: white;
-  color: black;
-  height: 100vh;
-  .logo-form {
+const MbSideBar = styled.div`
+
+  .mb-logo-form {
     width: 14rem;
     padding-top: 0.25rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  .logo {
+  .mb-logo {
     height: 3.125rem;
     width: 14rem;
   }
-  .sb-sidenav-list {
+  .mb-sb-sidenav-list {
     display: flex;
     flex-direction: column;
   }
-  .sb-sidenav-body {
+  .mb-sb-sidenav-body {
     height: 80vh;
     overflow-y: overlay;
   }
-  .sb-sidenav-footer {
+  .mb-sb-sidenav-footer {
     display: flex;
     flex-direction: column;
     background-color: #3d3d45;
@@ -129,9 +125,9 @@ const SideBar = styled.aside`
     align-items: center;
     color: white;
   }
-  .sb-footer-info {
+  .mb-sb-footer-info {
   }
-  .sb-sidenav-title {
+  .mb-sb-sidenav-title {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -142,41 +138,41 @@ const SideBar = styled.aside`
     color: #afd48d;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
-  .title-name {
+  .mb-title-name {
     display: block;
     padding-bottom: 0.5rem;
     width: 80%;
     border-bottom: 1px solid #e6e6e6;
   }
-  .sb-sidenav-bar {
+  .mb-sb-sidenav-bar {
     display: flex;
     flex-direction: column;
   }
 
   ${media.xlarge} {
     //1440
-    display: block;
+    display: none;
   }
   ${media.large} {
     //1024
-    display: none;
+    display: block;
   }
   ${media.medium} {
     //768
-    display: none;
+    display: block;
   }
   ${media.small} {
     //425
-    display: none;
+    display: block;
   }
   ${media.xsmall} {
     //375
-    display: none;
+    display: block;
   }
   ${media.xxsmall} {
     //320
-    display: none;
+    display: block;
   }
 `;
 
-export default SideNavBar;
+export default MobileSideNavBar;

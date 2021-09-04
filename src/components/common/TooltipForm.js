@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,13 +23,6 @@ const TooltipForm = ({ item, id, siDoData }) => {
   const incDefCnt =
     parseInt(siDoData[id]?.defCnt._text) -
     parseInt(siDoData[id + 19]?.defCnt._text);
-  console.log(
-    incIsolIngCnt,
-    incIsolClearCnt,
-    incOverFlowCnt,
-    incLocalOccCnt,
-    incDefCnt
-  );
 
   const numberHandler = (data, string) => {
     let dd;
