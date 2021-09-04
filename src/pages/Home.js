@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
@@ -17,9 +17,17 @@ const Home = ({ data }) => {
     incDeathCnt,
     incDecideCnt,
   } = data;
-  console.log(loading);
-  console.log(incExamCnt);
-  console.log(parseInt(infData[0]?.examCnt._text));
+
+  const [aniToggle, setAniToggle] = useState(700); //조잡하지만 이거라도..
+  const animationHandler = () => {
+    setAniToggle(0);
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      animationHandler();
+    }, 700);
+    return () => {};
+  });
 
   const barData = {
     labels: [
@@ -179,6 +187,10 @@ const Home = ({ data }) => {
                       height={100}
                       options={{
                         maintainAspectRatio: false,
+                        animation: {
+                          duration: aniToggle,
+                          // onComplete: animationHandler,
+                        },
                       }}
                     />
                   </div>
@@ -305,6 +317,10 @@ const Home = ({ data }) => {
                       height={100}
                       options={{
                         maintainAspectRatio: false,
+                        animation: {
+                          duration: aniToggle,
+                          // onComplete: animationHandler,
+                        },
                       }}
                     />
                   </div>

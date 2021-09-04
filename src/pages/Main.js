@@ -14,7 +14,7 @@ import MobileSideNavBar from "../components/MobileSideNavBar";
 
 const Main = () => {
   const { data } = useInfec();
-  const [desktop, setDesktop] = useState(false);
+  const [Display, setDisplay] = useState(false);
   const [toggle, setToggle] = useState(true);
 
   const onClickbackground = () => {
@@ -26,22 +26,29 @@ const Main = () => {
   const onLoadScreen = () => {
     const viewPortWidth = window.innerWidth;
     if (viewPortWidth <= 1024) {
-      setDesktop(false);
+      setDisplay(false);
     }
     if (viewPortWidth > 1024) {
-      setDesktop(true);
+      setDisplay(true);
     }
     console.log(viewPortWidth);
   };
   useEffect(() => {
-    onLoadScreen();
+    window.addEventListener("resize", () => {
+      onLoadScreen();
+    });
+    return () => {
+      window.removeEventListener("resize", () => {
+        onLoadScreen();
+      });
+    };
   }, []);
 
   return (
     <BrowserRouter>
-      {!desktop && <NavBar onClickToggle={onClickToggle} />}
+      {!Display && <NavBar onClickToggle={onClickToggle} />}
       <MainWrap toggle={toggle}>
-        {desktop === true ? (
+        {Display === true ? (
           <SideNavBar />
         ) : (
           <aside
@@ -72,7 +79,7 @@ const Main = () => {
           exact
           render={() => <Developer data={data} />}
         />
-        {!desktop && toggle && (
+        {!Display && toggle && (
           <div
             className="MobileDarkBackground"
             onClick={onClickbackground}

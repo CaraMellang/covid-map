@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FadeIn from "react-fade-in";
 import styled from "styled-components";
 import CMap from "../components/CMap";
-import {  Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import media from "../lib/media";
 
@@ -16,6 +16,18 @@ const CoronaMap = ({ data }) => {
     incDeathCnt,
     incDecideCnt,
   } = data;
+  const [aniToggle, setAniToggle] = useState(700);
+  const animationHandler = () => {
+    setAniToggle(0);
+    console.log("앙앙");
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      animationHandler();
+    }, 700);
+    return () => {
+    };
+  });
 
   const doughnutData = {
     labels: [
@@ -71,12 +83,15 @@ const CoronaMap = ({ data }) => {
                           options={{
                             // reponsive: false,
                             // reponsive: true,
-                            maintainAspectRatio: false,
                             plugins: {
                               legend: {
                                 display: true,
                                 position: "right",
                               },
+                            },
+                            animation: {
+                              duration: aniToggle,
+                              // onComplete: animationHandler,
                             },
                           }}
                         />
@@ -128,7 +143,7 @@ const CoronaMap = ({ data }) => {
                   <div className="cd-right-body">
                     <div className="co-map">
                       <FadeIn className="dd">
-                        <CMap siDoData={siDoData}  />
+                        <CMap siDoData={siDoData} />
                       </FadeIn>
                     </div>
                   </div>
