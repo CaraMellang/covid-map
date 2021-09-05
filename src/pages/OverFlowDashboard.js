@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import media from "../lib/media";
 
 const OverFlowDashboard = () => {
   return (
@@ -47,6 +48,29 @@ const OverFlowDashboardWrap = styled.div`
     border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
+  }
+  ${media.xlarge} {
+    //1440
+  }
+  ${media.large} {
+    //1024
+  padding-left: 0;
+  }
+  ${media.medium} {
+    //768
+  padding-left: 0;
+  }
+  ${media.small} {
+    //425
+  padding-left: 0;
+  }
+  ${media.xsmall} {
+    //375
+  padding-left: 0;
+    }
+  }
+  ${media.xxsmall} {
+    //320
   }
 `;
 const NoticeWrap = styled.section`

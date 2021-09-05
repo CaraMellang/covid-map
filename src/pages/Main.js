@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import styled from "styled-components";
-import NavBar from "../components/NavBar";
-import SideNavBar from "../components/SideNavBar";
+import NavBar from "../components/Sidebar/NavBar";
+import SideNavBar from "../components/Sidebar/SideNavBar";
 import CoronaMap from "./CoronaMap";
 import Home from "./Home";
 import Footer from "../components/Footer";
@@ -10,45 +10,47 @@ import useInfec from "../hooks/useInfec";
 import OverFlow from "./OverFlow";
 import OverFlowDashboard from "./OverFlowDashboard";
 import Developer from "./Developer";
-import MobileSideNavBar from "../components/MobileSideNavBar";
+import MobileSideNavBar from "../components/Sidebar/MobileSideNavBar";
+import AllbarComponents from "../components/Sidebar/AllbarComponents";
 
 const Main = () => {
   const { data } = useInfec();
-  const [Display, setDisplay] = useState(false);
-  const [toggle, setToggle] = useState(true);
+  // const [Display, setDisplay] = useState(true);
+  // const [toggle, setToggle] = useState(false);
 
-  const onClickbackground = () => {
-    setToggle((prev) => !prev);
-  };
-  const onClickToggle = () => {
-    setToggle((prev) => !prev);
-  };
-  const onLoadScreen = () => {
-    const viewPortWidth = window.innerWidth;
-    if (viewPortWidth <= 1024) {
-      setDisplay(false);
-    }
-    if (viewPortWidth > 1024) {
-      setDisplay(true);
-    }
-    console.log(viewPortWidth);
-  };
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      onLoadScreen();
-    });
-    return () => {
-      window.removeEventListener("resize", () => {
-        onLoadScreen();
-      });
-    };
-  }, []);
+  // const onClickbackground = () => {
+  //   setToggle((prev) => !prev);
+  // };
+  // const onClickToggle = () => {
+  //   setToggle((prev) => !prev);
+  // };
+  // const onLoadScreen = () => {
+  //   const viewPortWidth = window.innerWidth;
+  //   if (viewPortWidth <= 1024) {
+  //     setDisplay(false);
+  //   }
+  //   if (viewPortWidth > 1024) {
+  //     setDisplay(true);
+  //   }
+  //   console.log(viewPortWidth);
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => {
+  //     onLoadScreen();
+  //   });
+  //   return () => {
+  //     window.removeEventListener("resize", () => {
+  //       onLoadScreen();
+  //     });
+  //   };
+  // }, []);
 
   return (
     <BrowserRouter>
-      {!Display && <NavBar onClickToggle={onClickToggle} />}
-      <MainWrap toggle={toggle}>
-        {Display === true ? (
+      {/* {!Display && <NavBar onClickToggle={onClickToggle} />} */}
+      <MainWrap>
+        <AllbarComponents />
+        {/* {Display === true ? (
           <SideNavBar />
         ) : (
           <aside
@@ -56,7 +58,7 @@ const Main = () => {
           >
             <MobileSideNavBar toggle={toggle} />
           </aside>
-        )}
+        )} */}
 
         <Route path={"/"} exact render={() => <Home data={data} />} />
         <Route
@@ -79,12 +81,12 @@ const Main = () => {
           exact
           render={() => <Developer data={data} />}
         />
-        {!Display && toggle && (
+        {/* {!Display && toggle && (
           <div
             className="MobileDarkBackground"
             onClick={onClickbackground}
           ></div>
-        )}
+        )} */}
       </MainWrap>
       <Footer />
     </BrowserRouter>
@@ -93,7 +95,7 @@ const Main = () => {
 const MainWrap = styled.div`
   color: white;
 
-  .MobileDarkBackground {
+  /* .MobileDarkBackground {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -119,6 +121,6 @@ const MainWrap = styled.div`
     transition: 0.1s ease-in;
     transform: translateX(250px);
     z-index: -200;
-  }
+  } */
 `;
 export default Main;

@@ -7,7 +7,12 @@ const NavBar = ({ onClickToggle }) => {
   return (
     <Nav>
       <div className="navbar">
-        <FontAwesomeIcon onClick={onClickToggle} icon={faBars} size={"2x"} />
+        <FontAwesomeIcon
+          onClick={onClickToggle}
+          icon={faBars}
+          size={"2x"}
+          style={{ color: "black" }}
+        />
       </div>
     </Nav>
   );
@@ -23,6 +28,9 @@ const Nav = styled.nav`
   .navbar {
     display: flex;
     justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+    padding-right: 1rem;
   }
   .logo-form {
     width: 14rem;

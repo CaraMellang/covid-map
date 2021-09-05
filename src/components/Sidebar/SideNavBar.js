@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import mangae from "../img/mangae.jpg";
+import mangae from "../../img/mangae.jpg";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import media from "../lib/media";
+import media from "../../lib/media";
 
 const SideNavBar = () => {
   return (
@@ -50,7 +50,7 @@ const SideNavBar = () => {
                 exact
                 activeClassName="active-navlink"
               >
-                해외 코로나 상황
+                해외 코로나 상황 (준비중)
               </SideMenuItem>
               <SideMenuItem
                 to="/overflowdashboard"

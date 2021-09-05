@@ -25,8 +25,7 @@ const CoronaMap = ({ data }) => {
     setTimeout(() => {
       animationHandler();
     }, 700);
-    return () => {
-    };
+    return () => {};
   });
 
   const doughnutData = {
@@ -83,6 +82,8 @@ const CoronaMap = ({ data }) => {
                           options={{
                             // reponsive: false,
                             // reponsive: true,
+                            maintainAspectRatio: false,
+
                             plugins: {
                               legend: {
                                 display: true,
@@ -90,7 +91,7 @@ const CoronaMap = ({ data }) => {
                               },
                             },
                             animation: {
-                              duration: aniToggle,
+                              // duration: aniToggle,
                               // onComplete: animationHandler,
                             },
                           }}
@@ -214,8 +215,8 @@ const MainWrap = styled.div`
   .chart-pie {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
   .cd-left-ft {
     display: flex;
@@ -277,6 +278,10 @@ const MainWrap = styled.div`
 
   ${media.xlarge} {
     //1440
+    .cd-padd {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
   }
   ${media.large} {
     //1024
@@ -335,4 +340,4 @@ const MainWrap = styled.div`
   }
 `;
 
-export default CoronaMap;
+export default React.memo(CoronaMap);

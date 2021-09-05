@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import mangae from "../img/mangae.jpg";
+import mangae from "../../img/mangae.jpg";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import media from "../lib/media";
+import media from "../../lib/media";
 
 const MobileSideNavBar = ({ toggle }) => {
   return (
@@ -50,7 +50,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 exact
                 activeClassName="active-navlink"
               >
-                해외 코로나 상황
+                해외 코로나 상황 (준비중)
               </MbSideMenuItem>
               <MbSideMenuItem
                 to="/overflowdashboard"
@@ -97,7 +97,6 @@ const MbSideMenuItem = styled(NavLink)`
 `;
 
 const MbSideBar = styled.aside`
-
   .mb-logo-form {
     width: 14rem;
     padding-top: 0.25rem;

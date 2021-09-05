@@ -18,14 +18,14 @@ const Home = ({ data }) => {
     incDecideCnt,
   } = data;
 
-  const [aniToggle, setAniToggle] = useState(700); //조잡하지만 이거라도..
+  const [aniToggle, setAniToggle] = useState(1000); //조잡하지만 이거라도..
   const animationHandler = () => {
     setAniToggle(0);
   };
   useEffect(() => {
     setTimeout(() => {
       animationHandler();
-    }, 700);
+    }, 1000);
     return () => {};
   });
 
