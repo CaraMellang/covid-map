@@ -22,7 +22,6 @@ const AllbarComponents = () => {
     if (viewPortWidth > 1024) {
       setDisplay(true);
     }
-    console.log(viewPortWidth);
   };
   useEffect(() => {
     onLoadScreen();

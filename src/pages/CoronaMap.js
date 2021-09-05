@@ -5,6 +5,7 @@ import CMap from "../components/CMap";
 import { Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import media from "../lib/media";
+import Loading from "../components/Loading/Loading";
 
 const CoronaMap = ({ data }) => {
   const {
@@ -59,6 +60,10 @@ const CoronaMap = ({ data }) => {
       },
     ],
   };
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <MainWrap>
       <div className="contents">

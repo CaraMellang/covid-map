@@ -4,6 +4,7 @@ import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
 import media from "../lib/media";
+import Loading from "../components/Loading/Loading";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -165,6 +166,9 @@ const Home = ({ data }) => {
   // if (loading) {
   //   return <span>로딩중..</span>;
   // }
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <MainWrap>
       <section className="contents">
