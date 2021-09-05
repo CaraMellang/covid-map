@@ -188,7 +188,7 @@ const Home = ({ data }) => {
                       options={{
                         maintainAspectRatio: false,
                         animation: {
-                          duration: aniToggle,
+                          // duration: aniToggle,
                           // onComplete: animationHandler,
                         },
                       }}
@@ -318,7 +318,7 @@ const Home = ({ data }) => {
                       options={{
                         maintainAspectRatio: false,
                         animation: {
-                          duration: aniToggle,
+                          // duration: aniToggle,
                           // onComplete: animationHandler,
                         },
                       }}
@@ -337,6 +337,7 @@ const Home = ({ data }) => {
 
 const MainWrap = styled.div`
   /* padding-top: 3.625rem; */
+  background-color: #e9e9e9;
   .red {
     background-color: #ea4741;
   }
@@ -352,7 +353,6 @@ const MainWrap = styled.div`
   .contents {
     padding-bottom: 6rem;
     padding-left: 15rem;
-    background-color: #e9e9e9;
   }
   .cd-field {
     color: black;

@@ -25,6 +25,7 @@ const AllbarComponents = () => {
     console.log(viewPortWidth);
   };
   useEffect(() => {
+    onLoadScreen();
     window.addEventListener("resize", () => {
       onLoadScreen();
     });

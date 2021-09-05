@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import media from "../../lib/media";
 
 const NavBar = ({ onClickToggle }) => {
   return (
@@ -19,12 +20,25 @@ const NavBar = ({ onClickToggle }) => {
 };
 
 const Nav = styled.nav`
+  /* display: none; */
   position: fixed;
   z-index: 100;
   width: 100%;
   background-color: white;
   height: 3.625rem;
-  box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
+  background: linear-gradient(
+    to bottom right,
+    hsla(0, 0%, 100%, 0.7),
+    hsla(0, 0%, 100%, 0.7)
+  );
+  /* background: linear-gradient(
+    to bottom right,
+    hsla(91, 46%, 70%, 0.9),
+    hsla(91, 46%, 70%, 0.5),
+    hsla(91, 46%, 70%, 0.4),
+    hsla(0, 0%, 100%, 0.8),
+    hsla(0, 0%, 100%, 1)
+  ); */
   .navbar {
     display: flex;
     justify-content: flex-end;
@@ -42,6 +56,21 @@ const Nav = styled.nav`
     height: 3.125rem;
     width: 14rem;
   }
+  /* ${media.large} {
+    display: block;
+  }
+  ${media.medium} {
+    display: block;
+  }
+  ${media.small} {
+    display: block;
+  }
+  ${media.xsmall} {
+    display: block;
+  }
+  ${media.xxsmall} {
+    display: block;
+  } */
 `;
 
 export default NavBar;
