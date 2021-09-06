@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Notice = () => {
+const Notice = (props) => {
+  const infData = props.infData;
+  const title = props.title;
   return (
     <NoticeWrap>
       <div className="nt-field">
         <div className="nt-card">
-          <b style={{ display: "block" }}>국내 종합 현황</b>
+          <b style={{ display: "block" }}>-{title}-</b>
           <b style={{ display: "block" }}>매일 오전에 갱신됩니다.</b>
-          <b style={{ display: "block" }}>단위는 명 입니다.</b>
           <b style={{ display: "block" }}>
-            오늘의 데이터 업데이트된 날짜 2021/00/00 09:30:20
+            현재 데이터의 업데이트된 날짜
+            {infData[0]?.createDt._text.slice(0, 19)}
           </b>
           {/* <ul style={{ margin: 0 }}>
             <li>반응형 적용예정.</li>

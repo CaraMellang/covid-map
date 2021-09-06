@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 import FadeIn from "react-fade-in/lib/FadeIn";
@@ -19,16 +19,16 @@ const Home = ({ data }) => {
     incDecideCnt,
   } = data;
 
-  const [aniToggle, setAniToggle] = useState(1000); //조잡하지만 이거라도..
-  const animationHandler = () => {
-    setAniToggle(0);
-  };
-  useEffect(() => {
-    setTimeout(() => {
-      animationHandler();
-    }, 1000);
-    return () => {};
-  });
+  // const [aniToggle, setAniToggle] = useState(1000); //조잡하지만 이거라도..
+  // const animationHandler = () => {
+  //   setAniToggle(0);
+  // };
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     animationHandler();
+  //   }, 1000);
+  //   return () => {};
+  // });
 
   const barData = {
     labels: [
@@ -173,7 +173,7 @@ const Home = ({ data }) => {
     <MainWrap>
       <section className="contents">
         <FadeIn>
-          <Notice />
+          <Notice infData={infData} title={"국내 코로나 상황"} />
         </FadeIn>
 
         <div className="cd-field">

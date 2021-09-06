@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import FadeIn from "react-fade-in";
 import styled from "styled-components";
 import CMap from "../components/CMap";
@@ -12,22 +12,8 @@ const CoronaMap = ({ data }) => {
     infData,
     siDoData,
     loading,
-    incExamCnt,
-    incClearCnt,
-    incDeathCnt,
-    incDecideCnt,
   } = data;
-  const [aniToggle, setAniToggle] = useState(700);
-  const animationHandler = () => {
-    setAniToggle(0);
-    console.log("앙앙");
-  };
-  useEffect(() => {
-    setTimeout(() => {
-      animationHandler();
-    }, 700);
-    return () => {};
-  });
+ 
 
   const doughnutData = {
     labels: [
@@ -68,7 +54,7 @@ const CoronaMap = ({ data }) => {
     <MainWrap>
       <div className="contents">
         <FadeIn>
-          <Notice />
+          <Notice infData={infData} title={"국내 코로나 상황(지도)"} />
         </FadeIn>
         <div className="cd-wrap">
           <div className="cd-field">
@@ -159,8 +145,10 @@ const CoronaMap = ({ data }) => {
                 </div>
               </div>
             </section>
+          </div>
 
-            <div className="clinic-form">
+          <div className="clinic-form">
+            <div className="cd-padd">
               <a
                 href="https://www.mohw.go.kr/react/popup_200128_3.html"
                 className="go-clinic card clinic-card"
@@ -185,6 +173,8 @@ const MainWrap = styled.div`
   .cd-wrap {
     /* padding-left: 2rem;
     padding-right: 2rem; */
+    display: flex;
+    flex-direction: column;
   }
   .cd-field {
     display: flex;
@@ -268,8 +258,6 @@ const MainWrap = styled.div`
   }
   .clinic-form {
     width: 100%;
-    margin-left: 4rem;
-    margin-right: 4rem;
   }
   .clinic-card {
     display: block;
@@ -302,6 +290,15 @@ const MainWrap = styled.div`
   ${media.medium} {
     //768
     padding-top: 3.625rem;
+    .cd-field {
+      flex-direction: column;
+    }
+    .cd-left {
+      width: 100%;
+    }
+    .cd-right {
+      width: 100%;
+    }
     .contents {
       padding-left: 0;
     }

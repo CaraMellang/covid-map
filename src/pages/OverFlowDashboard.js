@@ -1,32 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import media from "../lib/media";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 const OverFlowDashboard = () => {
   return (
     <OverFlowDashboardWrap>
-      <NoticeWrap>
-        <div className="nt-field">
-          <div className="nt-card">
-            <b style={{ display: "block" }}>해외 현황 대시보드</b>
-            <b style={{ display: "block" }}>
-              Johns Hopkins CSSE(존스 홉킨스 대학교)의 전세계 코로나 현황판
-              입니다.
-            </b>
+      <FadeIn delay="200" transitionDuration="800">
+        <NoticeWrap>
+          <div className="nt-field">
+            <div className="nt-card">
+              <b style={{ display: "block" }}>해외 현황 대시보드</b>
+              <b style={{ display: "block" }}>
+                Johns Hopkins CSSE(존스 홉킨스 대학교)의 전세계 코로나 현황판
+                입니다.
+              </b>
+            </div>
+          </div>
+        </NoticeWrap>
+        <div>
+          <div className="card-frame">
+            <div className="card">
+              <iframe
+                title="coronadashboard"
+                style={{ height: "70vh" }}
+                src="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
+              ></iframe>
+            </div>
           </div>
         </div>
-      </NoticeWrap>
-      <div>
-        <div className="card-frame">
-          <div className="card">
-            <iframe
-              title="coronadashboard"
-              style={{ height: "80vh" }}
-              src="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
-            ></iframe>
-          </div>
-        </div>
-      </div>
+      </FadeIn>
     </OverFlowDashboardWrap>
   );
 };
@@ -44,7 +47,7 @@ const OverFlowDashboardWrap = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    height: 80vh;
+    height: 70vh;
     border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
@@ -54,23 +57,24 @@ const OverFlowDashboardWrap = styled.div`
   }
   ${media.large} {
     //1024
-  padding-left: 0;
+    padding-left: 0;
   }
   ${media.medium} {
     //768
-  padding-left: 0;
+    padding-left: 0;
   }
   ${media.small} {
     //425
-  padding-left: 0;
+    padding-left: 0;
   }
   ${media.xsmall} {
     //375
-  padding-left: 0;
-    }
+    padding-left: 0;
   }
+
   ${media.xxsmall} {
     //320
+    padding-left: 0;
   }
 `;
 const NoticeWrap = styled.section`

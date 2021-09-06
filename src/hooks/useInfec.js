@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useInfec() {
   const [siDoData, setSiDoData] = useState([]);
   const [infData, setInfData] = useState([]);
   const [overflow, setOverflow] = useState([]);
+  const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [incExamCnt, setIncExamCnt] = useState(0); //전일대비 검사자
   const [incDecideCnt, setIncDecideCnt] = useState(0); //전일대비 확진자
@@ -16,9 +17,11 @@ export default function useInfec() {
     setInfData(data.data.response.body.items.item);
     let data2 = await axios.get(`http://localhost:4000/sidoapi`);
     setSiDoData(data2.data.response.body.items.item);
-    // let data3 = await axios.get(`http://localhost:4000/overflowapi`);
-    // setOverflow(data3.data.response.body.items.item);
-    // console.log(data3.data.response.body.items.item)
+    let data3 = await axios.get(`http://localhost:4000/alloverflowapi`);
+    setOverflow(data3.data);
+    // let data4 = await axios.get(`http://localhost:4000/newsapi`);
+    // setNewsData(data4.data);
+    // console.log("아오 " + newsData + "댔냐?");
     setLoading(false);
   };
 
@@ -29,7 +32,7 @@ export default function useInfec() {
     if (infData === undefined) {
       return;
     }
-    const aa = "1112";
+
     console.log(parseInt(infData[0]?.examCnt?._text));
     const resultExamCnt =
       parseInt(infData[0]?.examCnt?._text) -
@@ -66,6 +69,7 @@ export default function useInfec() {
       incDecideCnt,
       incClearCnt,
       incDeathCnt,
+      overflow,
     },
   };
 }

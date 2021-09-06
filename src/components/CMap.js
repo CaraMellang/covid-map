@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FadeIn from "react-fade-in";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import TooltipForm from "./common/TooltipForm";
 
 const CMap = ({ siDoData }) => {
   // const { siDoData } = useInfec();
-  console.log(siDoData);
 
   const cities = [
     "검역",
@@ -35,7 +34,7 @@ const CMap = ({ siDoData }) => {
     <MapWrap>
       {cities.map((item, index) => {
         if (index === 0 || index === 18) {
-          return;
+          return "";
         }
         return (
           <TooltipForm key={index} id={index} item={item} siDoData={siDoData} />

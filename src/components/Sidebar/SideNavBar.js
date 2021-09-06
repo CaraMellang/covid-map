@@ -38,7 +38,7 @@ const SideNavBar = () => {
                 exact
                 activeClassName="active-navlink"
               >
-                코로나 뉴스 (준비중)
+                코로나 관련 뉴스
               </SideMenuItem>
             </div>
             <div className="sb-sidenav-list">
@@ -50,7 +50,7 @@ const SideNavBar = () => {
                 exact
                 activeClassName="active-navlink"
               >
-                해외 코로나 상황 (준비중)
+                해외 코로나 상황
               </SideMenuItem>
               <SideMenuItem
                 to="/overflowdashboard"

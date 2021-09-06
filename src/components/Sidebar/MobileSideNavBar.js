@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import mangae from "../../img/mangae.jpg";
@@ -38,7 +38,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 exact
                 activeClassName="active-navlink"
               >
-                코로나 뉴스 (준비중)
+                코로나 관련 뉴스
               </MbSideMenuItem>
             </div>
             <div className="mb-sb-sidenav-list">
@@ -50,7 +50,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 exact
                 activeClassName="active-navlink"
               >
-                해외 코로나 상황 (준비중)
+                해외 코로나 상황
               </MbSideMenuItem>
               <MbSideMenuItem
                 to="/overflowdashboard"

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import styled from "styled-components";
-import NavBar from "../components/Sidebar/NavBar";
-import SideNavBar from "../components/Sidebar/SideNavBar";
 import CoronaMap from "./CoronaMap";
 import Home from "./Home";
 import Footer from "../components/Footer";
@@ -10,7 +8,6 @@ import useInfec from "../hooks/useInfec";
 import OverFlow from "./OverFlow";
 import OverFlowDashboard from "./OverFlowDashboard";
 import Developer from "./Developer";
-import MobileSideNavBar from "../components/Sidebar/MobileSideNavBar";
 import AllbarComponents from "../components/Sidebar/AllbarComponents";
 
 const Main = () => {
