@@ -13,16 +13,43 @@ const Developer = () => {
           </div>
         </NoticeWrap>
         <div className="card-frame">
-          <div className="card">멜랑!!!</div>
+          <div className="card" style={{ height: "15vh" }}>
+            Jeho Lee(Mellang)
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/CaraMellang"
+                  target="_blank"
+                  style={{ color: "blue" }}
+                >
+                  Github
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="card-frame">
           <div className="card">
-            사용한 API
             <div>
+              사용한 API
               <ul>
                 <li>공공 데이터 포털 openAPI(코로나19 감염현황)</li>
                 <li>공공 데이터 포털 openAPI(코로나19 시·도 발생현황)</li>
                 <li>NovelCOVID API</li>
+              </ul>
+            </div>
+            <div>
+              관련 사이트
+              <ul>
+                <li>
+                  실시간 세계현황 -
+                  <a
+                    href="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
+                    style={{ color: "blue" }}
+                  >
+                    존스홉킨스 CSSE
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -49,7 +76,7 @@ const DeveloperWrap = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    height: 15vh;
+    height: 20vh;
     border: 1px solid none;
     border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);

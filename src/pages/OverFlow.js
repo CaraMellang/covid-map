@@ -5,39 +5,14 @@ import { Bar } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import incDataComponent from "../components/common/incDataComponent";
 
 const OverFlow = ({ data }) => {
-  const {
-    infData,
-    loading,
-    overflow,
-  } = data;
-
-  const incOverflow = (item) => {
-    if (item > 0) {
-      return (
-        <div>
-          (
-          <FontAwesomeIcon icon={faCaretUp} style={{ color: "red" }} />
-          {item.toLocaleString()})
-        </div>
-      );
-    }
-    return "정보없음.";
-  };
+  const { infData, loading, overflow } = data;
 
   const barData = {
     labels: [`확진자 수`, `환자수`, `완치자 수`, `사망자 수`],
     datasets: [
-      // {
-      //   backgroundColor: "rgba(255,99,132,1)",
-      //   borderColor: "rgba(255,99,132,1)",
-      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      //   hoverBorderColor: "rgba(255,99,132,1)",
-      //   data: [65,23],
-      // },
       {
         label: `전세계 확진자수`,
         borderColor: [
@@ -178,7 +153,7 @@ const OverFlow = ({ data }) => {
                       {overflow.cases.toLocaleString()}
                     </div>
                     <div className="right-cd-footer ">
-                      {incOverflow(overflow.todayCases)}
+                      {incDataComponent(overflow.todayCases)}
                     </div>
                   </div>
                   <div className="card">
@@ -187,7 +162,7 @@ const OverFlow = ({ data }) => {
                       {overflow.active.toLocaleString()}
                     </div>
                     <div className="right-cd-footer ">
-                      {incOverflow(overflow.critical)}
+                      {incDataComponent(overflow.critical)}
                     </div>
                   </div>
                   <div className="card">
@@ -196,7 +171,7 @@ const OverFlow = ({ data }) => {
                       {overflow.recovered.toLocaleString()}
                     </div>
                     <div className="right-cd-footer ">
-                      {incOverflow(overflow.todayRecovered)}
+                      {incDataComponent(overflow.todayRecovered)}
                     </div>
                   </div>
                   <div className="card">
@@ -205,7 +180,7 @@ const OverFlow = ({ data }) => {
                       {overflow.deaths.toLocaleString()}
                     </div>
                     <div className="right-cd-footer">
-                      {incOverflow(overflow.todayDeaths)}
+                      {incDataComponent(overflow.todayDeaths)}
                     </div>
                   </div>
                 </FadeIn>

@@ -33,13 +33,13 @@ const SideNavBar = () => {
               >
                 국내 코로나 지도
               </SideMenuItem>
-              <SideMenuItem
+              {/* <SideMenuItem
                 to="/coronanews"
                 exact
                 activeClassName="active-navlink"
               >
                 코로나 관련 뉴스
-              </SideMenuItem>
+              </SideMenuItem> */}
             </div>
             <div className="sb-sidenav-list">
               <div className="sb-sidenav-title card">
@@ -69,14 +69,14 @@ const SideNavBar = () => {
                 exact
                 activeClassName="active-navlink"
               >
-                만든사람
+                기타정보
               </SideMenuItem>
             </div>
           </div>
         </div>
 
         <div className="sb-sidenav-footer">
-          <div className="sb-footer-info1">Developer : Mellang</div>
+          <div className="sb-footer-info1">Developer : Jeho Lee</div>
           <div className="sb-footer-info2" style={{ paddingTop: "0.5rem" }}>
             <a href="https://github.com/CaraMellang">
               <FontAwesomeIcon icon={faGithub} size={"2x"} />

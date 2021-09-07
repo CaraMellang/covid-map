@@ -5,6 +5,7 @@ import FadeIn from "react-fade-in/lib/FadeIn";
 import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
+import incDataComponent from "../components/common/incDataComponent";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -216,14 +217,11 @@ const Home = ({ data }) => {
                   <div className="cd-bt-body">
                     {infData[0]?.examCnt?._text === undefined
                       ? "정보 없음"
-                      : infData[0]?.examCnt._text}
+                      : parseInt(infData[0]?.examCnt._text).toLocaleString()}
                   </div>
                   <div className="cd-bt-footer">
-                    <div
-                      className="cd-bt-footer-inc"
-                      style={{ background: "#388396" }}
-                    >
-                      +{incExamCnt}
+                    <div className="cd-bt-footer-inc">
+                      {incDataComponent(parseInt(incExamCnt))}
                     </div>
                   </div>
                 </div>
@@ -241,14 +239,11 @@ const Home = ({ data }) => {
                   <div className="cd-bt-body">
                     {infData[0]?.decideCnt._text === undefined
                       ? "정보 없음"
-                      : infData[0]?.decideCnt._text}
+                      : parseInt(infData[0]?.decideCnt._text).toLocaleString()}
                   </div>
                   <div className="cd-bt-footer">
-                    <div
-                      className="cd-bt-footer-inc"
-                      style={{ background: "#BB873F" }}
-                    >
-                      +{incDecideCnt}
+                    <div className="cd-bt-footer-inc">
+                      {incDataComponent(parseInt(incDecideCnt))}
                     </div>
                   </div>
                 </div>
@@ -266,14 +261,13 @@ const Home = ({ data }) => {
                   <div className="cd-bt-body">
                     {siDoData[18]?.isolClearCnt._text === undefined
                       ? "정보없음"
-                      : siDoData[18]?.isolClearCnt._text}
+                      : parseInt(
+                          siDoData[18]?.isolClearCnt._text
+                        ).toLocaleString()}
                   </div>
                   <div className="cd-bt-footer">
-                    <div
-                      className="cd-bt-footer-inc"
-                      style={{ background: "#418342" }}
-                    >
-                      +{incClearCnt}
+                    <div className="cd-bt-footer-inc">
+                      {incDataComponent(parseInt(incClearCnt))}
                     </div>
                   </div>
                 </div>
@@ -281,7 +275,7 @@ const Home = ({ data }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="800">
               <div className="cd-padd">
-                <div className="cd-contents red">
+                <div className="cd-contents ">
                   <div
                     className="cd-name "
                     style={{ background: "#B63732", color: "white" }}
@@ -291,14 +285,11 @@ const Home = ({ data }) => {
                   <div className="cd-bt-body">
                     {siDoData[18]?.deathCnt._text === undefined
                       ? "정보 없음"
-                      : siDoData[18]?.deathCnt._text}
+                      : parseInt(siDoData[18]?.deathCnt._text).toLocaleString()}
                   </div>
                   <div className="cd-bt-footer">
-                    <div
-                      className="cd-bt-footer-inc "
-                      style={{ background: "#B63732" }}
-                    >
-                      +{incDeathCnt}
+                    <div className="cd-bt-footer-inc">
+                      {incDataComponent(parseInt(incDeathCnt))}
                     </div>
                   </div>
                 </div>
@@ -307,7 +298,7 @@ const Home = ({ data }) => {
           </section>
           <section className="cd-tp">
             <FadeIn delay="300" visible>
-              {/*나중에 scroll로 구현 <- 구현하니 그래프가 리렌더링으로 계속 춤을 춤. 무기한 연기 */}
+              {/*나중에 scroll로 구현 <- 구현하니 그래프가 리렌더링으로 계속 춤을 춤. 나중에 따로 컴포넌트화 예정 */}
               <div className="cd-top">
                 <div className="cd-name">
                   전일 대비 코로나 ({infData[0]?.createDt._text.slice(0, 10)}{" "}
@@ -343,16 +334,16 @@ const MainWrap = styled.div`
   /* padding-top: 3.625rem; */
   background-color: #e9e9e9;
   .red {
-    background-color: #ea4741;
+    /* background-color: #ea4741; */
   }
   .yellow {
-    background-color: #eead51;
+    /* background-color: #eead51; */
   }
   .green {
-    background-color: #5bb65d;
+    /* background-color: #5bb65d; */
   }
   .blue {
-    background-color: #4bb0ca;
+    /* background-color: #4bb0ca; */
   }
   .contents {
     padding-bottom: 6rem;
@@ -408,6 +399,7 @@ const MainWrap = styled.div`
   }
   .cd-contents {
     display: flex;
+    font-weight: bold;
     flex-direction: column;
     border: 1px solid none;
     border-radius: 0.35rem;
@@ -416,23 +408,23 @@ const MainWrap = styled.div`
   .cd-bt-body {
     font-size: 2rem;
     text-align: center;
-    color: white;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    color: black;
+    background-color: white;
+    padding-top: 1rem;
   }
   .cd-bt-footer {
     display: flex;
+    background-color: white;
     justify-content: center;
     text-align: center;
     padding-bottom: 0.5rem;
+    border: 1px solid none;
+    border-radius: 0 0 0.35rem 0.35rem;
   }
   .cd-bt-footer-inc {
     width: 60%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border: 1px solid none;
-    border-radius: 0.35rem;
-    color: white;
   }
 
   ${media.xlarge} {
@@ -452,7 +444,6 @@ const MainWrap = styled.div`
     }
     .cd-bt-body {
       padding-top: 1rem;
-      padding-bottom: 1rem;
     }
     .cd-padd {
       padding-left: 0.5rem;
@@ -475,7 +466,6 @@ const MainWrap = styled.div`
     }
     .cd-bt-body {
       padding-top: 1rem;
-      padding-bottom: 1rem;
     }
     .cd-padd {
       padding-left: 0.5rem;
@@ -498,7 +488,6 @@ const MainWrap = styled.div`
     }
     .cd-bt-body {
       padding-top: 1rem;
-      padding-bottom: 1rem;
     }
     .cd-padd {
       padding-left: 0.5rem;
@@ -521,7 +510,6 @@ const MainWrap = styled.div`
     }
     .cd-bt-body {
       padding-top: 1rem;
-      padding-bottom: 1rem;
     }
     .cd-padd {
       padding-left: 0.5rem;
@@ -544,7 +532,6 @@ const MainWrap = styled.div`
     }
     .cd-bt-body {
       padding-top: 1rem;
-      padding-bottom: 1rem;
     }
     .cd-padd {
       padding-left: 0.5rem;

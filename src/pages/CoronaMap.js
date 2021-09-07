@@ -8,12 +8,7 @@ import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 
 const CoronaMap = ({ data }) => {
-  const {
-    infData,
-    siDoData,
-    loading,
-  } = data;
- 
+  const { infData, siDoData, loading } = data;
 
   const doughnutData = {
     labels: [
@@ -70,6 +65,7 @@ const CoronaMap = ({ data }) => {
                       <div className="chart-pie">
                         <Doughnut
                           data={doughnutData}
+                          style={{ height: "20rem" }}
                           options={{
                             // reponsive: false,
                             // reponsive: true,
@@ -89,39 +85,39 @@ const CoronaMap = ({ data }) => {
                         />
                       </div>
                     </FadeIn>
-                    <div className="cd-left-ft">
-                      <div className="cd-ft-top">
-                        <div className=" cd-ft-top-item">
-                          <div className="ft-text ft-card">
-                            <div className="ft-name">총 검사수</div>
-                            <div className="ft-text ft-con">
-                              {infData[0]?.accExamCnt?._text === undefined
-                                ? "정보 없음"
-                                : infData[0]?.accExamCnt._text}
-                            </div>
-                          </div>
-                        </div>
-                        <div className=" cd-ft-top-item">
-                          <div className="ft-text ft-card">
-                            <div className="ft-name">검사 완료수</div>
-                            <div className="ft-text ft-con">
-                              {infData[0]?.accExamCompCnt?._text === undefined
-                                ? "정보 없음"
-                                : infData[0]?.accExamCompCnt._text}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="ft-bottom">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">확진율</div>
-                          <div className="ft-text ft-con">
-                            {infData[0]?.accDefRate?._text}%
-                          </div>
+                  </div>
+                </div>
+                <div className="cd-left-ft">
+                  <FadeIn className="cd-ft">
+                    <div className=" cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">총 검사수</div>
+                        <div className="ft-con back-blue">
+                          {infData[0]?.accExamCnt?._text === undefined
+                            ? "정보 없음"
+                            : infData[0]?.accExamCnt._text}
                         </div>
                       </div>
                     </div>
-                  </div>
+                    <div className="cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">검사 완료수</div>
+                        <div className="ft-con back-green">
+                          {infData[0]?.accExamCompCnt?._text === undefined
+                            ? "정보 없음"
+                            : infData[0]?.accExamCompCnt._text}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">확진율</div>
+                        <div className="ft-con back-red">
+                          {infData[0]?.accDefRate?._text}%
+                        </div>
+                      </div>
+                    </div>
+                  </FadeIn>
                 </div>
               </div>
             </section>
@@ -139,7 +135,9 @@ const CoronaMap = ({ data }) => {
                       </FadeIn>
                     </div>
                   </div>
-                  <div className="ft-card right-cd-ft">
+                </div>
+                <div style={{ paddingTop: "1rem" }}>
+                  <div className="right-ft-card right-cd-ft">
                     <span style={{ cursor: "pointer" }}>전국 현황판</span>
                   </div>
                 </div>
@@ -166,6 +164,15 @@ const CoronaMap = ({ data }) => {
 const MainWrap = styled.div`
   /* padding-top: 3.625rem; */
   background-color: #e9e9e9;
+  .back-red {
+    background-color: #ea4741;
+  }
+  .back-blue {
+    background-color: #4bb0ca;
+  }
+  .back-green {
+    background-color: #5bb65d;
+  }
   .contents {
     padding-bottom: 6rem;
     padding-left: 15rem;
@@ -210,45 +217,51 @@ const MainWrap = styled.div`
   .chart-pie {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
   .cd-left-ft {
     display: flex;
     flex-direction: column;
     font-weight: bold;
   }
-  .cd-ft-top {
+  .cd-ft {
     display: flex;
-    padding-bottom: 0.5rem;
+    flex-direction: column;
+    padding-top: 1rem;
+    gap: 1rem;
   }
-  .cd-ft-top-item {
-    width: 50%;
+  .cd-ft-item {
+    width: 100%;
   }
   .co-map {
     display: flex;
     justify-content: center;
   }
   .ft-name {
-    background-color: #d1c4b4;
+    background-color: #cccccc;
     color: black;
+    width: 20%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-radius: 0.35rem 0.35rem 0 0;
   }
   .ft-card {
     display: flex;
-    flex-direction: column;
-    background-color: #00897b;
-    border: 1px solid white;
-    border-radius: 0.5rem;
   }
   .ft-text {
     text-align: center;
   }
   .ft-con {
+    width: 80%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    border: 1px solid none;
+    border-radius: 0 0.35rem 0.35rem 0;
+  }
+  .right-ft-card {
+    background-color: #ff9200;
+    border: 1px solid none;
+    border-radius: 0.35rem;
   }
   .right-cd-ft {
     padding: 0.75rem;
