@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import mangae from "../../img/mangae.jpg";
+import coronacut from "../../img/coronacut.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import media from "../../lib/media";
 
@@ -13,7 +13,7 @@ const MobileSideNavBar = ({ toggle }) => {
         <div className="mb-sb-logo">
           <Link to={"/"}>
             <div className="mb-logo-form">
-              <img className="mb-logo" src={mangae} alt="어아니야" />
+              <img className="mb-logo" src={coronacut} alt="어아니야" />
             </div>
           </Link>
         </div>

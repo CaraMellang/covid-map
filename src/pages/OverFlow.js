@@ -84,63 +84,63 @@ const OverFlow = ({ data }) => {
                   </div>
                 </div>
                 <div className="cd-left-ft">
-                  <div className="cd-padd">
-                    <div className=" cd-ft-item">
-                      <div className="ft-text ft-card">
-                        <div className="ft-name">확진자 수</div>
-                        <div className="ft-text ft-con back-yellow ">
-                          {overflow.casesPerOneMillion.toLocaleString() ===
-                          undefined
-                            ? "정보 없음"
-                            : overflow.casesPerOneMillion.toLocaleString()}
+                    <FadeIn className="cd-padd">
+                      <div className=" cd-ft-item">
+                        <div className="ft-text ft-card">
+                          <div className="ft-name">확진자 수</div>
+                          <div className="ft-text ft-con back-yellow ">
+                            {overflow.casesPerOneMillion.toLocaleString() ===
+                            undefined
+                              ? "정보 없음"
+                              : overflow.casesPerOneMillion.toLocaleString()}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className=" cd-ft-item">
-                      <div className="ft-text ft-card">
-                        <div className="ft-name">환자 수</div>
-                        <div className="ft-text ft-con back-blue">
-                          {overflow.activePerOneMillion.toLocaleString() ===
-                          undefined
-                            ? "정보 없음"
-                            : overflow.activePerOneMillion.toLocaleString()}
+                      <div className=" cd-ft-item">
+                        <div className="ft-text ft-card">
+                          <div className="ft-name">환자 수</div>
+                          <div className="ft-text ft-con back-blue">
+                            {overflow.activePerOneMillion.toLocaleString() ===
+                            undefined
+                              ? "정보 없음"
+                              : overflow.activePerOneMillion.toLocaleString()}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className=" cd-ft-item">
-                      <div className="ft-text ft-card">
-                        <div className="ft-name">완치자 수</div>
-                        <div className="ft-text ft-con back-green">
-                          {overflow.recoveredPerOneMillion.toLocaleString() ===
-                          undefined
-                            ? "정보 없음"
-                            : overflow.recoveredPerOneMillion.toLocaleString()}
+                      <div className=" cd-ft-item">
+                        <div className="ft-text ft-card">
+                          <div className="ft-name">완치자 수</div>
+                          <div className="ft-text ft-con back-green">
+                            {overflow.recoveredPerOneMillion.toLocaleString() ===
+                            undefined
+                              ? "정보 없음"
+                              : overflow.recoveredPerOneMillion.toLocaleString()}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className=" cd-ft-item">
-                      <div className="ft-text ft-card">
-                        <div className="ft-name">사망자 수</div>
-                        <div className="ft-text ft-con back-red">
-                          {overflow.deathsPerOneMillion.toLocaleString() ===
-                          undefined
-                            ? "정보 없음"
-                            : overflow.deathsPerOneMillion.toLocaleString()}
+                      <div className=" cd-ft-item">
+                        <div className="ft-text ft-card">
+                          <div className="ft-name">사망자 수</div>
+                          <div className="ft-text ft-con back-red">
+                            {overflow.deathsPerOneMillion.toLocaleString() ===
+                            undefined
+                              ? "정보 없음"
+                              : overflow.deathsPerOneMillion.toLocaleString()}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <span
-                      style={{
-                        color: "#9AA0A6",
-                        display: "block",
-                        paddingLeft: "1rem",
-                        paddingBottom: "0.5rem",
-                        textAlign: "end",
-                      }}
-                    >
-                      단위 : 100만명
-                    </span>
-                  </div>
+                      <span
+                        style={{
+                          color: "#9AA0A6",
+                          display: "block",
+                          paddingLeft: "1rem",
+                          paddingBottom: "0.5rem",
+                          textAlign: "end",
+                        }}
+                      >
+                        단위 : 100만명
+                      </span>
+                    </FadeIn>
                 </div>
               </FadeIn>
             </section>

@@ -17,13 +17,6 @@ const CoronaMap = ({ data }) => {
       `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
     ],
     datasets: [
-      // {
-      //   backgroundColor: "rgba(255,99,132,1)",
-      //   borderColor: "rgba(255,99,132,1)",
-      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      //   hoverBorderColor: "rgba(255,99,132,1)",
-      //   data: [65,23],
-      // },
       {
         data: [
           infData[0]?.examCnt?._text,
@@ -55,38 +48,40 @@ const CoronaMap = ({ data }) => {
           <div className="cd-field">
             <section className="cd-left cd">
               <div className="cd-padd">
-                <div className="card">
-                  <div className="cd-name">
-                    코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)}
-                    기준)
-                  </div>
-                  <div className="cd-left-body">
-                    <FadeIn>
-                      <div className="chart-pie">
-                        <Doughnut
-                          data={doughnutData}
-                          style={{ height: "20rem" }}
-                          options={{
-                            // reponsive: false,
-                            // reponsive: true,
-                            maintainAspectRatio: false,
+                <FadeIn>
+                  <div className="card">
+                    <div className="cd-name">
+                      코로나 환자 현항({infData[0]?.createDt._text.slice(0, 10)}
+                      기준)
+                    </div>
+                    <div className="cd-left-body">
+                      <FadeIn>
+                        <div className="chart-pie">
+                          <Doughnut
+                            data={doughnutData}
+                            style={{ height: "20rem" }}
+                            options={{
+                              // reponsive: false,
+                              // reponsive: true,
+                              maintainAspectRatio: false,
 
-                            plugins: {
-                              legend: {
-                                display: true,
-                                position: "right",
+                              plugins: {
+                                legend: {
+                                  display: true,
+                                  position: "right",
+                                },
                               },
-                            },
-                            animation: {
-                              // duration: aniToggle,
-                              // onComplete: animationHandler,
-                            },
-                          }}
-                        />
-                      </div>
-                    </FadeIn>
+                              animation: {
+                                // duration: aniToggle,
+                                // onComplete: animationHandler,
+                              },
+                            }}
+                          />
+                        </div>
+                      </FadeIn>
+                    </div>
                   </div>
-                </div>
+                </FadeIn>
                 <div className="cd-left-ft">
                   <FadeIn className="cd-ft">
                     <div className=" cd-ft-item">
@@ -122,7 +117,7 @@ const CoronaMap = ({ data }) => {
               </div>
             </section>
             <section className="cd-right cd">
-              <div className="cd-padd">
+              <FadeIn className="cd-padd">
                 <div className="card">
                   <div className="cd-name">
                     시 , 도별 코로나 현황(전일 대비 ,
@@ -137,11 +132,17 @@ const CoronaMap = ({ data }) => {
                   </div>
                 </div>
                 <div style={{ paddingTop: "1rem" }}>
-                  <div className="right-ft-card right-cd-ft">
-                    <span style={{ cursor: "pointer" }}>전국 현황판</span>
-                  </div>
+                  <a
+                    href="http://ncov.mohw.go.kr/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="right-ft-card right-cd-ft"
+                    style={{ display: "block" }}
+                  >
+                    전국 현황판
+                  </a>
                 </div>
-              </div>
+              </FadeIn>
             </section>
           </div>
 
@@ -149,6 +150,8 @@ const CoronaMap = ({ data }) => {
             <div className="cd-padd">
               <a
                 href="https://www.mohw.go.kr/react/popup_200128_3.html"
+                target="_blank"
+                rel="noreferrer"
                 className="go-clinic card clinic-card"
               >
                 내 주변 선별진료소 찾기

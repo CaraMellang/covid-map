@@ -20,6 +20,7 @@ const Developer = () => {
                 <a
                   href="https://github.com/CaraMellang"
                   target="_blank"
+                  rel="noreferrer"
                   style={{ color: "blue" }}
                 >
                   Github
@@ -42,9 +43,11 @@ const Developer = () => {
               관련 사이트
               <ul>
                 <li>
-                  실시간 세계현황 -
+                  세계현황 종합상황 대시보드-
                   <a
                     href="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
+                    target="_blank"
+                    rel="noreferrer"
                     style={{ color: "blue" }}
                   >
                     존스홉킨스 CSSE
