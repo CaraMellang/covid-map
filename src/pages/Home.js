@@ -6,6 +6,7 @@ import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 import incDataComponent from "../components/common/incDataComponent";
+import { InfecDatasValidation } from "../components/common/InfecDatas";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -215,9 +216,7 @@ const Home = ({ data }) => {
                     검사중
                   </div>
                   <div className="cd-bt-body">
-                    {infData[0]?.examCnt?._text === undefined
-                      ? "정보 없음"
-                      : parseInt(infData[0]?.examCnt._text).toLocaleString()}
+                    {InfecDatasValidation(infData[0]?.examCnt?._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -237,9 +236,7 @@ const Home = ({ data }) => {
                     확진자
                   </div>
                   <div className="cd-bt-body">
-                    {infData[0]?.decideCnt._text === undefined
-                      ? "정보 없음"
-                      : parseInt(infData[0]?.decideCnt._text).toLocaleString()}
+                    {InfecDatasValidation(infData[0]?.decideCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -259,11 +256,7 @@ const Home = ({ data }) => {
                     격리해제
                   </div>
                   <div className="cd-bt-body">
-                    {siDoData[18]?.isolClearCnt._text === undefined
-                      ? "정보없음"
-                      : parseInt(
-                          siDoData[18]?.isolClearCnt._text
-                        ).toLocaleString()}
+                    {InfecDatasValidation(siDoData[18]?.isolClearCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -283,9 +276,7 @@ const Home = ({ data }) => {
                     사망자
                   </div>
                   <div className="cd-bt-body">
-                    {siDoData[18]?.deathCnt._text === undefined
-                      ? "정보 없음"
-                      : parseInt(siDoData[18]?.deathCnt._text).toLocaleString()}
+                    {InfecDatasValidation(siDoData[18]?.deathCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">

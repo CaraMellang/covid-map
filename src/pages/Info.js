@@ -3,7 +3,7 @@ import styled from "styled-components";
 import media from "../lib/media";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
-const Developer = () => {
+const Info = () => {
   return (
     <DeveloperWrap>
       <FadeIn delay="200" transitionDuration="800">
@@ -151,4 +151,4 @@ const NoticeWrap = styled.section`
   }
 `;
 
-export default Developer;
+export default Info;

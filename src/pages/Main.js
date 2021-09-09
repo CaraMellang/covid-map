@@ -7,55 +7,16 @@ import Footer from "../components/Footer";
 import useInfec from "../hooks/useInfec";
 import OverFlow from "./OverFlow";
 import OverFlowDashboard from "./OverFlowDashboard";
-import Developer from "./Developer";
 import AllbarComponents from "../components/Sidebar/AllbarComponents";
+import Info from "./Info";
 
 const Main = () => {
   const { data } = useInfec();
-  // const [Display, setDisplay] = useState(true);
-  // const [toggle, setToggle] = useState(false);
-
-  // const onClickbackground = () => {
-  //   setToggle((prev) => !prev);
-  // };
-  // const onClickToggle = () => {
-  //   setToggle((prev) => !prev);
-  // };
-  // const onLoadScreen = () => {
-  //   const viewPortWidth = window.innerWidth;
-  //   if (viewPortWidth <= 1024) {
-  //     setDisplay(false);
-  //   }
-  //   if (viewPortWidth > 1024) {
-  //     setDisplay(true);
-  //   }
-  //   console.log(viewPortWidth);
-  // };
-  // useEffect(() => {
-  //   window.addEventListener("resize", () => {
-  //     onLoadScreen();
-  //   });
-  //   return () => {
-  //     window.removeEventListener("resize", () => {
-  //       onLoadScreen();
-  //     });
-  //   };
-  // }, []);
 
   return (
     <BrowserRouter>
-      {/* {!Display && <NavBar onClickToggle={onClickToggle} />} */}
       <MainWrap>
         <AllbarComponents />
-        {/* {Display === true ? (
-          <SideNavBar />
-        ) : (
-          <aside
-            className={`aside-side ${toggle === true ? "as-show" : "as-hide"}`}
-          >
-            <MobileSideNavBar toggle={toggle} />
-          </aside>
-        )} */}
 
         <Route path={"/"} exact render={() => <Home data={data} />} />
         <Route
@@ -73,17 +34,7 @@ const Main = () => {
           exact
           render={() => <OverFlowDashboard data={data} />}
         />
-        <Route
-          path={"/developer"}
-          exact
-          render={() => <Developer data={data} />}
-        />
-        {/* {!Display && toggle && (
-          <div
-            className="MobileDarkBackground"
-            onClick={onClickbackground}
-          ></div>
-        )} */}
+        <Route path={"/info"} exact render={() => <Info data={data} />} />
       </MainWrap>
       <Footer />
     </BrowserRouter>

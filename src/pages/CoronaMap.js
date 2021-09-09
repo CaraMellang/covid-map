@@ -6,6 +6,7 @@ import { Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
+import { InfecDatasValidation } from "../components/common/InfecDatas";
 
 const CoronaMap = ({ data }) => {
   const { infData, siDoData, loading } = data;
@@ -88,9 +89,7 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">총 검사수</div>
                         <div className="ft-con back-blue">
-                          {infData[0]?.accExamCnt?._text === undefined
-                            ? "정보 없음"
-                            : infData[0]?.accExamCnt._text}
+                          {InfecDatasValidation(infData[0]?.accExamCnt?._text)}
                         </div>
                       </div>
                     </div>
@@ -98,9 +97,12 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">검사 완료수</div>
                         <div className="ft-con back-green">
-                          {infData[0]?.accExamCompCnt?._text === undefined
+                          {InfecDatasValidation(
+                            infData[0]?.accExamCompCnt?._text
+                          )}
+                          {/* {infData[0]?.accExamCompCnt?._text === undefined
                             ? "정보 없음"
-                            : infData[0]?.accExamCompCnt._text}
+                            : infData[0]?.accExamCompCnt._text} */}
                         </div>
                       </div>
                     </div>
@@ -108,7 +110,7 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">확진율</div>
                         <div className="ft-con back-red">
-                          {infData[0]?.accDefRate?._text}%
+                          {infData[0]?.accDefRate._text}%
                         </div>
                       </div>
                     </div>

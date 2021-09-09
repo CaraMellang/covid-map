@@ -6,6 +6,7 @@ import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 import incDataComponent from "../components/common/incDataComponent";
+import { InfecDatasValidation } from "../components/common/InfecDatas";
 
 const OverFlow = ({ data }) => {
   const { infData, loading, overflow } = data;
@@ -84,63 +85,53 @@ const OverFlow = ({ data }) => {
                   </div>
                 </div>
                 <div className="cd-left-ft">
-                    <FadeIn className="cd-padd">
-                      <div className=" cd-ft-item">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">확진자 수</div>
-                          <div className="ft-text ft-con back-yellow ">
-                            {overflow.casesPerOneMillion.toLocaleString() ===
-                            undefined
-                              ? "정보 없음"
-                              : overflow.casesPerOneMillion.toLocaleString()}
-                          </div>
+                  <FadeIn className="cd-padd">
+                    <div className=" cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">확진자 수</div>
+                        <div className="ft-text ft-con back-yellow ">
+                          {InfecDatasValidation(overflow.casesPerOneMillion)}
                         </div>
                       </div>
-                      <div className=" cd-ft-item">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">환자 수</div>
-                          <div className="ft-text ft-con back-blue">
-                            {overflow.activePerOneMillion.toLocaleString() ===
-                            undefined
-                              ? "정보 없음"
-                              : overflow.activePerOneMillion.toLocaleString()}
-                          </div>
+                    </div>
+                    <div className=" cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">환자 수</div>
+                        <div className="ft-text ft-con back-blue">
+                          {InfecDatasValidation(overflow.activePerOneMillion)}
                         </div>
                       </div>
-                      <div className=" cd-ft-item">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">완치자 수</div>
-                          <div className="ft-text ft-con back-green">
-                            {overflow.recoveredPerOneMillion.toLocaleString() ===
-                            undefined
-                              ? "정보 없음"
-                              : overflow.recoveredPerOneMillion.toLocaleString()}
-                          </div>
+                    </div>
+                    <div className=" cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">완치자 수</div>
+                        <div className="ft-text ft-con back-green">
+                          {InfecDatasValidation(
+                            overflow.recoveredPerOneMillion
+                          )}
                         </div>
                       </div>
-                      <div className=" cd-ft-item">
-                        <div className="ft-text ft-card">
-                          <div className="ft-name">사망자 수</div>
-                          <div className="ft-text ft-con back-red">
-                            {overflow.deathsPerOneMillion.toLocaleString() ===
-                            undefined
-                              ? "정보 없음"
-                              : overflow.deathsPerOneMillion.toLocaleString()}
-                          </div>
+                    </div>
+                    <div className=" cd-ft-item">
+                      <div className="ft-text ft-card">
+                        <div className="ft-name">사망자 수</div>
+                        <div className="ft-text ft-con back-red">
+                          {InfecDatasValidation(overflow.deathsPerOneMillion)}
                         </div>
                       </div>
-                      <span
-                        style={{
-                          color: "#9AA0A6",
-                          display: "block",
-                          paddingLeft: "1rem",
-                          paddingBottom: "0.5rem",
-                          textAlign: "end",
-                        }}
-                      >
-                        단위 : 100만명
-                      </span>
-                    </FadeIn>
+                    </div>
+                    <span
+                      style={{
+                        color: "#9AA0A6",
+                        display: "block",
+                        paddingLeft: "1rem",
+                        paddingBottom: "0.5rem",
+                        textAlign: "end",
+                      }}
+                    >
+                      단위 : 100만명
+                    </span>
+                  </FadeIn>
                 </div>
               </FadeIn>
             </section>
@@ -150,7 +141,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 확진자 수</div>
                     <div className="right-cd-body yellow">
-                      {overflow.cases.toLocaleString()}
+                      {InfecDatasValidation(overflow.cases)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.todayCases)}
@@ -159,7 +150,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 환자 수</div>
                     <div className="right-cd-body blue ">
-                      {overflow.active.toLocaleString()}
+                      {InfecDatasValidation(overflow.active)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.critical)}
@@ -168,7 +159,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 완치자 수</div>
                     <div className="right-cd-body green">
-                      {overflow.recovered.toLocaleString()}
+                      {InfecDatasValidation(overflow.recovered)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.todayRecovered)}
@@ -177,7 +168,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 사망자 수</div>
                     <div className="right-cd-body red">
-                      {overflow.deaths.toLocaleString()}
+                      {InfecDatasValidation(overflow.deaths)}
                     </div>
                     <div className="right-cd-footer">
                       {incDataComponent(overflow.todayDeaths)}

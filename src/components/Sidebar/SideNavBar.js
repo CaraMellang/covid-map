@@ -65,7 +65,7 @@ const SideNavBar = () => {
                 <span className="title-name">기타</span>
               </div>
               <SideMenuItem
-                to="/developer"
+                to="/info"
                 exact
                 activeClassName="active-navlink"
               >

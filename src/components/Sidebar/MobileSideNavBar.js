@@ -65,7 +65,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 <span className="mb-title-name">기타</span>
               </div>
               <MbSideMenuItem
-                to="/developer"
+                to="/info"
                 exact
                 activeClassName="active-navlink"
               >
