@@ -9,6 +9,7 @@ import OverFlow from "./OverFlow";
 import OverFlowDashboard from "./OverFlowDashboard";
 import AllbarComponents from "../components/Sidebar/AllbarComponents";
 import Info from "./Info";
+import CoronaNews from "./CoronaNews";
 
 const Main = () => {
   const { data } = useInfec();
@@ -33,6 +34,11 @@ const Main = () => {
           path={"/overflowdashboard"}
           exact
           render={() => <OverFlowDashboard data={data} />}
+        />
+        <Route
+          path={"/coronanews"}
+          exact
+          render={() => <CoronaNews data={data} />}
         />
         <Route path={"/info"} exact render={() => <Info data={data} />} />
       </MainWrap>

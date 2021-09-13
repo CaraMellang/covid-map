@@ -19,6 +19,9 @@ export default function useInfec() {
     setSiDoData(data2.data.response.body.items.item);
     let data3 = await axios.get(`http://localhost:4000/alloverflowapi`);
     setOverflow(data3.data);
+    let data4 = await axios.get(`http://localhost:4000/newsapi`);
+    setNewsData(data4.data.data.items);
+    console.log(data4.data.data.items);
     setLoading(false);
   };
 
@@ -67,6 +70,7 @@ export default function useInfec() {
       incClearCnt,
       incDeathCnt,
       overflow,
+      newsData,
     },
   };
 }

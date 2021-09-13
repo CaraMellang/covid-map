@@ -6,7 +6,7 @@ import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 import incDataComponent from "../components/common/incDataComponent";
-import { InfecDatasValidation } from "../components/common/InfecDatas";
+import { InfecDatasConverter } from "../components/common/InfecDatas";
 
 const OverFlow = ({ data }) => {
   const { infData, loading, overflow } = data;
@@ -90,7 +90,7 @@ const OverFlow = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">확진자 수</div>
                         <div className="ft-text ft-con back-yellow ">
-                          {InfecDatasValidation(overflow.casesPerOneMillion)}
+                          {InfecDatasConverter(overflow.casesPerOneMillion)}
                         </div>
                       </div>
                     </div>
@@ -98,7 +98,7 @@ const OverFlow = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">환자 수</div>
                         <div className="ft-text ft-con back-blue">
-                          {InfecDatasValidation(overflow.activePerOneMillion)}
+                          {InfecDatasConverter(overflow.activePerOneMillion)}
                         </div>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ const OverFlow = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">완치자 수</div>
                         <div className="ft-text ft-con back-green">
-                          {InfecDatasValidation(
+                          {InfecDatasConverter(
                             overflow.recoveredPerOneMillion
                           )}
                         </div>
@@ -116,7 +116,7 @@ const OverFlow = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">사망자 수</div>
                         <div className="ft-text ft-con back-red">
-                          {InfecDatasValidation(overflow.deathsPerOneMillion)}
+                          {InfecDatasConverter(overflow.deathsPerOneMillion)}
                         </div>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 확진자 수</div>
                     <div className="right-cd-body yellow">
-                      {InfecDatasValidation(overflow.cases)}
+                      {InfecDatasConverter(overflow.cases)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.todayCases)}
@@ -150,7 +150,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 환자 수</div>
                     <div className="right-cd-body blue ">
-                      {InfecDatasValidation(overflow.active)}
+                      {InfecDatasConverter(overflow.active)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.critical)}
@@ -159,7 +159,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 완치자 수</div>
                     <div className="right-cd-body green">
-                      {InfecDatasValidation(overflow.recovered)}
+                      {InfecDatasConverter(overflow.recovered)}
                     </div>
                     <div className="right-cd-footer ">
                       {incDataComponent(overflow.todayRecovered)}
@@ -168,7 +168,7 @@ const OverFlow = ({ data }) => {
                   <div className="card">
                     <div className="right-cd-name">전세계 사망자 수</div>
                     <div className="right-cd-body red">
-                      {InfecDatasValidation(overflow.deaths)}
+                      {InfecDatasConverter(overflow.deaths)}
                     </div>
                     <div className="right-cd-footer">
                       {incDataComponent(overflow.todayDeaths)}

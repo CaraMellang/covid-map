@@ -6,7 +6,7 @@ import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 import incDataComponent from "../components/common/incDataComponent";
-import { InfecDatasValidation } from "../components/common/InfecDatas";
+import { InfecDatasConverter } from "../components/common/InfecDatas";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);
@@ -208,15 +208,15 @@ const Home = ({ data }) => {
           <section className="cd-bt-row">
             <FadeIn className="cd-bt" delay="500">
               <div className="cd-padd">
-                <div className="cd-contents blue">
+                <div className="cd-contents">
                   <div
                     className="cd-name"
                     style={{ background: "#388396", color: "white" }}
                   >
                     검사중
                   </div>
-                  <div className="cd-bt-body">
-                    {InfecDatasValidation(infData[0]?.examCnt?._text)}
+                  <div className="cd-bt-body blue">
+                    {InfecDatasConverter(infData[0]?.examCnt?._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -228,15 +228,15 @@ const Home = ({ data }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="600">
               <div className="cd-padd">
-                <div className="cd-contents yellow">
+                <div className="cd-contents">
                   <div
                     className="cd-name"
                     style={{ background: "#BB873F", color: "white" }}
                   >
                     확진자
                   </div>
-                  <div className="cd-bt-body">
-                    {InfecDatasValidation(infData[0]?.decideCnt._text)}
+                  <div className="cd-bt-body yellow">
+                    {InfecDatasConverter(infData[0]?.decideCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -248,15 +248,15 @@ const Home = ({ data }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
-                <div className="cd-contents green">
+                <div className="cd-contents">
                   <div
                     className="cd-name"
                     style={{ background: "#418342", color: "white" }}
                   >
                     격리해제
                   </div>
-                  <div className="cd-bt-body">
-                    {InfecDatasValidation(siDoData[18]?.isolClearCnt._text)}
+                  <div className="cd-bt-body green">
+                    {InfecDatasConverter(siDoData[18]?.isolClearCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -275,8 +275,8 @@ const Home = ({ data }) => {
                   >
                     사망자
                   </div>
-                  <div className="cd-bt-body">
-                    {InfecDatasValidation(siDoData[18]?.deathCnt._text)}
+                  <div className="cd-bt-body red">
+                    {InfecDatasConverter(siDoData[18]?.deathCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">
@@ -325,16 +325,16 @@ const MainWrap = styled.div`
   /* padding-top: 3.625rem; */
   background-color: #e9e9e9;
   .red {
-    /* background-color: #ea4741; */
+    color: #ea4741;
   }
   .yellow {
-    /* background-color: #eead51; */
+    color: #eead51;
   }
   .green {
-    /* background-color: #5bb65d; */
+    color: #5bb65d;
   }
   .blue {
-    /* background-color: #4bb0ca; */
+    color: #4bb0ca;
   }
   .contents {
     padding-bottom: 6rem;
@@ -399,7 +399,6 @@ const MainWrap = styled.div`
   .cd-bt-body {
     font-size: 2rem;
     text-align: center;
-    color: black;
     background-color: white;
     padding-top: 1rem;
   }

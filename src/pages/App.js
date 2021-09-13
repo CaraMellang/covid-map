@@ -17,7 +17,6 @@ html , body , #root{
   /* #121212 */
   font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
 }
-
 a, a:link, a:visited , a:hover , a:focus{
   text-decoration:none;
   color:unset

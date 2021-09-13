@@ -6,7 +6,7 @@ import { Doughnut } from "react-chartjs-2";
 import Notice from "../components/Notice";
 import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
-import { InfecDatasValidation } from "../components/common/InfecDatas";
+import { InfecDatasConverter } from "../components/common/InfecDatas";
 
 const CoronaMap = ({ data }) => {
   const { infData, siDoData, loading } = data;
@@ -89,7 +89,7 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">총 검사수</div>
                         <div className="ft-con back-blue">
-                          {InfecDatasValidation(infData[0]?.accExamCnt?._text)}
+                          {InfecDatasConverter(infData[0]?.accExamCnt?._text)}
                         </div>
                       </div>
                     </div>
@@ -97,7 +97,7 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">검사 완료수</div>
                         <div className="ft-con back-green">
-                          {InfecDatasValidation(
+                          {InfecDatasConverter(
                             infData[0]?.accExamCompCnt?._text
                           )}
                           {/* {infData[0]?.accExamCompCnt?._text === undefined

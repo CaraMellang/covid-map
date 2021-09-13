@@ -33,13 +33,6 @@ const MobileSideNavBar = ({ toggle }) => {
               >
                 국내 코로나 지도
               </MbSideMenuItem>
-              {/* <MbSideMenuItem
-                to="/coronanews"
-                exact
-                activeClassName="active-navlink"
-              >
-                코로나 관련 뉴스
-              </MbSideMenuItem> */}
             </div>
             <div className="mb-sb-sidenav-list">
               <div className="mb-sb-sidenav-title card">
@@ -65,10 +58,13 @@ const MobileSideNavBar = ({ toggle }) => {
                 <span className="mb-title-name">기타</span>
               </div>
               <MbSideMenuItem
-                to="/info"
+                to="/coronanews"
                 exact
                 activeClassName="active-navlink"
               >
+                코로나 관련 뉴스
+              </MbSideMenuItem>
+              <MbSideMenuItem to="/info" exact activeClassName="active-navlink">
                 기타정보
               </MbSideMenuItem>
             </div>
@@ -134,7 +130,7 @@ const MbSideBar = styled.aside`
     text-align: center;
   }
   .active-navlink {
-    color: #afd48d;
+    color: #eab976;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .mb-title-name {
