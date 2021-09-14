@@ -42,7 +42,7 @@ const OverFlow = ({ data }) => {
     return <Loading />;
   }
   return (
-    <MainWrap>
+    <MainWrap className="commonwrap">
       <div className="contents">
         <FadeIn>
           <Notice infData={infData} title={"해외 코로나 상황"} />
@@ -106,9 +106,7 @@ const OverFlow = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">완치자 수</div>
                         <div className="ft-text ft-con back-green">
-                          {InfecDatasConverter(
-                            overflow.recoveredPerOneMillion
-                          )}
+                          {InfecDatasConverter(overflow.recoveredPerOneMillion)}
                         </div>
                       </div>
                     </div>
@@ -218,10 +216,6 @@ const MainWrap = styled.div`
     background-color: #4bb0ca;
     border: 1px solid #4bb0ca;
     border-radius: 0 5px 5px 0;
-  }
-  .contents {
-    padding-bottom: 6rem;
-    padding-left: 15rem;
   }
   .cd-wrap {
     /* padding-left: 2rem;
@@ -348,10 +342,6 @@ const MainWrap = styled.div`
   }
   ${media.large} {
     //1024
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -359,7 +349,6 @@ const MainWrap = styled.div`
   }
   ${media.medium} {
     //768
-    padding-top: 3.625rem;
     .cd-field {
       flex-direction: column;
     }
@@ -369,9 +358,6 @@ const MainWrap = styled.div`
     .cd-right {
       width: 100%;
     }
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -379,10 +365,6 @@ const MainWrap = styled.div`
   }
   ${media.small} {
     //425
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -390,10 +372,6 @@ const MainWrap = styled.div`
   }
   ${media.xsmall} {
     //375
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -401,7 +379,6 @@ const MainWrap = styled.div`
   }
   ${media.xxsmall} {
     //320
-    padding-top: 3.625rem;
     .contents {
       padding-left: 0;
     }

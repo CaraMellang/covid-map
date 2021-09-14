@@ -10,6 +10,7 @@ import OverFlowDashboard from "./OverFlowDashboard";
 import AllbarComponents from "../components/Sidebar/AllbarComponents";
 import Info from "./Info";
 import CoronaNews from "./CoronaNews";
+import media from "../lib/media";
 
 const Main = () => {
   const { data } = useInfec();
@@ -18,29 +19,30 @@ const Main = () => {
     <BrowserRouter>
       <MainWrap>
         <AllbarComponents />
-
-        <Route path={"/"} exact render={() => <Home data={data} />} />
-        <Route
-          path={"/coronamap"}
-          exact
-          render={() => <CoronaMap data={data} />}
-        />
-        <Route
-          path={"/overflow"}
-          exact
-          render={() => <OverFlow data={data} />}
-        />
-        <Route
-          path={"/overflowdashboard"}
-          exact
-          render={() => <OverFlowDashboard data={data} />}
-        />
-        <Route
-          path={"/coronanews"}
-          exact
-          render={() => <CoronaNews data={data} />}
-        />
-        <Route path={"/info"} exact render={() => <Info data={data} />} />
+        <ReponsiveWrap>
+          <Route path={"/"} exact render={() => <Home data={data} />} />
+          <Route
+            path={"/coronamap"}
+            exact
+            render={() => <CoronaMap data={data} />}
+          />
+          <Route
+            path={"/overflow"}
+            exact
+            render={() => <OverFlow data={data} />}
+          />
+          <Route
+            path={"/overflowdashboard"}
+            exact
+            render={() => <OverFlowDashboard data={data} />}
+          />
+          <Route
+            path={"/coronanews"}
+            exact
+            render={() => <CoronaNews data={data} />}
+          />
+          <Route path={"/info"} exact render={() => <Info data={data} />} />
+        </ReponsiveWrap>
       </MainWrap>
       <Footer />
     </BrowserRouter>
@@ -48,33 +50,41 @@ const Main = () => {
 };
 const MainWrap = styled.div`
   color: white;
-
-  /* .MobileDarkBackground {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: ${({ toggle }) => (toggle === true ? 40 : -40)};
+`;
+const ReponsiveWrap = styled.div`
+  .contents {
+    padding-left: 15rem;
+    padding-bottom: 6rem;
   }
-  .aside-side {
-    width: 15rem;
-    position: fixed;
-    background-color: white;
-    color: black;
-    height: 100vh;
-    right: 0;
+  ${media.large} {
+    //1024
+    .commonwrap {
+      padding-top: 3.625rem;
+    }
+    .contents {
+      padding-left: 0;
+    }
   }
-  .as-show {
-    transition: 0.1s ease-in;
-    transform: translateX(0px);
-    z-index: 200;
+  ${media.medium} {
+    //768
+    /* .commonwrap {
+      padding-top: 3.625rem;
+    } */
   }
-  .as-hide {
-    transition: 0.1s ease-in;
-    transform: translateX(250px);
-    z-index: -200;
-  } */
+  ${media.small} {
+    /* .commonwrap {
+      padding-top: 3.625rem;
+    } */
+  }
+  ${media.xsmall} {
+    /* .commonwrap {
+      padding-top: 3.625rem;
+    } */
+  }
+  ${media.xxsmall} {
+    /* .commonwrap {
+      padding-top: 3.625rem;
+    } */
+  }
 `;
 export default Main;

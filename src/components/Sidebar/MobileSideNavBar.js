@@ -6,7 +6,7 @@ import coronacut from "../../img/coronacut.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import media from "../../lib/media";
 
-const MobileSideNavBar = ({ toggle }) => {
+const MobileSideNavBar = ({ toggle, onClickSideItem }) => {
   return (
     <MbSideBar toggle={toggle}>
       <nav className="mb-sb-sidenav">
@@ -23,13 +23,19 @@ const MobileSideNavBar = ({ toggle }) => {
               <div className="mb-sb-sidenav-title">
                 <span className="mb-title-name">국내</span>
               </div>
-              <MbSideMenuItem to="/" exact activeClassName="active-navlink">
+              <MbSideMenuItem
+                to="/"
+                exact
+                activeClassName="active-navlink"
+                onClick={onClickSideItem}
+              >
                 국내 코로나 상황
               </MbSideMenuItem>
               <MbSideMenuItem
                 to="/coronamap"
                 exact
                 activeClassName="active-navlink"
+                onClick={onClickSideItem}
               >
                 국내 코로나 지도
               </MbSideMenuItem>
@@ -42,6 +48,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 to="/overflow"
                 exact
                 activeClassName="active-navlink"
+                onClick={onClickSideItem}
               >
                 해외 코로나 상황
               </MbSideMenuItem>
@@ -49,6 +56,7 @@ const MobileSideNavBar = ({ toggle }) => {
                 to="/overflowdashboard"
                 exact
                 activeClassName="active-navlink"
+                onClick={onClickSideItem}
               >
                 해외 코로나 대시보드
               </MbSideMenuItem>
@@ -61,10 +69,16 @@ const MobileSideNavBar = ({ toggle }) => {
                 to="/coronanews"
                 exact
                 activeClassName="active-navlink"
+                onClick={onClickSideItem}
               >
                 코로나 관련 뉴스
               </MbSideMenuItem>
-              <MbSideMenuItem to="/info" exact activeClassName="active-navlink">
+              <MbSideMenuItem
+                to="/info"
+                exact
+                activeClassName="active-navlink"
+                onClick={onClickSideItem}
+              >
                 기타정보
               </MbSideMenuItem>
             </div>

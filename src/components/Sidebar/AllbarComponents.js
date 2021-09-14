@@ -14,8 +14,12 @@ const AllbarComponents = () => {
   const onClickToggle = () => {
     setToggle((prev) => !prev);
   };
+  const onClickSideItem = () => {
+    setToggle(false);
+  };
   const onLoadScreen = () => {
     const viewPortWidth = window.innerWidth;
+    const viewPortHeight = window.innerHeight;
     if (viewPortWidth <= 1024) {
       setDisplay(false);
     }
@@ -28,12 +32,15 @@ const AllbarComponents = () => {
     window.addEventListener("resize", () => {
       onLoadScreen();
     });
+    toggle === true
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
     return () => {
       window.removeEventListener("resize", () => {
         onLoadScreen();
       });
     };
-  }, []);
+  }, [toggle]);
 
   return (
     <AllbarWrap toggle={toggle}>
@@ -44,7 +51,7 @@ const AllbarComponents = () => {
         <aside
           className={`aside-side ${toggle === true ? "as-show" : "as-hide"}`}
         >
-          <MobileSideNavBar toggle={toggle} />
+          <MobileSideNavBar toggle={toggle} onClickSideItem={onClickSideItem} />
         </aside>
       )}
       {!Display && toggle && (
@@ -63,6 +70,7 @@ const AllbarWrap = styled.div`
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: ${({ toggle }) => (toggle === true ? 40 : -40)};
+    overflow: ${({ toggle }) => (toggle === true ? "hidden" : "none")};
   }
   .aside-side {
     width: 15rem;

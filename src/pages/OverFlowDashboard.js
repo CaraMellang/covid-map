@@ -5,37 +5,38 @@ import FadeIn from "react-fade-in/lib/FadeIn";
 
 const OverFlowDashboard = () => {
   return (
-    <OverFlowDashboardWrap>
-      <FadeIn delay="200" transitionDuration="800">
-        <NoticeWrap>
-          <div className="nt-field">
-            <div className="nt-card">
-              <b style={{ display: "block" }}>해외 현황 대시보드</b>
-              <b style={{ display: "block" }}>
-                Johns Hopkins CSSE(존스 홉킨스 대학교)의 전세계 코로나 현황판
-                입니다.
-              </b>
+    <OverFlowDashboardWrap className="commonwrap">
+      <section className="contents">
+        <FadeIn delay="200" transitionDuration="800">
+          <NoticeWrap>
+            <div className="nt-field">
+              <div className="nt-card">
+                <b style={{ display: "block" }}>해외 현황 대시보드</b>
+                <b style={{ display: "block" }}>
+                  Johns Hopkins CSSE(존스 홉킨스 대학교)의 전세계 코로나 현황판
+                  입니다.
+                </b>
+              </div>
+            </div>
+          </NoticeWrap>
+          <div>
+            <div className="card-frame">
+              <div className="card">
+                <iframe
+                  title="coronadashboard"
+                  style={{ height: "70vh" }}
+                  src="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
+                ></iframe>
+              </div>
             </div>
           </div>
-        </NoticeWrap>
-        <div>
-          <div className="card-frame">
-            <div className="card">
-              <iframe
-                title="coronadashboard"
-                style={{ height: "70vh" }}
-                src="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </FadeIn>
+        </FadeIn>
+      </section>
     </OverFlowDashboardWrap>
   );
 };
 
 const OverFlowDashboardWrap = styled.div`
-  padding-left: 15rem;
   background-color: #e9e9e9;
   .card-frame {
     padding-left: 3rem;

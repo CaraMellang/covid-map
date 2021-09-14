@@ -172,7 +172,7 @@ const Home = ({ data }) => {
     return <Loading />;
   }
   return (
-    <MainWrap>
+    <MainWrap className="commonwrap">
       <section className="contents">
         <FadeIn>
           <Notice infData={infData} title={"국내 코로나 상황"} />
@@ -336,10 +336,6 @@ const MainWrap = styled.div`
   .blue {
     color: #4bb0ca;
   }
-  .contents {
-    padding-bottom: 6rem;
-    padding-left: 15rem;
-  }
   .cd-field {
     color: black;
     padding-left: 2rem;
@@ -422,10 +418,6 @@ const MainWrap = styled.div`
   }
   ${media.large} {
     //1024
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-bt-row {
       padding-bottom: 2rem;
     }
@@ -443,11 +435,6 @@ const MainWrap = styled.div`
   }
   ${media.medium} {
     //768
-    padding-top: 3.625rem;
-    .contents {
-      padding-bottom: 6rem;
-      padding-left: 0;
-    }
     .cd-bt-row {
       padding-bottom: 2rem;
     }
@@ -465,11 +452,7 @@ const MainWrap = styled.div`
   }
   ${media.small} {
     //425
-    padding-top: 3.625rem;
-    .contents {
-      padding-bottom: 6rem;
-      padding-left: 0;
-    }
+
     .cd-bt-row {
       padding-bottom: 2rem;
     }
@@ -487,11 +470,7 @@ const MainWrap = styled.div`
   }
   ${media.xsmall} {
     //375
-    padding-top: 3.625rem;
-    .contents {
-      padding-bottom: 6rem;
-      padding-left: 0;
-    }
+
     .cd-bt-row {
       padding-bottom: 2rem;
     }
@@ -509,7 +488,6 @@ const MainWrap = styled.div`
   }
   ${media.xxsmall} {
     //320
-    padding-top: 3.625rem;
     .contents {
       padding-bottom: 6rem;
       padding-left: 0;

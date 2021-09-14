@@ -40,8 +40,8 @@ const CoronaMap = ({ data }) => {
     return <Loading />;
   }
   return (
-    <MainWrap>
-      <div className="contents">
+    <MainWrap className="commonwrap">
+      <section className="contents">
         <FadeIn>
           <Notice infData={infData} title={"국내 코로나 상황(지도)"} />
         </FadeIn>
@@ -161,7 +161,7 @@ const CoronaMap = ({ data }) => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </MainWrap>
   );
 };
@@ -296,10 +296,6 @@ const MainWrap = styled.div`
   }
   ${media.large} {
     //1024
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -307,7 +303,6 @@ const MainWrap = styled.div`
   }
   ${media.medium} {
     //768
-    padding-top: 3.625rem;
     .cd-field {
       flex-direction: column;
     }
@@ -317,9 +312,6 @@ const MainWrap = styled.div`
     .cd-right {
       width: 100%;
     }
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -327,10 +319,6 @@ const MainWrap = styled.div`
   }
   ${media.small} {
     //425
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -338,10 +326,6 @@ const MainWrap = styled.div`
   }
   ${media.xsmall} {
     //375
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -349,10 +333,6 @@ const MainWrap = styled.div`
   }
   ${media.xxsmall} {
     //320
-    padding-top: 3.625rem;
-    .contents {
-      padding-left: 0;
-    }
     .cd-padd {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
