@@ -74,6 +74,9 @@ const NewsItem = styled.a`
     transform: scale(1.03, 1.03);
     transition: transform 0.2s;
   }
+  .cd-title {
+    font-weight: bold;
+  }
   .cd-date {
     color: #a9a9ac;
   }
