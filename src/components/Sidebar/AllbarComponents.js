@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 import SideNavBar from "./SideNavBar";
 
 const AllbarComponents = () => {
-  const [Display, setDisplay] = useState(true);
+  const [isDisplay, setIsDisplay] = useState(true);
   const [toggle, setToggle] = useState(false);
 
   const onClickbackground = () => {
@@ -21,10 +21,10 @@ const AllbarComponents = () => {
     const viewPortWidth = window.innerWidth;
     const viewPortHeight = window.innerHeight;
     if (viewPortWidth <= 1024) {
-      setDisplay(false);
+      setIsDisplay(false);
     }
     if (viewPortWidth > 1024) {
-      setDisplay(true);
+      setIsDisplay(true);
     }
   };
   useEffect(() => {
@@ -44,8 +44,8 @@ const AllbarComponents = () => {
 
   return (
     <AllbarWrap toggle={toggle}>
-      {!Display && <NavBar onClickToggle={onClickToggle} />}
-      {Display === true ? (
+      {!isDisplay && <NavBar onClickToggle={onClickToggle} />}
+      {isDisplay === true ? (
         <SideNavBar />
       ) : (
         <aside
@@ -54,7 +54,7 @@ const AllbarComponents = () => {
           <MobileSideNavBar toggle={toggle} onClickSideItem={onClickSideItem} />
         </aside>
       )}
-      {!Display && toggle && (
+      {!isDisplay && toggle && (
         <div className="MobileDarkBackground" onClick={onClickbackground}></div>
       )}
     </AllbarWrap>
