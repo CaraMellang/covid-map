@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import FadeIn from "react-fade-in/lib/FadeIn";
 import "animate.css";
 import NewsForm from "../components/NewsForm/NewsForm";
@@ -38,6 +38,7 @@ const CoronaNews = ({ data }) => {
 const NewsWrap = styled.div`
   background-color: #e9e9e9;
   color: black;
+
   .contents {
     padding-bottom: 6rem;
   }
