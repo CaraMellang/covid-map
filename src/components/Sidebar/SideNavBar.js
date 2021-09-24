@@ -33,6 +33,13 @@ const SideNavBar = () => {
               >
                 국내 코로나 지도
               </SideMenuItem>
+              <SideMenuItem
+                to="/center"
+                exact
+                activeClassName="active-navlink"
+              >
+                국내 예방접종센터
+              </SideMenuItem>
             </div>
             <div className="sb-sidenav-list">
               <div className="sb-sidenav-title card">

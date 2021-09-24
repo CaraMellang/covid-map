@@ -11,6 +11,7 @@ import AllbarComponents from "../components/Sidebar/AllbarComponents";
 import Info from "./Info";
 import CoronaNews from "./CoronaNews";
 import media from "../lib/media";
+import Center from "./Center";
 
 const Main = () => {
   const { data } = useInfec();
@@ -26,6 +27,7 @@ const Main = () => {
             exact
             render={() => <CoronaMap data={data} />}
           />
+          <Route path={"/center"} exact render={() => <Center data={data} />} />
           <Route
             path={"/overflow"}
             exact

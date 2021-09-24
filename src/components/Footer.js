@@ -8,7 +8,6 @@ const Footer = () => {
   return (
     <FooterWrap>
       <div className="ft">
-        <div>코로나 종식되는 그날까지.</div>
         <div>Copyright © 2021. Jeho All rights reserved.</div>
         <a href="https://github.com/CaraMellang">
           <FontAwesomeIcon icon={faGithub} size={"2x"} className="gitgit" />

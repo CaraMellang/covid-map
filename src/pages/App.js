@@ -21,6 +21,18 @@ a, a:link, a:visited , a:hover , a:focus{
   text-decoration:none;
   color:unset
 }
+  body::-webkit-scrollbar {
+    width: 6px;
+    /* border-radius: 10px; */
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    /* border-radius: 10px; */
+  }
+  body::-webkit-scrollbar-track {
+    background-color: grey;
+    /* border-radius: 10px; */
+  }
 `;
 
 export default App;

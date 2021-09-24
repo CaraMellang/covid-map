@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
+import media from "../../lib/media";
 
-function KaKaoMap({ toggle }) {
+function KaKaoMap() {
   const container = useRef(null); //지도를 담을 영역의 DOM 레퍼런스
   const [menuList, setMenuList] = useState([]);
   const [paginationNumber, setPagination] = useState(1);
@@ -98,9 +99,6 @@ function KaKaoMap({ toggle }) {
         map: map,
         position: new window.kakao.maps.LatLng(place.y, place.x),
       });
-      function closeOverlay() {
-        customOverlay.setMap(null);
-      }
 
       let customOverlay = new window.kakao.maps.CustomOverlay({
         position: new window.kakao.maps.LatLng(place.y, place.x),
@@ -108,6 +106,16 @@ function KaKaoMap({ toggle }) {
         xAnchor: 0.5,
         yAnchor: 1.3,
       });
+
+      window.kakao.maps.event.addListener(
+        map,
+        "click",
+        function closeOverlay() {
+          customOverlay.setMap(null);
+          console.log(customOverlay);
+        }
+      ); //대충 예제보고 만든건데 이게 왜 되는거지..? 성능에 부담이가나?
+      //ㄴ> 모두에게 클릭이벤트로 하나 줘서 그런것! 그래서 맨땅 누르면 15개 오버레이가 콘솔로 출력
 
       // console.log(customOverlay);
       function addININFOFO(data) {
@@ -159,18 +167,13 @@ function KaKaoMap({ toggle }) {
       //   infoWindow.open(map, marker);
       // });
     }
-  }, [toggle, paginationNumber]);
+  }, [paginationNumber]);
 
   return (
-    <MapWrap className="map-wrap">
-      <div
-        className="map"
-        style={{
-          width: "70%",
-          height: "80vh",
-        }}
-        ref={container}
-      ></div>
+    <MapWrap className="center-wrap">
+      <div className="map-wrap">
+        <div className="map" ref={container}></div>
+      </div>
       <div className="menu-wrap">
         <div className="menu-over">
           {menuList.map((item, index) => (
@@ -218,10 +221,6 @@ function KaKaoMap({ toggle }) {
 }
 
 const MapWrap = styled.div`
-  position: relative;
-  display: flex;
-  gap: 0.5rem;
-  height: 80vh;
   a {
     text-decoration: none;
     display: block;
@@ -238,7 +237,7 @@ const MapWrap = styled.div`
     box-shadow: 0 0.15rem 1.75rem 0 rgb(34 39 46 / 15%);
   }
   .menu-wrap {
-    /* position: absolute; */
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -268,7 +267,6 @@ const MapWrap = styled.div`
     padding: 10px;
     padding-bottom: 5px;
     color: white;
-    border-right: 1px solid black;
     border-radius: 10px 10px 0 0;
   }
   .menu-address {
@@ -302,6 +300,7 @@ const MapWrap = styled.div`
   }
   .menu-over::-webkit-scrollbar {
     width: 5px;
+    border-radius: 10px;
   }
   .menu-over::-webkit-scrollbar-thumb {
     background-color: #2f3542;
@@ -312,11 +311,17 @@ const MapWrap = styled.div`
     border-radius: 10px;
   }
   .pagination {
-    padding: 1rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    border-radius: 0 0 5px 5px;
   }
   .page-button {
     background-color: white;
@@ -397,6 +402,17 @@ const MapWrap = styled.div`
   }
   .overlay-bottom > a:visited {
     color: black;
+  }
+
+  ${media.medium} {
+    //768px
+    .menu-wrap {
+      width: 100%;
+      height: 40vh;
+    }
+    .pagination {
+      bottom: -2px;
+    }
   }
 `;
 

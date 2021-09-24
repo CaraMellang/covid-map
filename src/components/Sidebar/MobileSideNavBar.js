@@ -39,6 +39,13 @@ const MobileSideNavBar = ({ toggle, onClickSideItem }) => {
               >
                 국내 코로나 지도
               </MbSideMenuItem>
+              <MbSideMenuItem
+                to="/center"
+                exact
+                activeClassName="active-navlink"
+              >
+                국내 예방접종센터
+              </MbSideMenuItem>
             </div>
             <div className="mb-sb-sidenav-list">
               <div className="mb-sb-sidenav-title card">
