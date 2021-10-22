@@ -7,6 +7,7 @@ import media from "../lib/media";
 import Loading from "../components/Loading/Loading";
 import incDataComponent from "../components/common/incDataComponent";
 import { InfecDatasConverter } from "../components/common/InfecDatas";
+import ErrorPage from "./ErrorPage";
 
 const Home = ({ data }) => {
   // console.log(test.items.item[18]);

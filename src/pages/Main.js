@@ -12,38 +12,51 @@ import Info from "./Info";
 import CoronaNews from "./CoronaNews";
 import media from "../lib/media";
 import Center from "./Center";
+import ErrorPage from "./ErrorPage";
 
 const Main = () => {
-  const { data } = useInfec();
+  const { data, error } = useInfec();
 
   return (
     <BrowserRouter>
       <MainWrap>
         <AllbarComponents />
         <ReponsiveWrap>
-          <Route path={"/"} exact render={() => <Home data={data} />} />
-          <Route
-            path={"/coronamap"}
-            exact
-            render={() => <CoronaMap data={data} />}
-          />
-          <Route path={"/center"} exact render={() => <Center data={data} />} />
-          <Route
-            path={"/overflow"}
-            exact
-            render={() => <OverFlow data={data} />}
-          />
-          <Route
-            path={"/overflowdashboard"}
-            exact
-            render={() => <OverFlowDashboard data={data} />}
-          />
-          <Route
-            path={"/coronanews"}
-            exact
-            render={() => <CoronaNews data={data} />}
-          />
-          <Route path={"/info"} exact render={() => <Info data={data} />} />
+          {error === true ? (
+            <div>
+              <ErrorPage />
+            </div>
+          ) : (
+            <>
+              <Route path={"/"} exact render={() => <Home data={data} />} />
+              <Route
+                path={"/coronamap"}
+                exact
+                render={() => <CoronaMap data={data} />}
+              />
+              <Route
+                path={"/center"}
+                exact
+                render={() => <Center data={data} />}
+              />
+              <Route
+                path={"/overflow"}
+                exact
+                render={() => <OverFlow data={data} />}
+              />
+              <Route
+                path={"/overflowdashboard"}
+                exact
+                render={() => <OverFlowDashboard data={data} />}
+              />
+              <Route
+                path={"/coronanews"}
+                exact
+                render={() => <CoronaNews data={data} />}
+              />
+              <Route path={"/info"} exact render={() => <Info data={data} />} />
+            </>
+          )}
         </ReponsiveWrap>
       </MainWrap>
       <Footer />
