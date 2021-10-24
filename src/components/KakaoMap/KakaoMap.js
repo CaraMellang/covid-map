@@ -121,7 +121,7 @@ function KaKaoMap() {
       function addININFOFO(data) {
         closeInfowindowArray.push(data);
       }
-      function removeININFOFO(customOverlay) {
+      function removeININFOFO() {
         for (let i = 0; i < closeInfowindowArray.length; i++) {
           closeInfowindowArray[i].setMap(null);
         }
@@ -134,7 +134,7 @@ function KaKaoMap() {
       // });
 
       window.kakao.maps.event.addListener(marker, "click", function () {
-        removeININFOFO(customOverlay);
+        removeININFOFO();
         // console.log(customOverlay);
         if (customOverlay.getMap()) {
           customOverlay.setMap(null);
