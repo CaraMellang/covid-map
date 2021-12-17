@@ -39,8 +39,13 @@ const Main = () => {
               <Route
                 path={"/center"}
                 exact
-                render={() => <Center data={data} />}
+                render={() => <ClosedPage />}
               />
+              {/* <Route
+                path={"/center"}
+                exact
+                render={() => <Center data={data} />}
+              /> */}
               <Route
                 path={"/overflow"}
                 exact
