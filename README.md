@@ -6,7 +6,7 @@
 
 https://project-cut.netlify.app
 
-### 사용 스택
+## 사용 스택
 
 FrontEnd
 => React, styled-components,  react-chartjs-2, axios
@@ -14,9 +14,9 @@ FrontEnd
 BackEnd
 => Express, request
 
-### 사이트 화면
+## 사이트 화면
 
-#### [국내 총 코로나 현황 집계화면(메인화면)]
+### [국내 총 코로나 현황 집계화면(메인화면)]
 ![image](https://user-images.githubusercontent.com/51808985/146557756-707e1047-afc1-4985-b405-5dd8c3c034bb.png)
 
 ### [환자 현황과 지도로 국내 시도별 코로나 전일대비 확진자 표현]
