@@ -8,10 +8,9 @@ const Footer = () => {
   return (
     <FooterWrap>
       <div className="ft">
-        <div>Copyright © 2021. Jeho All rights reserved.</div>
-        <a href="https://github.com/CaraMellang">
+        {/* <a href="https://github.com/CaraMellang">
           <FontAwesomeIcon icon={faGithub} size={"2x"} className="gitgit" />
-        </a>
+        </a> */}
       </div>
     </FooterWrap>
   );

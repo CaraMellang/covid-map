@@ -27,6 +27,7 @@ function KaKaoMap() {
 
   const markerContents = (place) => {
     // console.log(place);
+
     return `
       <div class="overlaybox">
         <div id="overlay-top">
@@ -64,6 +65,10 @@ function KaKaoMap() {
   useEffect(() => {
     let map = new window.kakao.maps.Map(container.current, options); //지도 생성 및 객체 리턴
     let ps = new window.kakao.maps.services.Places(); // 장소 검색 객체를 생성합니다
+
+    window.kakao.maps.event.addListener(map, "click", function () {
+      console.log("아마도 지도클릭");
+    });
 
     function placesSearchCB(data, status) {
       // console.log(data);
@@ -107,14 +112,9 @@ function KaKaoMap() {
         yAnchor: 1.3,
       });
 
-      window.kakao.maps.event.addListener(
-        map,
-        "click",
-        function closeOverlay() {
-          customOverlay.setMap(null);
-          console.log(customOverlay);
-        }
-      ); //대충 예제보고 만든건데 이게 왜 되는거지..? 성능에 부담이가나?
+      window.kakao.maps.event.addListener(map, "click", function () {
+        customOverlay.setMap(null);
+      }); //대충 예제보고 만든건데 이게 왜 되는거지..? 성능에 부담이가나?
       //ㄴ> 모두에게 클릭이벤트로 하나 줘서 그런것! 그래서 맨땅 누르면 15개 오버레이가 콘솔로 출력
 
       // console.log(customOverlay);
@@ -122,6 +122,7 @@ function KaKaoMap() {
         closeInfowindowArray.push(data);
       }
       function removeININFOFO() {
+        console.log("리무브!");
         for (let i = 0; i < closeInfowindowArray.length; i++) {
           closeInfowindowArray[i].setMap(null);
         }
@@ -342,6 +343,7 @@ const MapWrap = styled.div`
     border: 1px solid none;
     border-radius: 10px;
     gap: 2px;
+    z-index: 10000;
   }
   #overlay-top {
     display: flex;

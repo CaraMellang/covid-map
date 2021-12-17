@@ -13,35 +13,42 @@ export default function useInfec() {
   const [incClearCnt, setIncClearCnt] = useState(0); //전일대비 격리해제자
   const [incDeathCnt, setIncDeathCnt] = useState(0); //전일대비 사망자
 
+  const backPath = `https://project-cut.herokuapp.com`;
+  // const backPath = `http://localhost:4000`;
+
   const getInfectedData = async () => {
     await axios
-      .get(`http://localhost:4000/infectedapi`)
+      .get(`${backPath}/infectedapi`)
       .then((data) => {
-        console.log(data.status);
+        // console.log(data.status);
+        // console.log(`setInfData`, data);
         setInfData(data.data.response.body.items.item);
       })
       .catch((e) => {
         setError(true);
       });
     await axios
-      .get(`http://localhost:4000/sidoapi`)
+      .get(`${backPath}/sidoapi`)
       .then((data) => {
+        // console.log(`setSiDoData`, data);
         setSiDoData(data.data.response.body.items.item);
       })
       .catch((e) => {
         setError(true);
       });
     await axios
-      .get(`http://localhost:4000/alloverflowapi`)
+      .get(`${backPath}/alloverflowapi`)
       .then((data) => {
+        // console.log(`setOverflow`, data);
         setOverflow(data.data);
       })
       .catch((e) => {
         setError(true);
       });
     await axios
-      .get(`http://localhost:4000/newsapi`)
+      .get(`${backPath}/newsapi`)
       .then((data) => {
+        // console.log(`setNewsData`, data);
         setNewsData(data.data.data.items);
       })
       .catch((e) => {
@@ -58,10 +65,10 @@ export default function useInfec() {
       return;
     }
 
-    console.log(parseInt(infData[0]?.examCnt?._text));
+    // console.log(parseInt(infData[0]?.examCnt?._text));
     const resultExamCnt =
-      parseInt(infData[0]?.examCnt?._text) -
-      parseInt(infData[1]?.examCnt?._text);
+      parseInt(infData[0]?.accExamCnt?._text) -
+      parseInt(infData[1]?.accExamCnt?._text);
     const resultDecideCnt =
       parseInt(infData[0]?.decideCnt?._text) -
       parseInt(infData[1]?.decideCnt?._text);

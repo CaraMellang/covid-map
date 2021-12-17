@@ -16,13 +16,19 @@ const CoronaMap = ({ data }) => {
       `검사중(${infData[0]?.examCnt?._text}명)`,
       `결과양성(${infData[0]?.decideCnt?._text}명)`,
       `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
+      // `검사중(${infData[0]?.examCnt?._text}명)`,
+      // `결과양성(${infData[0]?.decideCnt?._text}명)`,
+      // `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
     ],
     datasets: [
       {
         data: [
-          infData[0]?.examCnt?._text,
-          infData[0]?.decideCnt?._text,
-          infData[0]?.resutlNegCnt?._text,
+          10,
+          10,
+          10,
+          // infData[0]?.examCnt?._text,
+          // infData[0]?.decideCnt?._text,
+          // infData[0]?.resutlNegCnt?._text,
         ],
         borderWidth: 2,
         hoverBorderWidth: 3,

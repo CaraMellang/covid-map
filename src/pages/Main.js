@@ -13,6 +13,7 @@ import CoronaNews from "./CoronaNews";
 import media from "../lib/media";
 import Center from "./Center";
 import ErrorPage from "./ErrorPage";
+import ClosedPage from "./ClosedPage";
 
 const Main = () => {
   const { data, error } = useInfec();
@@ -29,11 +30,12 @@ const Main = () => {
           ) : (
             <>
               <Route path={"/"} exact render={() => <Home data={data} />} />
-              <Route
+              <Route path={"/coronamap"} exact render={() => <ClosedPage />} />
+              {/* <Route
                 path={"/coronamap"}
                 exact
                 render={() => <CoronaMap data={data} />}
-              />
+              /> */}
               <Route
                 path={"/center"}
                 exact

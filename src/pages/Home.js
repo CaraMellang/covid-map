@@ -21,6 +21,7 @@ const Home = ({ data }) => {
     incDeathCnt,
     incDecideCnt,
   } = data;
+  // console.log("gdgd", infData[0].accExamCnt._text);
 
   // const [aniToggle, setAniToggle] = useState(1000); //조잡하지만 이거라도..
   // const animationHandler = () => {
@@ -214,10 +215,10 @@ const Home = ({ data }) => {
                     className="cd-name"
                     style={{ background: "#388396", color: "white" }}
                   >
-                    검사중
+                    누적 의심환자 검사수
                   </div>
                   <div className="cd-bt-body blue">
-                    {InfecDatasConverter(infData[0]?.examCnt?._text)}
+                    {InfecDatasConverter(infData[0].accExamCnt._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">

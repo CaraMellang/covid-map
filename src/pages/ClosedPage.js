@@ -2,34 +2,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faRedo } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const ErrorPage = () => {
+const ClosedPage = () => {
+  const history = useHistory();
   const onReloadClick = () => {
-    window.location.reload();
+    history.push("/");
   };
   return (
-    <ErrorPageWrap className="commonwrap">
+    <ClosedPageWrap className="commonwrap">
       <section className="contents">
         <div className="errorwrap">
           <div className="error">
             <span>
               <FontAwesomeIcon className="star" icon={faStar} />
-              <span>에러가 발생했습니다. 다시 시도해주세요!</span>
+              <span>잠시 닫힌 페이지 입니다. 빠르게 복구하겠습니다!!</span>
               <FontAwesomeIcon className="star" icon={faStar} />
             </span>
           </div>
           <button className="reloadbutton" onClick={onReloadClick}>
             <FontAwesomeIcon icon={faRedo} />
             {`\u00A0`}
-            새로고침
+            홈으로
           </button>
         </div>
       </section>
-    </ErrorPageWrap>
+    </ClosedPageWrap>
   );
 };
 
-const ErrorPageWrap = styled.div`
+const ClosedPageWrap = styled.div`
   background-color: #242c3e;
   width: 100%;
   .errorwrap {
@@ -60,4 +62,4 @@ const ErrorPageWrap = styled.div`
   }
 `;
 
-export default ErrorPage;
+export default ClosedPage;
