@@ -16,8 +16,9 @@ BackEnd
 
 ### 사이트 화면
 
+#### [국내 총 코로나 현황 집계화면(메인화면)]
 ![image](https://user-images.githubusercontent.com/51808985/146557756-707e1047-afc1-4985-b405-5dd8c3c034bb.png)
-[국내 총 코로나 현황 집계화면(메인화면)]
+
 ![image](https://user-images.githubusercontent.com/51808985/146557815-0f383bfc-f082-4bd7-b3d5-9b1c152cd647.png)
 [환자 현황과 지도로 국내 시도별 코로나 전일대비 확진자 표현]
 ![image](https://user-images.githubusercontent.com/51808985/146557835-5e177d5b-ea6a-47c4-adf2-fea12a10bd03.png)
