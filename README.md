@@ -9,7 +9,7 @@ https://project-cut.netlify.app
 ## 사용 스택
 
 FrontEnd
-=> React, styled-components,  react-chartjs-2, axios
+=> React, styled-components,  axios
 
 BackEnd
 => Express, request
