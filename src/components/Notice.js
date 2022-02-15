@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Notice = (props) => {
   const infData = props.infData;
   const title = props.title;
+  console.log(infData);
   return (
     <NoticeWrap>
       <div className="nt-field">
@@ -11,9 +12,10 @@ const Notice = (props) => {
           <b style={{ display: "block" }}>-{title}-</b>
           <b style={{ display: "block" }}>매일 오전에 갱신됩니다.</b>
           <b style={{ display: "block" }}>
-            현재 데이터의 업데이트된 날짜
+            현재 데이터가 업데이트된 날짜 :{" "}
             {infData[0]?.createDt._text.slice(0, 19)}
           </b>
+          <b>일부 데이터들은 표기가 되지 않을 때가 있습니다.</b>
           {/* <ul style={{ margin: 0 }}>
             <li>반응형 적용예정.</li>
             <li>1920x에서 정상작동.</li>

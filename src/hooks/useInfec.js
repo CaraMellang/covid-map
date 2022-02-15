@@ -13,45 +13,49 @@ export default function useInfec() {
   const [incClearCnt, setIncClearCnt] = useState(0); //전일대비 격리해제자
   const [incDeathCnt, setIncDeathCnt] = useState(0); //전일대비 사망자
 
-  const backPath = `https://project-cut.herokuapp.com`;
-  // const backPath = `http://localhost:4000`;
+  // const backPath = `https://project-cut.herokuapp.com`;
+  const backPath = `http://localhost:4000`;
 
   const getInfectedData = async () => {
     await axios
       .get(`${backPath}/infectedapi`)
       .then((data) => {
         // console.log(data.status);
-        // console.log(`setInfData`, data);
+        console.log(`setInfData`, data);
         setInfData(data.data.response.body.items.item);
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
       });
     await axios
       .get(`${backPath}/sidoapi`)
       .then((data) => {
-        // console.log(`setSiDoData`, data);
+        console.log(`setSiDoData`, data);
         setSiDoData(data.data.response.body.items.item);
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
       });
     await axios
       .get(`${backPath}/alloverflowapi`)
       .then((data) => {
-        // console.log(`setOverflow`, data);
+        console.log(`setOverflow`, data);
         setOverflow(data.data);
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
       });
     await axios
       .get(`${backPath}/newsapi`)
       .then((data) => {
-        // console.log(`setNewsData`, data);
+        console.log(`setNewsData`, data);
         setNewsData(data.data.data.items);
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
       });
     setLoading(false);
@@ -66,21 +70,21 @@ export default function useInfec() {
     }
 
     // console.log(parseInt(infData[0]?.examCnt?._text));
-    const resultExamCnt =
-      parseInt(infData[0]?.accExamCnt?._text) -
-      parseInt(infData[1]?.accExamCnt?._text);
+    const resultQurRate =
+      parseInt(siDoData[18]?.qurRate._text) -
+      parseInt(siDoData[37]?.qurRate._text);
     const resultDecideCnt =
       parseInt(infData[0]?.decideCnt?._text) -
       parseInt(infData[1]?.decideCnt?._text);
     const resultClearCnt =
-      parseInt(infData[0]?.clearCnt?._text) -
-      parseInt(infData[1]?.clearCnt?._text);
+      parseInt(siDoData[18]?.isolClearCnt._text) -
+      parseInt(siDoData[37]?.isolClearCnt._text);
 
     const resultDeathCnt =
       parseInt(infData[0]?.deathCnt?._text) -
       parseInt(infData[1]?.deathCnt?._text);
 
-    setIncExamCnt(resultExamCnt);
+    setIncExamCnt(resultQurRate);
     setIncDecideCnt(resultDecideCnt);
     setIncClearCnt(resultClearCnt);
     setIncDeathCnt(resultDeathCnt);

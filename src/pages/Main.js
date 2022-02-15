@@ -30,22 +30,22 @@ const Main = () => {
           ) : (
             <>
               <Route path={"/"} exact render={() => <Home data={data} />} />
-              <Route path={"/coronamap"} exact render={() => <ClosedPage />} />
-              {/* <Route
+              {/* <Route path={"/coronamap"} exact render={() => <ClosedPage />} /> */}
+              <Route
                 path={"/coronamap"}
                 exact
                 render={() => <CoronaMap data={data} />}
-              /> */}
-              <Route
-                path={"/center"}
-                exact
-                render={() => <ClosedPage />}
               />
               {/* <Route
                 path={"/center"}
                 exact
-                render={() => <Center data={data} />}
+                render={() => <ClosedPage />}
               /> */}
+              <Route
+                path={"/center"}
+                exact
+                render={() => <Center data={data} />}
+              />
               <Route
                 path={"/overflow"}
                 exact

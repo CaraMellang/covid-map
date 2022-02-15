@@ -8,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const TooltipForm = ({ item, id, siDoData }) => {
-  const incIsolIngCnt =
-    parseInt(siDoData[id]?.isolIngCnt._text) -
-    parseInt(siDoData[id + 19]?.isolIngCnt._text);
+  // const incIsolIngCnt = 2021.12.03 정책변경으로 삭제
+  // parseInt(siDoData[id]?.isolIngCnt._text) -
+  // parseInt(siDoData[id + 19]?.isolIngCnt._text);
   const incIsolClearCnt =
     parseInt(siDoData[id]?.isolClearCnt._text) -
     parseInt(siDoData[id + 19]?.isolClearCnt._text);
@@ -23,6 +23,8 @@ const TooltipForm = ({ item, id, siDoData }) => {
   const incDefCnt =
     parseInt(siDoData[id]?.defCnt._text) -
     parseInt(siDoData[id + 19]?.defCnt._text);
+
+  console.log(siDoData);
 
   const numberHandler = (data, string) => {
     let dd;
@@ -107,10 +109,10 @@ const TooltipForm = ({ item, id, siDoData }) => {
           전일 대비 증감수 :
           {numberHandler(parseInt(siDoData[id]?.incDec._text))}
         </div>
-        <div>
+        {/* <div> 2021.12.03 정책변경으로 삭제
           격리자 수 : {siDoData[id]?.isolIngCnt._text}(
           {numberHandler(incIsolIngCnt, "반대!")})
-        </div>
+        </div> */}
         <div>
           격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(
           {numberHandler(incIsolClearCnt)})

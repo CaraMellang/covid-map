@@ -167,9 +167,7 @@ const Home = ({ data }) => {
       },
     ],
   };
-  // if (loading) {
-  //   return <span>로딩중..</span>;
-  // }
+  console.log(siDoData);
   if (loading) {
     return <Loading />;
   }
@@ -215,10 +213,10 @@ const Home = ({ data }) => {
                     className="cd-name"
                     style={{ background: "#388396", color: "white" }}
                   >
-                    누적 의심환자 검사수
+                    10만명 당 발생률
                   </div>
                   <div className="cd-bt-body blue">
-                    {InfecDatasConverter(infData[0].accExamCnt._text)}
+                    {InfecDatasConverter(siDoData[18].qurRate._text)}
                   </div>
                   <div className="cd-bt-footer">
                     <div className="cd-bt-footer-inc">

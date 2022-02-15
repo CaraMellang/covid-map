@@ -13,9 +13,9 @@ const CoronaMap = ({ data }) => {
 
   const doughnutData = {
     labels: [
-      `검사중(${infData[0]?.examCnt?._text}명)`,
-      `결과양성(${infData[0]?.decideCnt?._text}명)`,
-      `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
+      // `해외 유입(${siDoData[18]?.overFlowCnt?._text}명)`,
+      `지역 발생(${siDoData[18]?.localOccCnt?._text}명)`,
+      `격리 해제(${siDoData[18]?.isolClearCnt?._text}명)`,
       // `검사중(${infData[0]?.examCnt?._text}명)`,
       // `결과양성(${infData[0]?.decideCnt?._text}명)`,
       // `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
@@ -23,18 +23,19 @@ const CoronaMap = ({ data }) => {
     datasets: [
       {
         data: [
-          10,
-          10,
-          10,
-          // infData[0]?.examCnt?._text,
-          // infData[0]?.decideCnt?._text,
-          // infData[0]?.resutlNegCnt?._text,
+          // siDoData[18]?.overFlowCnt?._text,
+          siDoData[18]?.localOccCnt?._text,
+          siDoData[18]?.isolClearCnt?._text,
         ],
         borderWidth: 2,
         hoverBorderWidth: 3,
-        borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"],
+        borderColor: [
+          // "rgba(0,0,0,0)",
+          "rgba(0,0,0,0)",
+          "rgba(0,0,0,0)",
+        ],
         backgroundColor: [
-          "rgba(98,181,229,1)",
+          // "rgba(98,181,229,1)",
           "rgba(255,99,132,1)",
           "rgba(78, 214, 113,1)",
         ],
@@ -95,7 +96,8 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">총 검사수</div>
                         <div className="ft-con back-blue">
-                          {InfecDatasConverter(infData[0]?.accExamCnt?._text)}
+                          {/* {InfecDatasConverter(infData[0]?.accExamCnt?._text)} 2021.12.03 제공중지  */}{" "}
+                          정보없음.
                         </div>
                       </div>
                     </div>
@@ -103,12 +105,10 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">검사 완료수</div>
                         <div className="ft-con back-green">
-                          {InfecDatasConverter(
+                          {/* {InfecDatasConverter(
                             infData[0]?.accExamCompCnt?._text
-                          )}
-                          {/* {infData[0]?.accExamCompCnt?._text === undefined
-                            ? "정보 없음"
-                            : infData[0]?.accExamCompCnt._text} */}
+                          )} 2021.12.03 제공중지  */}
+                          정보없음.
                         </div>
                       </div>
                     </div>
@@ -116,7 +116,8 @@ const CoronaMap = ({ data }) => {
                       <div className="ft-text ft-card">
                         <div className="ft-name">확진율</div>
                         <div className="ft-con back-red">
-                          {infData[0]?.accDefRate._text}%
+                          {/* {infData[0]?.accDefRate._text}% 2021.12.03 제공중지 */}
+                          정보없음.
                         </div>
                       </div>
                     </div>
@@ -147,7 +148,7 @@ const CoronaMap = ({ data }) => {
                     className="right-ft-card right-cd-ft"
                     style={{ display: "block" }}
                   >
-                    전국 현황판
+                    코로나 현황판
                   </a>
                 </div>
               </FadeIn>
