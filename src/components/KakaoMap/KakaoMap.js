@@ -63,10 +63,7 @@ function KaKaoMap() {
     page: parseInt(paginationNumber),
   };
   useEffect(() => {
-    if (!window.kakao.maps) {
-      window.alert("맵스 없어");
-      return;
-    }
+    
     let map = new window.kakao.maps.Map(container.current, options); //지도 생성 및 객체 리턴
     let ps = new window.kakao.maps.services.Places(); // 장소 검색 객체를 생성합니다
 
