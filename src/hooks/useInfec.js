@@ -13,8 +13,8 @@ export default function useInfec() {
   const [incClearCnt, setIncClearCnt] = useState(0); //전일대비 격리해제자
   const [incDeathCnt, setIncDeathCnt] = useState(0); //전일대비 사망자
 
-  // const backPath = `https://project-cut.herokuapp.com`;
-  const backPath = `http://localhost:4000`;
+  const backPath = `https://project-cut.herokuapp.com`;
+  // const backPath = `http://localhost:4000`;
 
   const getInfectedData = async () => {
     await axios
