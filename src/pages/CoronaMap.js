@@ -15,7 +15,7 @@ const CoronaMap = ({ data }) => {
     labels: [
       // `해외 유입(${siDoData[18]?.overFlowCnt?._text}명)`,
       `지역 발생(${siDoData[18]?.localOccCnt?._text}명)`,
-      `격리 해제(${siDoData[18]?.isolClearCnt?._text}명)`,
+      `사망자(${siDoData[18]?.deathCnt?._text}명)`,
       // `검사중(${infData[0]?.examCnt?._text}명)`,
       // `결과양성(${infData[0]?.decideCnt?._text}명)`,
       // `결과음성(${infData[0]?.resutlNegCnt?._text}명)`,
@@ -25,7 +25,7 @@ const CoronaMap = ({ data }) => {
         data: [
           // siDoData[18]?.overFlowCnt?._text,
           siDoData[18]?.localOccCnt?._text,
-          siDoData[18]?.isolClearCnt?._text,
+          siDoData[18]?.deathCnt?._text,
         ],
         borderWidth: 2,
         hoverBorderWidth: 3,
@@ -97,7 +97,7 @@ const CoronaMap = ({ data }) => {
                         <div className="ft-name">총 검사수</div>
                         <div className="ft-con back-blue">
                           {/* {InfecDatasConverter(infData[0]?.accExamCnt?._text)} 2021.12.03 제공중지  */}{" "}
-                          정보없음.
+                          2021.12.03 제공중지
                         </div>
                       </div>
                     </div>
@@ -108,7 +108,7 @@ const CoronaMap = ({ data }) => {
                           {/* {InfecDatasConverter(
                             infData[0]?.accExamCompCnt?._text
                           )} 2021.12.03 제공중지  */}
-                          정보없음.
+                          2021.12.03 제공중지
                         </div>
                       </div>
                     </div>
@@ -117,7 +117,7 @@ const CoronaMap = ({ data }) => {
                         <div className="ft-name">확진율</div>
                         <div className="ft-con back-red">
                           {/* {infData[0]?.accDefRate._text}% 2021.12.03 제공중지 */}
-                          정보없음.
+                          2021.12.03 제공중지
                         </div>
                       </div>
                     </div>

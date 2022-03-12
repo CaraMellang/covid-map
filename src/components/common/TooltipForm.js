@@ -11,9 +11,9 @@ const TooltipForm = ({ item, id, siDoData }) => {
   // const incIsolIngCnt = 2021.12.03 정책변경으로 삭제
   // parseInt(siDoData[id]?.isolIngCnt._text) -
   // parseInt(siDoData[id + 19]?.isolIngCnt._text);
-  const incIsolClearCnt =
-    parseInt(siDoData[id]?.isolClearCnt._text) -
-    parseInt(siDoData[id + 19]?.isolClearCnt._text);
+  // const incIsolClearCnt = 2022.01.22 삭제
+  //   parseInt(siDoData[id]?.isolClearCnt._text) -
+  //   parseInt(siDoData[id + 19]?.isolClearCnt._text);
   const incOverFlowCnt =
     parseInt(siDoData[id]?.overFlowCnt._text) -
     parseInt(siDoData[id + 19]?.overFlowCnt._text);
@@ -113,10 +113,10 @@ const TooltipForm = ({ item, id, siDoData }) => {
           격리자 수 : {siDoData[id]?.isolIngCnt._text}(
           {numberHandler(incIsolIngCnt, "반대!")})
         </div> */}
-        <div>
+        {/* <div> 2022.01.22 삭제됨.
           격리 해제 수 : {siDoData[id]?.isolClearCnt._text}(
           {numberHandler(incIsolClearCnt)})
-        </div>
+        </div> */}
         <div>
           해외 유입 수 : {siDoData[id]?.overFlowCnt._text}(
           {numberHandler(incOverFlowCnt)})

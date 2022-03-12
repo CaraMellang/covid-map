@@ -17,7 +17,7 @@ const Home = ({ data }) => {
     siDoData,
     loading,
     incExamCnt,
-    incClearCnt,
+    // incClearCnt,
     incDeathCnt,
     incDecideCnt,
   } = data;
@@ -81,32 +81,32 @@ const Home = ({ data }) => {
           siDoData[1]?.defCnt._text,
         ],
       },
-      {
-        label: "격리해제",
-        backgroundColor: "rgba(91, 182, 93,1)",
-        borderColor: "rgba(91, 182, 93,1)",
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [
-          siDoData[17]?.isolClearCnt._text,
-          siDoData[16]?.isolClearCnt._text,
-          siDoData[15]?.isolClearCnt._text,
-          siDoData[14]?.isolClearCnt._text,
-          siDoData[13]?.isolClearCnt._text,
-          siDoData[12]?.isolClearCnt._text,
-          siDoData[11]?.isolClearCnt._text,
-          siDoData[10]?.isolClearCnt._text,
-          siDoData[9]?.isolClearCnt._text,
-          siDoData[8]?.isolClearCnt._text,
-          siDoData[7]?.isolClearCnt._text,
-          siDoData[6]?.isolClearCnt._text,
-          siDoData[5]?.isolClearCnt._text,
-          siDoData[4]?.isolClearCnt._text,
-          siDoData[3]?.isolClearCnt._text,
-          siDoData[2]?.isolClearCnt._text,
-          siDoData[1]?.isolClearCnt._text,
-        ],
-      },
+      // {
+      //   label: "격리해제",
+      //   backgroundColor: "rgba(91, 182, 93,1)",
+      //   borderColor: "rgba(91, 182, 93,1)",
+      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
+      //   hoverBorderColor: "rgba(255,99,132,1)",
+      //   data: [
+      //     siDoData[17]?.deathCnt._text,
+      //     siDoData[16]?.deathCnt._text,
+      //     siDoData[15]?.deathCnt._text,
+      //     siDoData[14]?.deathCnt._text,
+      //     siDoData[13]?.deathCnt._text,
+      //     siDoData[12]?.deathCnt._text,
+      //     siDoData[11]?.deathCnt._text,
+      //     siDoData[10]?.deathCnt._text,
+      //     siDoData[9]?.deathCnt._text,
+      //     siDoData[8]?.deathCnt._text,
+      //     siDoData[7]?.deathCnt._text,
+      //     siDoData[6]?.deathCnt._text,
+      //     siDoData[5]?.deathCnt._text,
+      //     siDoData[4]?.deathCnt._text,
+      //     siDoData[3]?.deathCnt._text,
+      //     siDoData[2]?.deathCnt._text,
+      //     siDoData[1]?.deathCnt._text,
+      //   ],
+      // },
       // { 그래프 여러개를 써서 반응형에 대응하자 데이터가 너무많다.
       //   label: "사망자",
       //   backgroundColor: "rgba(255,99,132,0.2)",
@@ -248,20 +248,16 @@ const Home = ({ data }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
-                <div className="cd-contents">
+                <div className="cd-contents green">
                   <div
                     className="cd-name"
                     style={{ background: "#418342", color: "white" }}
                   >
                     격리해제
                   </div>
-                  <div className="cd-bt-body green">
-                    {InfecDatasConverter(siDoData[18]?.isolClearCnt._text)}
-                  </div>
+                  <div className="cd-bt-body">2022/01/22</div>
                   <div className="cd-bt-footer">
-                    <div className="cd-bt-footer-inc">
-                      {incDataComponent(parseInt(incClearCnt))}
-                    </div>
+                    <div className="cd-bt-footer-inc">제공 중단</div>
                   </div>
                 </div>
               </div>

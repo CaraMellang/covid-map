@@ -21,7 +21,7 @@ export default function useInfec() {
       .get(`${backPath}/infectedapi`)
       .then((data) => {
         // console.log(data.status);
-        console.log(`setInfData`, data);
+        // console.log(`setInfData`, data);
         setInfData(data.data.response.body.items.item);
       })
       .catch((e) => {
@@ -31,7 +31,7 @@ export default function useInfec() {
     await axios
       .get(`${backPath}/sidoapi`)
       .then((data) => {
-        console.log(`setSiDoData`, data);
+        // console.log(`setSiDoData`, data);
         setSiDoData(data.data.response.body.items.item);
       })
       .catch((e) => {
@@ -41,7 +41,7 @@ export default function useInfec() {
     await axios
       .get(`${backPath}/alloverflowapi`)
       .then((data) => {
-        console.log(`setOverflow`, data);
+        // console.log(`setOverflow`, data);
         setOverflow(data.data);
       })
       .catch((e) => {
@@ -51,7 +51,7 @@ export default function useInfec() {
     await axios
       .get(`${backPath}/newsapi`)
       .then((data) => {
-        console.log(`setNewsData`, data);
+        // console.log(`setNewsData`, data);
         setNewsData(data.data.data.items);
       })
       .catch((e) => {
@@ -76,9 +76,9 @@ export default function useInfec() {
     const resultDecideCnt =
       parseInt(infData[0]?.decideCnt?._text) -
       parseInt(infData[1]?.decideCnt?._text);
-    const resultClearCnt =
-      parseInt(siDoData[18]?.isolClearCnt._text) -
-      parseInt(siDoData[37]?.isolClearCnt._text);
+    // const resultClearCnt =
+    //   parseInt(siDoData[18]?.isolClearCnt._text) -
+    //   parseInt(siDoData[37]?.isolClearCnt._text);
 
     const resultDeathCnt =
       parseInt(infData[0]?.deathCnt?._text) -
@@ -86,7 +86,7 @@ export default function useInfec() {
 
     setIncExamCnt(resultQurRate);
     setIncDecideCnt(resultDecideCnt);
-    setIncClearCnt(resultClearCnt);
+    // setIncClearCnt(resultClearCnt);
     setIncDeathCnt(resultDeathCnt);
   };
 
@@ -103,7 +103,7 @@ export default function useInfec() {
       loading,
       incExamCnt,
       incDecideCnt,
-      incClearCnt,
+      // incClearCnt,
       incDeathCnt,
       overflow,
       newsData,

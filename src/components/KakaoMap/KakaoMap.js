@@ -67,9 +67,7 @@ function KaKaoMap() {
     let map = new window.kakao.maps.Map(container.current, options); //지도 생성 및 객체 리턴
     let ps = new window.kakao.maps.services.Places(); // 장소 검색 객체를 생성합니다
 
-    window.kakao.maps.event.addListener(map, "click", function () {
-      console.log("아마도 지도클릭");
-    });
+    
 
     function placesSearchCB(data, status) {
       // console.log(data);
@@ -123,7 +121,6 @@ function KaKaoMap() {
         closeInfowindowArray.push(data);
       }
       function removeININFOFO() {
-        console.log("리무브!");
         for (let i = 0; i < closeInfowindowArray.length; i++) {
           closeInfowindowArray[i].setMap(null);
         }
