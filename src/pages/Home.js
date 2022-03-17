@@ -81,6 +81,29 @@ const Home = ({ data }) => {
           siDoData[1]?.defCnt._text,
         ],
       },
+      {
+        label: "전일대비 확진자",
+        backgroundColor: ["rgb(185, 52, 86)"],
+        data: [
+          siDoData[17]?.incDec._text,
+          siDoData[16]?.incDec._text,
+          siDoData[15]?.incDec._text,
+          siDoData[14]?.incDec._text,
+          siDoData[13]?.incDec._text,
+          siDoData[12]?.incDec._text,
+          siDoData[11]?.incDec._text,
+          siDoData[10]?.incDec._text,
+          siDoData[9]?.incDec._text,
+          siDoData[8]?.incDec._text,
+          siDoData[7]?.incDec._text,
+          siDoData[6]?.incDec._text,
+          siDoData[5]?.incDec._text,
+          siDoData[4]?.incDec._text,
+          siDoData[3]?.incDec._text,
+          siDoData[2]?.incDec._text,
+          siDoData[1]?.incDec._text,
+        ],
+      },
       // {
       //   label: "격리해제",
       //   backgroundColor: "rgba(91, 182, 93,1)",
@@ -279,34 +302,6 @@ const Home = ({ data }) => {
                       {incDataComponent(parseInt(incDeathCnt))}
                     </div>
                   </div>
-                </div>
-              </div>
-            </FadeIn>
-          </section>
-          <section className="cd-tp">
-            <FadeIn delay="300" visible>
-              {/*나중에 scroll로 구현 <- 구현하니 그래프가 리렌더링으로 계속 춤을 춤. 나중에 따로 컴포넌트화 예정 */}
-              <div className="cd-top">
-                <div className="cd-name">
-                  전일 대비 코로나 ({infData[0]?.createDt._text.slice(0, 10)}{" "}
-                  기준)
-                  {/*지금 코로나는 {test.items.item[0].stdDay._text} */}
-                </div>
-                <div className="cd-body">
-                  <div className="cd-chart">
-                    <Bar
-                      data={incBarData}
-                      height={100}
-                      options={{
-                        maintainAspectRatio: false,
-                        animation: {
-                          // duration: aniToggle,
-                          // onComplete: animationHandler,
-                        },
-                      }}
-                    />
-                  </div>
-                  <div className="cd-chart-footer">매일 오전에 갱신됩니다.</div>
                 </div>
               </div>
             </FadeIn>
