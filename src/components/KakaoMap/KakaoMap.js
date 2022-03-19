@@ -28,27 +28,27 @@ function KaKaoMap() {
   const markerContents = (place) => {
     // console.log(place);
 
-    return `
-      <div class="overlaybox">
-        <div id="overlay-top">
-          <div class="overlay-title">${place.place_name}</div>
-         ${/*<div class="overlay-close">X</div> */ ""}
-        </div>
-        <div class="overlay-contents">
-          <div class="overlay-road-address">${
-            place.road_address_name ? place.road_address_name : "정보없음."
-          }</div>
-        </div>
-        <div class="overlay-bottom">
-          <a href=${
-            place.place_url
-          } class="overlay-info" target="_blank" rel="noreferrer">정보보기</a>
-          <a href=https://map.kakao.com/link/to/${
-            place.id
-          } class="overlay-link-to" target="_blank" rel="noreferrer">길찾기</a>
-        </div>
-      </div>
-    `;
+    const content = document.createElement("div");
+    const closeBtn = document.createElement("div");
+
+    content.innerHTML =
+      '<div class="overlaybox">' +
+      '<div id="overlay-top">' +
+      `<div class="overlay-title">${place.place_name}</div>` +
+      // closeBtn.innerHTML +
+      "</div>" +
+      '<div class="overlay-contents">' +
+      `<div class="overlay-road-address">${
+        place.road_address_name ? place.road_address_name : "정보없음."
+      }</div>` +
+      "</div>" +
+      '<div class="overlay-bottom">' +
+      `<a href=${place.place_url} class="overlay-info" target="_blank" rel="noreferrer">정보보기</a>` +
+      `<a href=https://map.kakao.com/link/to/${place.id} class="overlay-link-to" target="_blank" rel="noreferrer">길찾기</a>` +
+      "</div>" +
+      "</div>";
+
+    return content;
   };
 
   // let infowindow = new window.kakao.maps.InfoWindow({ zIndex: 1 });
@@ -63,11 +63,8 @@ function KaKaoMap() {
     page: parseInt(paginationNumber),
   };
   useEffect(() => {
-    
     let map = new window.kakao.maps.Map(container.current, options); //지도 생성 및 객체 리턴
     let ps = new window.kakao.maps.services.Places(); // 장소 검색 객체를 생성합니다
-
-    
 
     function placesSearchCB(data, status) {
       // console.log(data);
@@ -111,11 +108,6 @@ function KaKaoMap() {
         yAnchor: 1.3,
       });
 
-      window.kakao.maps.event.addListener(map, "click", function () {
-        customOverlay.setMap(null);
-      }); //대충 예제보고 만든건데 이게 왜 되는거지..? 성능에 부담이가나?
-      //ㄴ> 모두에게 클릭이벤트로 하나 줘서 그런것! 그래서 맨땅 누르면 15개 오버레이가 콘솔로 출력
-
       // console.log(customOverlay);
       function addININFOFO(data) {
         closeInfowindowArray.push(data);
@@ -128,9 +120,6 @@ function KaKaoMap() {
       if (closeInfowindowArray.length < 15) {
         addININFOFO(customOverlay);
       }
-      // dd.addEventListener("click", function () {
-      //   closeSetMap(customOverlay);
-      // });
 
       window.kakao.maps.event.addListener(marker, "click", function () {
         removeININFOFO();
@@ -141,30 +130,6 @@ function KaKaoMap() {
           customOverlay.setMap(map);
         }
       });
-
-      // let infoWindow = new window.kakao.maps.InfoWindow({
-      //   map: map,
-      //   position: new window.kakao.maps.LatLng(place.y, place.x),
-      //   content: markerContents(place),
-      //   removable: true,
-      // });
-      // infoWindow.close();
-      // // 마커에 클릭이벤트를 등록합니다
-      // function addININFOFO(data) {
-      //   closeInfowindowArray.push(data);
-      // }
-      // if (closeInfowindowArray.length < 15) {
-      //   addININFOFO(infoWindow);
-      // }
-      // function removeININFOFO() {
-      //   for (let i = 0; i < closeInfowindowArray.length; i++) {
-      //     closeInfowindowArray[i].close();
-      //   }
-      // }
-      // window.kakao.maps.event.addListener(marker, "click", function () {
-      //   removeININFOFO();
-      //   infoWindow.open(map, marker);
-      // });
     }
   }, [paginationNumber, window.kakao]);
 
