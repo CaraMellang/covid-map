@@ -23,17 +23,6 @@ const Home = ({ data }) => {
   } = data;
   // console.log("gdgd", infData[0].accExamCnt._text);
 
-  // const [aniToggle, setAniToggle] = useState(1000); //조잡하지만 이거라도..
-  // const animationHandler = () => {
-  //   setAniToggle(0);
-  // };
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     animationHandler();
-  //   }, 1000);
-  //   return () => {};
-  // });
-
   const barData = {
     labels: [
       "서울",
@@ -190,7 +179,6 @@ const Home = ({ data }) => {
       },
     ],
   };
-  console.log(siDoData);
   if (loading) {
     return <Loading />;
   }
@@ -236,15 +224,11 @@ const Home = ({ data }) => {
                     className="cd-name"
                     style={{ background: "#388396", color: "white" }}
                   >
-                    10만명 당 발생률
+                    검사중
                   </div>
-                  <div className="cd-bt-body blue">
-                    {InfecDatasConverter(siDoData[18].qurRate._text)}
-                  </div>
+                  <div className="cd-bt-body blue">제공중단</div>
                   <div className="cd-bt-footer">
-                    <div className="cd-bt-footer-inc">
-                      {incDataComponent(parseInt(incExamCnt))}
-                    </div>
+                    <div className="cd-bt-footer-inc">2021.12.03</div>
                   </div>
                 </div>
               </div>
@@ -271,16 +255,16 @@ const Home = ({ data }) => {
             </FadeIn>
             <FadeIn className="cd-bt" delay="700">
               <div className="cd-padd">
-                <div className="cd-contents green">
+                <div className="cd-contents ">
                   <div
                     className="cd-name"
                     style={{ background: "#418342", color: "white" }}
                   >
                     격리해제
                   </div>
-                  <div className="cd-bt-body">2022/01/22</div>
+                  <div className="cd-bt-body green">제공중단</div>
                   <div className="cd-bt-footer">
-                    <div className="cd-bt-footer-inc">제공 중단</div>
+                    <div className="cd-bt-footer-inc">2022.01.22</div>
                   </div>
                 </div>
               </div>

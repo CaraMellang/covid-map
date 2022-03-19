@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Notice = (props) => {
   const infData = props.infData;
   const title = props.title;
-  console.log(infData);
   return (
     <NoticeWrap>
       <div className="nt-field">
