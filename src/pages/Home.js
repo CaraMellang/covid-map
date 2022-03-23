@@ -10,8 +10,6 @@ import { InfecDatasConverter } from "../components/common/InfecDatas";
 import ErrorPage from "./ErrorPage";
 
 const Home = ({ data }) => {
-  // console.log(test.items.item[18]);
-  // const { scrollY } = useScroll();
   const {
     infData,
     siDoData,
@@ -21,7 +19,6 @@ const Home = ({ data }) => {
     incDeathCnt,
     incDecideCnt,
   } = data;
-  // console.log("gdgd", infData[0].accExamCnt._text);
 
   const barData = {
     labels: [
@@ -93,92 +90,9 @@ const Home = ({ data }) => {
           siDoData[1]?.incDec._text,
         ],
       },
-      // {
-      //   label: "격리해제",
-      //   backgroundColor: "rgba(91, 182, 93,1)",
-      //   borderColor: "rgba(91, 182, 93,1)",
-      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      //   hoverBorderColor: "rgba(255,99,132,1)",
-      //   data: [
-      //     siDoData[17]?.deathCnt._text,
-      //     siDoData[16]?.deathCnt._text,
-      //     siDoData[15]?.deathCnt._text,
-      //     siDoData[14]?.deathCnt._text,
-      //     siDoData[13]?.deathCnt._text,
-      //     siDoData[12]?.deathCnt._text,
-      //     siDoData[11]?.deathCnt._text,
-      //     siDoData[10]?.deathCnt._text,
-      //     siDoData[9]?.deathCnt._text,
-      //     siDoData[8]?.deathCnt._text,
-      //     siDoData[7]?.deathCnt._text,
-      //     siDoData[6]?.deathCnt._text,
-      //     siDoData[5]?.deathCnt._text,
-      //     siDoData[4]?.deathCnt._text,
-      //     siDoData[3]?.deathCnt._text,
-      //     siDoData[2]?.deathCnt._text,
-      //     siDoData[1]?.deathCnt._text,
-      //   ],
-      // },
-      // { 그래프 여러개를 써서 반응형에 대응하자 데이터가 너무많다.
-      //   label: "사망자",
-      //   backgroundColor: "rgba(255,99,132,0.2)",
-      //   borderColor: "rgba(255,99,132,1)",
-      //   hoverBackgroundColor: "rgba(255,99,132,0.4)",
-      //   hoverBorderColor: "rgba(255,99,132,1)",
-      //   data: [2, 33, 23, 12, 54, 67, 19],
-      // },
     ],
   };
 
-  const incBarData = {
-    labels: [
-      "서울",
-      "인천",
-      "경기",
-      "강원",
-      "세종",
-      "충북",
-      "충남",
-      "대전",
-      "경북",
-      "전북",
-      "대구",
-      "전남",
-      "광주",
-      "경남",
-      "울산",
-      "부산",
-      "제주",
-    ],
-    datasets: [
-      {
-        label: "확진자 증가",
-        backgroundColor: "rgba(238, 173, 81,1)",
-        borderColor: "rgba(238, 173, 81,1)",
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [
-          siDoData[17]?.incDec._text,
-          siDoData[16]?.incDec._text,
-          siDoData[15]?.incDec._text,
-          siDoData[14]?.incDec._text,
-          siDoData[13]?.incDec._text,
-          siDoData[12]?.incDec._text,
-          siDoData[11]?.incDec._text,
-          siDoData[10]?.incDec._text,
-          siDoData[9]?.incDec._text,
-          siDoData[8]?.incDec._text,
-          siDoData[7]?.incDec._text,
-          siDoData[6]?.incDec._text,
-          siDoData[5]?.incDec._text,
-          siDoData[4]?.incDec._text,
-          siDoData[3]?.incDec._text,
-          siDoData[2]?.incDec._text,
-          siDoData[1]?.incDec._text,
-        ],
-      },
-    ],
-  };
   if (loading) {
     return <Loading />;
   }

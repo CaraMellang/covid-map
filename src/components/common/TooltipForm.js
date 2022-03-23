@@ -24,11 +24,8 @@ const TooltipForm = ({ item, id, siDoData }) => {
     parseInt(siDoData[id]?.defCnt._text) -
     parseInt(siDoData[id + 19]?.defCnt._text);
 
-  console.log(siDoData);
-
   const numberHandler = (data, string) => {
     let dd;
-    // console.log(data);
     if (data > 0) {
       dd = data;
       return (
@@ -133,27 +130,5 @@ const TooltipForm = ({ item, id, siDoData }) => {
     </ReactTooltip>
   );
 };
-
-// const cities = [
-//   { gubun: "검역", cityStyle: "Lazaretto" },
-//   { gubun: "제주", cityStyle: "Jeju" },
-//   { gubun: "경남", cityStyle: "Lazaretto" },
-//   { gubun: "경북", cityStyle: "Lazaretto" },
-//   { gubun: "전남", cityStyle: "Lazaretto" },
-//   { gubun: "전북", cityStyle: "Lazaretto" },
-//   { gubun: "충남", cityStyle: "Lazaretto" },
-//   { gubun: "충북", cityStyle: "Lazaretto" },
-//   { gubun: "강원", cityStyle: "Lazaretto" },
-//   { gubun: "경기", cityStyle: "Lazaretto" },
-//   { gubun: "세종", cityStyle: "Lazaretto" },
-//   { gubun: "울산", cityStyle: "Lazaretto" },
-//   { gubun: "대전", cityStyle: "Lazaretto" },
-//   { gubun: "광주", cityStyle: "Lazaretto" },
-//   { gubun: "인천", cityStyle: "Lazaretto" },
-//   { gubun: "대구", cityStyle: "Lazaretto" },
-//   { gubun: "부산", cityStyle: "Lazaretto" },
-//   { gubun: "서울", cityStyle: "Lazaretto" },
-//   { gubun: "합계", cityStyle: "Lazaretto" },
-// ];
 
 export default TooltipForm;

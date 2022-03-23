@@ -6,6 +6,7 @@ function KaKaoMap() {
   const container = useRef(null); //지도를 담을 영역의 DOM 레퍼런스
   const [menuList, setMenuList] = useState([]);
   const [paginationNumber, setPagination] = useState(1);
+  const menuWrap = useRef();
   let closeInfowindowArray = [];
   const pageList = [
     {
@@ -20,9 +21,9 @@ function KaKaoMap() {
   ];
 
   const onClickPagenation = (e) => {
-    console.log(e.target.value);
+    console.log(e.target);
     setPagination(parseInt(e.target.value));
-    window.scrollTo(0, 0);
+    menuWrap.current.scrollTo(0, 0);
   };
 
   const markerContents = (place) => {
@@ -55,7 +56,6 @@ function KaKaoMap() {
   const options = {
     //지도를 생성할 때 필요한 기본 옵션
     center: new window.kakao.maps.LatLng(37.561839718913, 126.955438711359), //지도의 중심좌표.
-    // center: new window.kakao.maps.LatLng(33.450701, 126.570667), js에서는 저렇게 표현
     level: 13, //지도의 레벨(확대, 축소 정도)
   };
 
@@ -139,7 +139,7 @@ function KaKaoMap() {
         <div className="map" ref={container}></div>
       </div>
       <div className="menu-wrap">
-        <div className="menu-over">
+        <div className="menu-over" ref={menuWrap}>
           {menuList.map((item, index) => (
             <div className="menu" key={index}>
               <div className="menu-title">{item.name}</div>
